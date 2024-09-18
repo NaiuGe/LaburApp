@@ -1,0 +1,38 @@
+.grupo{
+    width: auto;
+    height: 50%;
+}
+.seccion{
+    display: grid;
+    margin:10%;
+    grid-template-columns: repeat(auto-fill, minmax(5%,20%));
+    grid-template-rows: repeat(2, minmax(5%, 20%));
+    gap:6%;
+    background-color: gray;
+    padding: 5%;
+}
+.perfil{
+    float: right;
+    clear: both;
+    width: auto;
+    height: 5%;
+}
+#fotoperfil{
+    width: auto;
+    height: 20vh;
+}
+.publicaciones{
+    width: auto;
+    height: 30vh;
+    background-color: aqua;
+    margin:5%;
+}
+#fotopubli{
+    width: 70%;
+    height: 70%;
+    margin:7%;
+    padding: 10%;
+}
+.cabeceraindex{
+    text-align: center;
+}
