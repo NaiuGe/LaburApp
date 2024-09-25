@@ -2,10 +2,10 @@
 <?php
     include("conexion.php");
     
-    $user=$_GET["nombre"];
-    $pass=$_GET["pass"];
+    $user = $_GET["nombre"];
+    $pass = $_GET["pass"];
 
-    $consulta= "SELECT * FROM usuarios WHERE nombre='$user' AND pass='$pass'";
+    $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
 

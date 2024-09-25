@@ -34,32 +34,32 @@
     <div class="seccion">
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
         <div class="publicaciones"> 
             <a href="">
-                <img src="logo publicacion.jpg" id="fotopubli">
+                <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
         </div>
     </div>
