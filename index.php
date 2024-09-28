@@ -1,6 +1,7 @@
 <?php
         session_name("LOGIN");
         session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,15 +15,25 @@
 <body>
     <div class="grupo">
         <aside class="perfil" href=""> 
-            <img src="imagenes/icono_usuario.png" id="fotoperfil">
             <?php
             if(isset($_SESSION['contador'])){
+                if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
+                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' id='fotoperfil'>";
+                } else {echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';}
+
                 echo '<br></br>';
                 echo '<b>Bienvenido '. $_SESSION['nombre'].'</b>';
                 echo '<br></br>';
                 echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
-            } else {echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
-            ?>      
+                echo "<br></br><input type='submit' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
+            } else {
+                echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';
+                echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+            
+            ?>
+            <br></br>
+
+
         </aside>
     <header class="cabeceraindex">
         <h1>Ponete a laburar</h1>

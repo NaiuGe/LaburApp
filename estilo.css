@@ -53,3 +53,33 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.foto-de-perfil-pagina-centrar{
+    display:flex;
+    flex-direction: initial;
+    margin: 10vh;
+    text-align: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.pagina-centrar{
+    align-items: center;
+    background-color: aqua;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+}
+
+#bloque-texto{
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.boton-fotoperfil{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    width: 40vh;
+    background-color: beige;
+    margin: 5vh;
+}
