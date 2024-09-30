@@ -14,14 +14,13 @@
 </head>
 
 <body>
-
     <div class="pagina-centrar">
     <h1 id="bloque-texto">Modificar foto de perfil</h1>
         <div class="foto-de-perfil-pagina-centrar">
             <?php
             include ("conexion.php");
             if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
-                echo "<img src='" . $_SESSION['info-foto-perfil'] . "' width='200px'>";
+                echo "<img src='" . $_SESSION['info-foto-perfil']  . "' width='200px'>";
                 echo '<form method="post" action="foto_perfil.php" enctype="multipart/form-data">
                 <input type="file" class="boton-fotoperfil" name="imagen"> 
                 <input type="submit" class="boton-fotoperfil"name="btnregistrar">
@@ -52,10 +51,12 @@
                         
                     }
                     $_SESSION['info-foto-perfil']=$ruta;
+                    
                 } else { 
                     echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
                     
                 }
+                header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
         </div>
         <input type="button" value="volver" onclick="location='index.php'">
