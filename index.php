@@ -29,7 +29,7 @@
             } else {
                 echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';
                 echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
-            
+                header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
 
