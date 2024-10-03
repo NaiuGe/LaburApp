@@ -16,7 +16,7 @@ stars.forEach(function(star, index) {
         }
     });
 });
-
+ // jerkjerkfjerkfjkrjfkejekjefrfjerfek
 // Enviar la calificación mediante AJAX
 document.getElementById('ratingForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevenir que el formulario recargue la página
