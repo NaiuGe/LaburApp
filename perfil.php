@@ -8,19 +8,26 @@
 <body>
 
     <?php
+        session_name("LOGIN");
+        session_start();
+
         include ("conexion.php");
-
-        $user = $_POST['nombre'];
-        $pass = $_POST['contraseña'];
+        if (isset($_SESSION['contador'])){
+            
+            $consulta = "SELECT * FROM usuarios, publicaciones;"; 
         
-        $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
-
-        $consulta = "SELECT * FROM usuarios, publicaciones WHERE usuariosb.nombre='$user' AND usuarios.contraseña='$pass'";
-
-        $resultado= mysqli_query($conexion, $consulta);
-
-        $cantfilas= mysqli_num_rows($resultado);
+            $resultado= mysqli_query($conexion, $consulta);
+            $cantfilas= mysqli_num_rows($resultado);
+            echo '<br></br>';
+                echo '<b>'. $_SESSION['nombre'].'</b>';
+                echo '<br></br>';
+        } else {
+            echo "No tenes una cuenta ingresada. Inicia Sesión e intentalo de nuevo.";
+            echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';
+        }
         
     ?>
+
+
 </body>
 </html>
