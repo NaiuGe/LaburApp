@@ -18,7 +18,7 @@
             <?php
             if(isset($_SESSION['contador'])){
                 echo '<br></br>';
-                echo '<b>Bienvenido '. $_SESSION['nombre'].'</b>';
+                echo '<b>Bienvenido '. $_SESSION['nombre']. ' '.$_SESSION['apellido']. '</b>';
                 echo '<br></br>';
                 echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
                 echo "<input type='button' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
