@@ -1,0 +1,58 @@
+body{
+    margin: 1%;
+}
+
+.barra-arriba {
+    display: flex;
+    background-color: beige;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+img{
+    height: 100px;
+    width: auto;
+}
+
+#imagen {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 2vh;
+}
+
+.central {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.opciones {
+    display: flex;
+    padding: 5vh;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-style: groove;
+}
+
+.caja {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 35vh;
+    height: 20vh;
+    padding: 1%;
+    margin: 2%;
+    border-style: solid;
+}
+
+#caja {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 35vh;
+    padding: 1%;
+    padding-bottom: 2%;
+    margin: 2%;
+}
+

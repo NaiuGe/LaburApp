@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2024 a las 20:18:38
+-- Tiempo de generación: 26-09-2024 a las 04:33:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 drop database if exists laburapp;
 create database laburapp;
 use laburapp;
-
 -- --------------------------------------------------------
 
 --
@@ -32,7 +31,8 @@ use laburapp;
 
 CREATE TABLE `foto` (
   `id_foto` int(11) NOT NULL,
-  `foto` date NOT NULL
+  `foto` varchar(222) NOT NULL,
+  `id_publicaciones` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -58,7 +58,6 @@ CREATE TABLE `publicaciones` (
   `id_profesion` int(11) NOT NULL,
   `descripcion` text NOT NULL,
   `fecha` int(11) NOT NULL,
-  `id_foto` int(11) NOT NULL,
   `id_solicitud` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -100,7 +99,8 @@ CREATE TABLE `usuarios` (
   `documento` text NOT NULL,
   `domicilio` text NOT NULL,
   `id_rating` int(11) NOT NULL,
-  `foto_perfil` date NOT NULL
+  `foto_perfil` varchar(222) NOT NULL,
+  `contraseña` varchar(222) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

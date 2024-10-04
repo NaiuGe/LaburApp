@@ -24,6 +24,7 @@
                 } else {echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';}
 
                 echo '<br></br>';
+<<<<<<< HEAD
                 echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo '<br></br>';
                 echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
@@ -36,6 +37,14 @@
             <br></br>
 
 
+=======
+                echo '<b>Bienvenido '. $_SESSION['nombre']. ' '.$_SESSION['apellido']. '</b>';
+                echo '<br></br>';
+                echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
+                echo "<input type='button' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
+            } else {echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+            ?>      
+>>>>>>> main
         </aside>
     <header class="cabeceraindex">
         <h1>Ponete a laburar</h1>

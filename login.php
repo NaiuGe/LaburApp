@@ -2,9 +2,15 @@
 <?php
     include("conexion.php");
     
+<<<<<<< HEAD
     $user = $_GET["nombre"];
     $apellido = $_GET['apellido'];
     $pass = $_GET["pass"];
+=======
+    $user = $_POST["nombre"];
+    $apellido = $_POST["apellido"];
+    $pass = $_POST["pass"];
+>>>>>>> main
 
     $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND apellido='$apellido' AND contraseña='$pass'";
 
@@ -13,7 +19,11 @@
     $cantfilas= mysqli_num_rows($resultado);
 
     if ($cantfilas==1) {
+<<<<<<< HEAD
         $fila= mysqli_fetch_assoc($resultado);
+=======
+        $fila = mysqli_fetch_assoc($resultado);
+>>>>>>> main
         session_name("LOGIN");
         session_start();
         $_SESSION['nombre']=$fila['nombre'];
