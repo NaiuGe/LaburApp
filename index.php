@@ -17,12 +17,14 @@
         <aside class="perfil" href=""> 
             <?php
             if(isset($_SESSION['contador'])){
+                header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
                     echo "<img src='" . $_SESSION['info-foto-perfil'] . "' id='fotoperfil'>";
+                    header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';}
 
                 echo '<br></br>';
-                echo '<b>Bienvenido '. $_SESSION['nombre'].'</b>';
+                echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo '<br></br>';
                 echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
                 echo "<br></br><input type='submit' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";

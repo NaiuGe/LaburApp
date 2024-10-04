@@ -3,9 +3,10 @@
     include("conexion.php");
     
     $user = $_GET["nombre"];
+    $apellido = $_GET['apellido'];
     $pass = $_GET["pass"];
 
-    $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
+    $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND apellido='$apellido' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
 
@@ -16,6 +17,7 @@
         session_name("LOGIN");
         session_start();
         $_SESSION['nombre']=$fila['nombre'];
+        $_SESSION['apellido']=$fila['apellido'];
         $_SESSION['pass']=$fila['contraseña'];
         $_SESSION['contador']=1;
         $_SESSION['id_usuario']=$fila['id_usuario'];
