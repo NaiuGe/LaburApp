@@ -5,6 +5,7 @@
     $user = $_POST["nombre"];
     $apellido = $_POST["apellido"];
     $pass = $_POST["pass"];
+    $id_usuario = $_POST["id_usuario"];
 
     $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
 
@@ -20,6 +21,7 @@
         $_SESSION['apellido']=$fila['apellido'];
         $_SESSION['pass']=$fila['contraseña'];
         $_SESSION['contador']=1;
+        $_SESSION['id_usuario']=$fila['id_usuario'];
         header("location:index.php");
     }
     else {

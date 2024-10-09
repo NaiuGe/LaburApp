@@ -24,6 +24,8 @@
                         echo '<div class="barra-arriba"> <h2>'. $_SESSION['nombre'].' '. $_SESSION['apellido'] .'</h2></div>';
                         echo "";
                         echo '<br></br>';
+                        echo "<form action='info_perfil.php' method='POST'>";
+                        echo "<input type='button' value='modificar' onClick='location=\"info_perfil.php\"'>";
                 } else {
                     echo "No tenes una cuenta ingresada. Inicia Sesión e intentalo de nuevo.";
                     echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';
