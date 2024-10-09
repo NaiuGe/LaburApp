@@ -21,7 +21,7 @@
                     $resultado= mysqli_query($conexion, $consulta);
                     $cantfilas= mysqli_num_rows($resultado);
                     echo '<br></br>';
-                        echo '<div class="barra-arriba"> <h2>'. $_SESSION['nombre'].' '. $_SESSION['apellido'] .'</h2></div>';
+                        echo '<div class="barra-arriba"> <h2>'.$_SESSION['id_usuario'].''. $_SESSION['nombre'].' '. $_SESSION['apellido'] .'</h2></div>';
                         echo "";
                         echo '<br></br>';
                         echo "<form action='info_perfil.php' method='POST'>";

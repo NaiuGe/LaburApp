@@ -13,7 +13,7 @@
     include ("conexion.php");
     $id_usuario = $_POST['id_usuario'];
 
-    $consulta = "SELECT * FROM usuarios WHERE id_usuario='$id_usuario'";
+    $consulta = "SELECT * FROM usuarios";
 
     echo" " .$_SESSION['id_usuario']."";
 
