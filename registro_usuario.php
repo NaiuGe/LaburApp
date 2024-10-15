@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+"<!DOCTYPE html>
 <html>
     <head charset="UTF-8"> 
     <title> Registo de Usuario </title>

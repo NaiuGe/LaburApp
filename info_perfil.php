@@ -11,11 +11,10 @@
     session_name("LOGIN");
     session_start();
     include ("conexion.php");
-    $id_usuario = $_POST['id_usuario'];
 
     $consulta = "SELECT * FROM usuarios";
-
-    echo" " .$_SESSION['id_usuario']."";
+    echo "<h1>Modificar Perfil </h1>";
+    echo"" .$_SESSION['id_usuario']."";
 
 
     ?>
