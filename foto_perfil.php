@@ -61,6 +61,6 @@
                 header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
         </div>
-        <input type="button" value="volver" onclick="location='index.php'">
+        <input type="button" class="boton" value="volver" onclick="location='index.php'">
 </body>
 </html>

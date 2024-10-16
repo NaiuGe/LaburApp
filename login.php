@@ -2,28 +2,17 @@
 <?php
     include("conexion.php");
     
-<<<<<<< HEAD
-    $user = $_GET["nombre"];
-    $apellido = $_GET['apellido'];
-    $pass = $_GET["pass"];
-=======
-    $user = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
+    $mail = $_POST["mail"];
     $pass = $_POST["pass"];
->>>>>>> main
 
-    $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND apellido='$apellido' AND contraseña='$pass'";
+    $consulta = "SELECT * FROM usuarios WHERE mail='$mail' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
 
     $cantfilas= mysqli_num_rows($resultado);
 
     if ($cantfilas==1) {
-<<<<<<< HEAD
-        $fila= mysqli_fetch_assoc($resultado);
-=======
         $fila = mysqli_fetch_assoc($resultado);
->>>>>>> main
         session_name("LOGIN");
         session_start();
         $_SESSION['nombre']=$fila['nombre'];
@@ -31,7 +20,6 @@
         $_SESSION['pass']=$fila['contraseña'];
         $_SESSION['contador']=1;
         $_SESSION['id_usuario']=$fila['id_usuario'];
-        $_SESSION['contador-fotoperfil']=1;
         $_SESSION['info-foto-perfil']=$fila['foto_perfil'];
         $_SESSION['contador-fotoperfil']=1;
         header("location:index.php");

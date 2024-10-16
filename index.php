@@ -19,32 +19,23 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' id='fotoperfil'>";
+                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
-                } else {echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';}
-
-                echo '<br></br>';
-<<<<<<< HEAD
+                } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
+                echo "<div class='nombre-botones-perfil'>";
                 echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
-                echo '<br></br>';
-                echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
-                echo "<br></br><input type='submit' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
+                echo "<br></br>";
+                echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
+                echo "<br></br><input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
+                echo "</div>";
             } else {
-                echo '<img src="imagenes/icono_usuario.png" id="fotoperfil">';
-                echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
-                header('Cache-Control: no-store, no-cache, must-revalidate');
+                echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
+                echo '<input type="button" class="boton2" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+            header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
 
-
-=======
-                echo '<b>Bienvenido '. $_SESSION['nombre']. ' '.$_SESSION['apellido']. '</b>';
-                echo '<br></br>';
-                echo "<input type='button' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
-                echo "<input type='button' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
-            } else {echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';}
-            ?>      
->>>>>>> main
+     
         </aside>
     <header class="cabeceraindex">
         <h1>Ponete a laburar</h1>
