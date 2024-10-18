@@ -6,6 +6,7 @@
     $apellido = $_POST["apellido"];
     $pass = $_POST["pass"];
     $id_usuario = $_POST["id_usuario"];
+    
     //echo var_dump($id_usuario);
 
     $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
