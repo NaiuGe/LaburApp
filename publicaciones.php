@@ -71,6 +71,7 @@
         </div>
         
     </div>
+    <input type="button" value="volver" onclick="location='index.php'">
     <footer> 
         <h3> sajhdjsahd@</h3>
     </footer>
