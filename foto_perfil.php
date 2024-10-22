@@ -1,7 +1,7 @@
 <?php
         session_name("LOGIN");
         session_start();
-        require "registrar-foto-perfil.php";
+        
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,6 @@
         <div class="foto-de-perfil-pagina-centrar">
             <?php
             include ("conexion.php");
-            header('Cache-Control: no-store, no-cache, must-revalidate');
             if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
                 echo "<img src='" . $_SESSION['info-foto-perfil']  . "' width='200px'>";
                 echo '<form method="post" action="foto_perfil.php" enctype="multipart/form-data">
@@ -33,6 +32,7 @@
                 <input type="file" class="boton-fotoperfil" name="imagen"> 
                 <input type="submit" class="boton-fotoperfil"name="btnregistrar">
             </form>';
+            header('Cache-Control: no-store, no-cache, must-revalidate');
             }
             if(!empty($_POST['btnregistrar'])){
                 $imagen=$_FILES['imagen']['tmp_name'];
@@ -53,7 +53,7 @@
                         
                     }
                     $_SESSION['info-foto-perfil']=$ruta;
-                    
+                    header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else { 
                     echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
                     

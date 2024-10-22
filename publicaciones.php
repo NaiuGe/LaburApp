@@ -1,7 +1,6 @@
 <?php
         session_name("LOGIN");
         session_start();
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,19 +29,13 @@
                 echo "<input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
                 echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
                 echo "</div>";
-            } else {
-                echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
-                echo '<input type="button" class="boton2" value="Iniciar sesion" onclick="location=\'login.html\'">';}
-            header('Cache-Control: no-store, no-cache, must-revalidate');
-            ?>
-            <br></br>
-
-     
+            }
+            ?>      
         </aside>
     <header class="cabeceraindex">
-        <h1>Ponete a laburar</h1>
+        <h1>mis publicaciones</h1>
         <form>
-            <input type="search" name="busq" class="caja" placeholder="Buscar profesión">
+            <input type="search" name="busq" class="caja" placeholder="Buscar publicacion">
             <input type="submit" value="Enviar" class="boton">
         </form>
     </header>
@@ -52,36 +45,26 @@
             <a href="" class="link">
                 <img src="imagenes/icono_trabajo.png" id="fotopubli">
             </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
+            <a href="crear_publicacion.php">
+                crear publicacion
             </a>
+            <?php
+            include("conexion.php");
+            $id=$_SESSION['id_usuario'];
+            $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id' ";
+            $resultado = mysqli_query($conexion, $consulta);
+            $cantfilas= mysqli_num_rows($resultado);
+            if($cantfilas==1){
+                echo "conecto bien";
+            } else {echo "no hay publicaciones";}
+            
+            ?>
         </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
+        
     </div>
     <footer> 
         <h3> sajhdjsahd@</h3>
     </footer>
 </body>
     
-</html>
+</html> 
