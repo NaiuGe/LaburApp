@@ -42,11 +42,9 @@
     
     <div class="seccion">
         <div class="publicaciones"> 
-            <a href="" class="link">
+            <a href="crear_publicacion.php" class="link">
                 <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-            <a href="crear_publicacion.php">
-                crear publicacion
+                <b>crear publicación</b>
             </a>
             <?php
             include("conexion.php");
@@ -54,11 +52,22 @@
             $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id' ";
             $resultado = mysqli_query($conexion, $consulta);
             $cantfilas= mysqli_num_rows($resultado);
-            if($cantfilas==1){
-                echo "conecto bien";
+            if($cantfilas>=1){
+                $fila = mysqli_fetch_assoc($resultado);
+                echo "<a href='' class='link'>
+                    <img src='". $fila['foto_portada'] ."' id='fotopubli' c>
+                    <b> ". $fila['nombre_publicacion'] ." </b>
+                </a>";
+               while($fila = mysqli_fetch_assoc($resultado)){
+                    echo "<a href='' class='link'>
+                    <img src='".$fila['foto_portada']."' id='fotopubli' >
+                    <b> ". $fila['nombre_publicacion'] ." </b>
+                    </a>";
+               }
             } else {echo "no hay publicaciones";}
             
             ?>
+
         </div>
         
     </div>

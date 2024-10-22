@@ -23,7 +23,7 @@
                 echo "<img src='" . $_SESSION['info-foto-perfil']  . "' width='200px'>";
                 echo '<form method="post" action="foto_perfil.php" enctype="multipart/form-data">
                 <input type="file" class="boton-fotoperfil" name="imagen"> 
-                <input type="submit" class="boton-fotoperfil"name="btnregistrar">
+                <input type="submit" class="boton-fotoperfil" name="btnregistrar">
             </form>';
             header('Cache-Control: no-store, no-cache, must-revalidate');}
             else {
