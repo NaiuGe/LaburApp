@@ -7,8 +7,6 @@
     <title>Perfil de usuario </title>
 </head>
 <body>
-
-    <div class="barra-arriba">
             <?php
                 session_name("LOGIN");
                 session_start();
@@ -22,6 +20,11 @@
                 
                     $resultado= mysqli_query($conexion, $consulta);
                     $cantfilas= mysqli_num_rows($resultado);
+                    echo "<header> 
+                    <div class='logo'>Laburapp </div>
+                    <nav><a href='index.php'>Inicio</a></nav>
+                    </header>"; //barra superior
+                    echo "<div class='barra-arriba'>";
                     echo "<div class='bloque-perfil'> <form id='contenedor-foto-perfil' action='info_perfil.php' method='POST'>";
                     echo "<div> <img src='imagenes/icono_usuario.png' id='fotoperfil'> </div> ";
                     echo "<input type='button' value='modificar' onClick='location=\"info_perfil.php\"'>";

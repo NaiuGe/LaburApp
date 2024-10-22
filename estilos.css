@@ -1,12 +1,33 @@
 body{
-    margin: 1%;
+    margin: 1dvh;
+    background-color: rgb(238, 237, 237);
+}
+
+header {    
+    background-color: #362417;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+a,header {
+    text-decoration: none;
+    color: wheat;
 }
 
 .barra-arriba {
     display: flex;
-    background-color: beige;
+    background-color: #92817a;
     flex-direction: row;
-    
+}
+
+.info {
+    background-color:  #ffffff;
+    padding: 5dvh;
+    padding-top: 2dvh;
+    width: 200dvh;
 }
 
 #contenedor-foto-perfil {
@@ -39,6 +60,7 @@ img{
     flex-wrap: wrap;
     justify-content: space-evenly;
     border-style: groove;
+    background-color: #92817a;
 }
 
 .caja {
@@ -49,7 +71,6 @@ img{
     height: 20vh;
     padding: 1%;
     margin: 2%;
-    border-style: solid;
 }
 
 #caja {

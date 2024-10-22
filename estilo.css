@@ -1,10 +1,14 @@
+body {
+    background-color: #fffbff;
+}
+
 .grupo{
     width: auto;
     height: 50%;
 }
 .seccion{
     display: flex;
-    background-color: gray;
+    background-color: #362417a1;
     padding: 5vh;
     flex-direction: row;
     flex-wrap: wrap;
