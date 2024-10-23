@@ -13,23 +13,21 @@
 .perfil{
     float: right;
     clear: both;
-    width: 60vh;
-    height: 26vh;
+    width: 50vh;
+    height: 20vh;
     background-color: aqua;
-    padding-right: 5vh;
-    padding-bottom: 5vh;
     border-radius: 10%;
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
     
 }
 .fotoperfil{
-    width: auto;
+    width: 14vh;
     height: 12vh;
     border-style: groove;
     border-radius: 100%;
     margin-left: 5vh;
-    margin-top: 3vh;
 }
 .nombre-botones-perfil{
     font-family: 'Courier New', Courier, monospace;
@@ -132,6 +130,64 @@
 .publicaciones{
     display: flex;
     flex-wrap: wrap;
-    align-content: center;
-    margin: 5vh;
+}
+
+
+/*Botón para abrir la barra lateral*/
+.boton-activar {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.boton-activar:hover {
+    background-color: #005582;
+}
+
+/*Ocultar el checkbox*/
+.activar-checkbox {
+    display: none;
+}
+
+/*barra lateral en forma oculta*/
+.barra-lateral{
+    display: flex;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.3s;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Botones de la barra lateral*/
+.barra-lateral a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f4f4f4;
+    display: block;
+    transition: 0.3s;
+    margin: 2dvh;
+}
+
+.barra-lateral a:hover {
+    background-color: #575757;
+    color: #fff;
+}
+
+.activar-checkbox:checked ~ .barra-lateral {
+    width: 30dvh;
 }
