@@ -59,6 +59,22 @@
                     
                 }
                 header('Cache-Control: no-store, no-cache, must-revalidate');
+
+                
+                //barra lateral
+                //checkbox para controlar a la barra lateral
+                echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
+                //etiqueta de botón para abrir y cerrar la barra
+                echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
+
+                //barra lateral
+                echo"<div class='barra-lateral'>
+                <a href='index.php'>Inicio</a>
+                <a href='perfil.php'>Ver Perfil</a>
+                <a href='publicaciones.php'>Mis Publicaciones</a>
+                <a href='foto_perfil.php'>Foto de Perfil</a>
+                <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
+                </div>";
             ?>
         </div>
         <input type="button" class="boton" value="volver" onclick="location='index.php'">

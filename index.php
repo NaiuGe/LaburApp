@@ -25,11 +25,26 @@
                 echo "<div class='nombre-botones-perfil'>";
                 echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo "<br></br>";
-                echo "<input type='button' class='boton' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
-                echo "<input type='button' class='boton' value='mis publicaciones' onclick='location=\"publicaciones.php\"'>";
-                echo "<input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
-                echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
+
                 echo "</div>";
+                //barra lateral
+                //checkbox para controlar a la barra lateral
+                echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
+                //etiqueta de botón para abrir y cerrar la barra
+                echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
+
+                //barra lateral
+                echo"<div class='barra-lateral'>
+                <a href='perfil.php'>Ver Perfil</a>
+                <a href='publicaciones.php'>Mis Publicaciones</a>
+                <a href='foto_perfil.php'>Foto de Perfil</a>
+                <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
+                </div>";
+
+                //echo "<input type='button' class='boton' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
+                //echo "<input type='button' class='boton' value='mis publicaciones' onclick='location=\"publicaciones.php\"'>";
+                //echo "<input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
+                //echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
             } else {
                 echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
                 echo '<input type="button" class="boton2" value="Iniciar sesion" onclick="location=\'login.html\'">';}
