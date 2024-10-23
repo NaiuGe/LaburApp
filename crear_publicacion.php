@@ -64,30 +64,30 @@
         
         include("conexion.php");
         
-        if(!empty($_POST['enviar'])){
+        if(!empty($_POST['enviar'])){ //llegan los datos del formulario al if
             $id = $_SESSION['id_usuario'];
             $nom = $_POST['nombre_publicacion'];
             $descripcion = $_POST['descripcion'];
             $profesion = $_POST['profecion'];
             $fecha = $_POST['fecha1'];
-            $imagen=$_FILES['imagen']['tmp_name'];
-            $nombreImg=$_FILES['imagen']['name'];
-            $extImg=strtolower(pathinfo($nombreImg, PATHINFO_EXTENSION));
-            $sizeImg=$_FILES['imagen']['size'];
-            $dir="imagenes/fotos_portadas_publicaciones/";
+            $imagen=$_FILES['imagen']['tmp_name']; //$_FILES es una variable global que cumple las funciones necesarias para cargar las imagenes (tmp_name es nombre temporal)
+            $nombreImg=$_FILES['imagen']['name']; //se guarda el nombre del archivo
+            $extImg=strtolower(pathinfo($nombreImg, PATHINFO_EXTENSION)); //la extension con PATHINFO
+            $sizeImg=$_FILES['imagen']['size']; //el tamaño del archivo
+            $dir="imagenes/fotos_portadas_publicaciones/"; //se crea el directorio donde estara la imagen
             if($extImg=='jpg' or $extImg=='jpeg'){
                     
                 $registro=$conexion->query("SELECT * from usuarios where id_usuario='$id' ");
                 $fila= mysqli_fetch_assoc($registro);
                 $id2=$fila['id_usuario'];
-                $ruta=$dir.$_SESSION['nombre'].$id2."nombrepublicacion".$nom.".".$extImg;
+                $ruta=$dir.$_SESSION['nombre'].$id2."nombrepublicacion".$nom.".".$extImg; //es crea la variable ruta que guarda el nombre final del archivo, mas el directorio para que la base de datos tenga de referencia donde encontrar la imagen
                 $sql= "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion, foto_portada) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom', '$ruta' )";
                 mysqli_query($conexion, $sql);
                 mysqli_close($conexion);
                 
                 
     
-                if (move_uploaded_file($imagen,$ruta)){
+                if (move_uploaded_file($imagen,$ruta)){ //mueve el archivo hacia la ruta
                     
                 }
                 header ("location:publicaciones.php");

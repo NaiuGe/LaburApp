@@ -1,6 +1,8 @@
 <?php
-        session_name("LOGIN");
-        session_start();
+    session_name("LOGIN");
+    session_start();
+    include ("conexion.php");
+
 
 ?>
 <!DOCTYPE html>
@@ -51,33 +53,46 @@
         <div class="publicaciones"> 
             <?php
                 include ('conexion.php');
+                //Paginacion, parte logica
+                if (isset($_GET['pagina'])){
+                    $pagina = $_GET['pagina'];
+                } else {
+                    $pagina = 1;
+                }
+                $rango_publi = 6;
+                $desde = ($pagina-1)*$rango_publi;             
                 $registro_publicaciones = "SELECT * from publicaciones";
                 $resultado1 = mysqli_query($conexion, $registro_publicaciones);
+                $cantf = mysqli_num_rows($resultado1);
+                $cant_publi= ceil($cantf/$rango_publi);
+                $sql = "SELECT * from publicaciones limit $desde, $rango_publi";
+                $resultado1 = mysqli_query($conexion, $sql);
                 $cantfilas = mysqli_num_rows($resultado1);
-                if ($cantfilas>=1){
+                if ($cantfilas>=1){ //carga la primera publicacion, fila_p es publicaciones, fila_u es de usuarios
                     $fila_p = mysqli_fetch_assoc($resultado1);
                     $id = $fila_p['id_usuario'];
                     $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                     $resultado2 = mysqli_query($conexion, $registro_usuarios);
                     $fila_u = mysqli_fetch_assoc($resultado2);  
                     echo "<a href='' class='link'>
-                    <img src='". $fila_p['foto_portada'] ."' id='fotopubli' c>
+                    <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
                      <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                     </a>";
-                    while ($fila_p = mysqli_fetch_assoc($resultado1) ){
+                    while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
                         $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                         $resultado2 = mysqli_query($conexion, $registro_usuarios);
                         $fila_u = mysqli_fetch_assoc($resultado2);  
                         echo "<a href='' class='link'>
-                        <img src='". $fila_p['foto_portada'] ."' id='fotopubli' c>
+                        <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                         <b> ". $fila_p['nombre_publicacion'] ." </b>
                         <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                         </a>";
-                    
-                }
-                } else {
+                        
+                    }
+
+                } else {//Se carga una imagen default si no hay registro de publicaciones
                     echo '<a href="" class="link">
                             <img src="imagenes/icono_trabajo.png" id="fotopubli">
                         </a>';
@@ -85,6 +100,12 @@
             ?>
         </div>
     </div>
+    <?php
+        echo "<h2> Pág.:</h2>";
+        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
+            echo "<a href='?pagina=".$i."'>".$i."</a> ";
+        }
+    ?>
     <footer> 
         <h3> sajhdjsahd@</h3>
     </footer>

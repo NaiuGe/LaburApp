@@ -8,6 +8,7 @@
     padding: 5vh;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 5vh;
 }
 .perfil{
     float: right;
@@ -16,6 +17,7 @@
     height: 26vh;
     background-color: aqua;
     padding-right: 5vh;
+    padding-bottom: 5vh;
     border-radius: 10%;
     display: flex;
     flex-wrap: wrap;
@@ -59,11 +61,13 @@
 .link {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
     background-color: aqua;
-    margin: 2vh;
-    width: 60vh;
+    margin: 3vh;
+    width: 50vh;
     height: auto;
+    padding: 4vh;
 }
 
 
@@ -128,4 +132,6 @@
 .publicaciones{
     display: flex;
     flex-wrap: wrap;
+    align-content: center;
+    margin: 5vh;
 }
