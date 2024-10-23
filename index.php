@@ -49,34 +49,40 @@
     
     <div class="seccion">
         <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
-        </div>
-        <div class="publicaciones"> 
-            <a href="" class="link">
-                <img src="imagenes/icono_trabajo.png" id="fotopubli">
-            </a>
+            <?php
+                include ('conexion.php');
+                $registro_publicaciones = "SELECT * from publicaciones";
+                $resultado1 = mysqli_query($conexion, $registro_publicaciones);
+                $cantfilas = mysqli_num_rows($resultado1);
+                if ($cantfilas>=1){
+                    $fila_p = mysqli_fetch_assoc($resultado1);
+                    $id = $fila_p['id_usuario'];
+                    $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
+                    $resultado2 = mysqli_query($conexion, $registro_usuarios);
+                    $fila_u = mysqli_fetch_assoc($resultado2);  
+                    echo "<a href='' class='link'>
+                    <img src='". $fila_p['foto_portada'] ."' id='fotopubli' c>
+                    <b> ". $fila_p['nombre_publicacion'] ." </b> 
+                     <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                    </a>";
+                    while ($fila_p = mysqli_fetch_assoc($resultado1) ){
+                        $id = $fila_p['id_usuario'];
+                        $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
+                        $resultado2 = mysqli_query($conexion, $registro_usuarios);
+                        $fila_u = mysqli_fetch_assoc($resultado2);  
+                        echo "<a href='' class='link'>
+                        <img src='". $fila_p['foto_portada'] ."' id='fotopubli' c>
+                        <b> ". $fila_p['nombre_publicacion'] ." </b>
+                        <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                        </a>";
+                    
+                }
+                } else {
+                    echo '<a href="" class="link">
+                            <img src="imagenes/icono_trabajo.png" id="fotopubli">
+                        </a>';
+                }
+            ?>
         </div>
     </div>
     <footer> 
