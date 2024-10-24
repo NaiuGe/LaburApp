@@ -12,32 +12,42 @@ body {
     padding: 5vh;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 5vh;
 }
 .perfil{
     float: right;
     clear: both;
-    width: auto;
-    height: 10vh;
-    margin: 5vh;
-}
-#fotoperfil{
-    width: auto;
-    height: 10vh;
-}
-.publicaciones{
-    width: 20vh;
-    height: 20vh;
+    width: 60vh;
+    height: 26vh;
     background-color: aqua;
-    margin:5%;
+    padding-right: 5vh;
+    padding-bottom: 5vh;
+    border-radius: 10%;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    
 }
-#fotopubli{
+.fotoperfil{
     width: auto;
-    height: 10vh;
+    height: 12vh;
+    border-style: groove;
+    border-radius: 100%;
+    margin-left: 5vh;
+    margin-top: 3vh;
+}
+.nombre-botones-perfil{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    height: 12vh;
+    width: 30vh;
+    float: right;
+    text-align: center;
+}
+
+#fotopubli{
+    width: 20vh;
+    height: auto;
     margin:7%;
-    padding: 10%;
-    display: flex;
 }
 .cabeceraindex{
     display: flex;
@@ -55,5 +65,77 @@ body {
 .link {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    background-color: aqua;
+    margin: 3vh;
+    width: 50vh;
+    height: auto;
+    padding: 4vh;
+}
+
+
+.foto-de-perfil-pagina-centrar{
+    display:flex;
+    flex-direction: initial;
+    margin: 10vh;
+    text-align: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.pagina-centrar{
+    align-items: center;
+    background-color: aqua;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+}
+.cuadro-inicio-sesion{
+    background-color: aqua;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+    width: 40vh;
+    height: 50vh;
+    
+
+}
+
+#bloque-texto{
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+
+.boton-fotoperfil{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    width: 40vh;
+    background-color: beige;
+    margin: 5vh;
+}
+.boton{
+    height: 5vh;
+    width: auto;
+    padding-bottom: 1vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: antiquewhite;
+    border-style: groove, black;
+}
+.boton2{
+    height: 5vh;
+    width: auto;
+    padding-bottom: 1vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: antiquewhite;
+    border-style: groove, black;
+    margin: 4vh;
+}
+.publicaciones{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 5vh;
 }

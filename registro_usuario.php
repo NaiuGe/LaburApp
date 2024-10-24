@@ -16,8 +16,6 @@
 
             Correo Electrónico <br> <input type="text" placeholder="Ingrese su Correo Electrónico..." name="mail" minlength="11" required> <br> <br>
 
-            Domicilio <br> <input type="text" placeholder="Ingrese la dirección donde reside" name="domicilio" required> <br> <br>
-
             Teléfono o Celular <br> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> <br> <br>
 
             <input type="submit" value="enviar">

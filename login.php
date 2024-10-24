@@ -2,14 +2,13 @@
 <?php
     include("conexion.php");
     
-    $user = $_POST["nombre"];
-    $apellido = $_POST["apellido"];
+    $mail = $_POST["mail"];
     $pass = $_POST["pass"];
     $id_usuario = $_POST["id_usuario"];
     
     //echo var_dump($id_usuario);
 
-    $consulta = "SELECT * FROM usuarios WHERE nombre='$user' AND contraseña='$pass'";
+    $consulta = "SELECT * FROM usuarios WHERE mail='$mail' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
 
@@ -24,11 +23,13 @@
         $_SESSION['pass']=$fila['contraseña'];
         $_SESSION['contador']=1;
         $_SESSION['id_usuario']=$fila['id_usuario'];
+        $_SESSION['info-foto-perfil']=$fila['foto_perfil'];
+        $_SESSION['contador-fotoperfil']=1;
         header("location:index.php");
     }
     else {
         echo "<h1>No se pudo conectar, nombre de usuario o contraseña incorrecta.</h1>";
-        echo "<input class='boton2' type='button' value='Volver' onclick='location=\"index.php\"'>";
+        echo "<input class='boton2' type='button' value='Volver' onclick='location=\"login.html\"'>";
     }
     mysqli_close($conexion);
     
