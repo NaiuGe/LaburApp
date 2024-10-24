@@ -26,7 +26,10 @@
                     </header>"; //barra superior
                     echo "<div class='barra-arriba'>";
                     echo "<div class='bloque-perfil'> <form id='contenedor-foto-perfil' action='info_perfil.php' method='POST'>";
-                    echo "<div> <img src='imagenes/icono_usuario.png' id='fotoperfil'> </div> ";
+                    if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
+                        echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                        header('Cache-Control: no-store, no-cache, must-revalidate');
+                    } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                     echo "<input type='button' value='modificar' onClick='location=\"info_perfil.php\"'>";
                     echo '<br></br></div>';
                     echo '<div class="info"> <h1>'. $_SESSION['nombre'].' '. $_SESSION['apellido'] .'</h1>';
