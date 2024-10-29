@@ -54,9 +54,9 @@
         </aside>
     <header class="cabeceraindex">
         <h1>mis publicaciones</h1>
-        <form>
-            <input type="search" name="busq" class="caja" placeholder="Buscar publicacion">
-            <input type="submit" value="Enviar" class="boton">
+        <form action="barra-buscador.php" method="get">
+            <input type="search" name="busq" class="caja" placeholder="Buscar publicacion" required>
+            <input type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     </header>
     

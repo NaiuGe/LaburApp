@@ -58,9 +58,9 @@
         </aside>
     <header class="cabeceraindex">
         <h1>Ponete a laburar</h1>
-        <form>
-            <input type="search" name="busq" class="caja" placeholder="Buscar profesión">
-            <input type="submit" value="Enviar" class="boton">
+        <form action="barra-buscador.php" method="get">
+            <input type="search" name="busq" class="caja" placeholder="Buscar profesión" required>
+            <input type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     </header>
     
@@ -90,7 +90,7 @@
                     $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                     $resultado2 = mysqli_query($conexion, $registro_usuarios);
                     $fila_u = mysqli_fetch_assoc($resultado2);  
-                    echo "<a href='publicacion.php?id_publicacion=".$idp."?value=1' class='link'>
+                    echo "<a href='publicacion.php?id_publicacion=".$idp."' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
                      <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>

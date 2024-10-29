@@ -226,3 +226,61 @@
     height: auto;
     
 }
+/* Componentes de la pagina de resultados de busqueda*/
+.seccion-publicaciones{
+    display: flex;
+    background-color: gray;
+    padding: 5vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+    width: 120vh;
+    height: auto;
+    margin-left: 20%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.div-resultados-users{
+    display: flex;
+    background-color: #575757;
+    padding: 2vh;
+    flex-direction: column;
+    margin: 2vh;
+    align-items: center;
+}
+.div-usuario{
+    display: flex;
+    margin: 2vh;
+    background-color: aquamarine;
+    flex-direction: row;
+    padding: 2vh;
+    width: 50vh;
+    height: auto;
+    align-items: center;
+}
+.foto-usuario-busq-resultado{
+    width: 20vh;
+    height: auto;
+}
+.div-resultados-publicacion{
+    display: flex;
+    background-color: #575757;
+    padding: 2vh;
+    flex-direction: column;
+    margin: 2vh;
+    align-items: center;
+}
+.div-publicacion{
+    display: flex;
+    margin: 2vh;
+    background-color: aquamarine;
+    flex-direction: column;
+    padding: 2vh;
+    width: 100vh;
+    height: auto;
+    align-items: flex-start;
+}
+.foto-publicacion-busq-resultado{
+    width: 50vh;
+    height: auto;
+    margin: 2vh;
+}
