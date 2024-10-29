@@ -90,7 +90,7 @@
                     $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                     $resultado2 = mysqli_query($conexion, $registro_usuarios);
                     $fila_u = mysqli_fetch_assoc($resultado2);  
-                    echo "<a href='publicacion.php?id_publicacion=".$idp."' class='link'>
+                    echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
                      <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
@@ -101,7 +101,7 @@
                         $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                         $resultado2 = mysqli_query($conexion, $registro_usuarios);
                         $fila_u = mysqli_fetch_assoc($resultado2);  
-                        echo "<a href='publicacion.php?id_publicacion=".$idp."' class='link'>
+                        echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                         <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                         <b> ". $fila_p['nombre_publicacion'] ." </b>
                         <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
