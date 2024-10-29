@@ -14,6 +14,7 @@
         include('conexion.php');
 
         if(isset($_GET['id_publicacion'])){
+            $busq = $_GET['busq'];
             include("conexion.php");
             $id= $_GET['id_publicacion'];
             $sql = "SELECT * from publicaciones where id_publicaciones='$id'";
@@ -34,8 +35,16 @@
             
             
         } else {echo "<h1> ERROR INESPERADO </h1>";}
-        if(isset($_GET['value'])){
+        $value = $_GET['value'];
+        if($value==1){
         echo "<input type='button' class='boton2' value='volver' onclick='location=\"publicaciones.php\"'>";}
+        else if($value==2){
+        echo "<form action='barra-buscador.php' method='get'>";
+        echo "<input type='hidden' value='".$busq."'name='busq'>";
+        echo "<input type='hidden' value='Enviar' name='Enviar'>";
+        echo "<input type='submit' class='boton2' value='volver'>";
+        echo "</form>";
+        }
         else {
         echo "<input type='button' class='boton2' value='volver' onclick='location=\"index.php\"'>";
         }

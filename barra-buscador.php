@@ -35,6 +35,7 @@
 
             //barra lateral
             echo"<div class='barra-lateral'>
+            <a href='index.php'>Inicio</a>
             <a href='perfil.php'>Ver Perfil</a>
             <a href='publicaciones.php'>Mis Publicaciones</a>
             <a href='foto_perfil.php'>Foto de Perfil</a>
@@ -83,19 +84,21 @@
             $sql_publicaciones = "SELECT * from publicaciones where nombre_publicacion like '%$busqueda%' order by id_usuario asc";
             $resultado2 = mysqli_query($conexion,$sql_publicaciones);
             $cantfilas_p = mysqli_num_rows($resultado2);
-            if(mysqli_num_rows($resultado2)==0){ ////Busca resultados similares en la tabla de publicaciones
+            if(mysqli_num_rows($resultado2)==0){ //Busca resultados similares en la tabla de publicaciones
             }
             else{
                 echo "<div class='div-resultados-publicacion'>";
                 $fila_p = mysqli_fetch_assoc($resultado2);
+                $idp = $fila_p['id_publicaciones'];
                 echo "<h1>Publicaciones</h1>";
-                echo "<div class='div-publicacion'>"; 
+                echo "<a href='publicacion.php?id_publicacion=".$idp."&value=2&busq=".$busqueda."' class='div-publicacion'>"; 
                 echo "<h2>".$fila_p['nombre_publicacion']."</h2>"." <img src='".$fila_p['foto_portada']."' class='foto-publicacion-busq-resultado'>";//se hace un fetch assoc para mostrar el nombre de la publicacion que haya coincido con la busqueda
-                echo "</div>";
+                echo "</a>";
                 while ($fila_p = mysqli_fetch_assoc($resultado2)){//se itera para mostrar mas resultado
-                    echo "<div class='div-publicacion'>"; 
+                    $idp = $fila_p['id_publicaciones'];
+                    echo "<a href='publicacion.php?id_publicacion=".$idp."&value=2&busq=".$busqueda."' class='div-publicacion'>"; 
                     echo "<h2>".$fila_p['nombre_publicacion']."</h2>"." <img src='".$fila_p['foto_portada']."' class='foto-publicacion-busq-resultado'>";
-                    echo "</div>";
+                    echo "</a>";
                 }
                 echo "</div>";  
             }
@@ -105,7 +108,7 @@
         echo "</div>";
         echo "<input type='button' class='boton' value='volver' onclick='location=\"index.php\"'";
         }
-        else {header("location:index.php");}
+        //else {header("location:index.php");}
         ?>
     
 </div>
