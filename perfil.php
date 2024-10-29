@@ -28,7 +28,8 @@
                     //etiqueta de botón para abrir y cerrar la barra
                     echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
 
-                    //barra lateral
+                    //barra lateral sss
+
                     echo"<div class='barra-lateral'>
                     <a href='index.php'>Inicio</a>
                     <a href='perfil.php'>Ver Perfil</a>

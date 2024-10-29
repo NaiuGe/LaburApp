@@ -61,6 +61,7 @@
                 
             }
             header('Cache-Control: no-store, no-cache, must-revalidate');
+            
         echo "<br>";
         echo "<form method='post' action='actualizar_perfil.php'>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";

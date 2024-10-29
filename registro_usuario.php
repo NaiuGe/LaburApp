@@ -14,7 +14,7 @@
 
             Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" minlength="4" maxlength="10" required> <br> <br>
 
-            Correo Electrónico <br> <input type="text" placeholder="Ingrese su Correo Electrónico..." name="mail" minlength="11" required> <br> <br>
+            Correo Electrónico <br> <input type="mail" placeholder="Ingrese su Correo Electrónico..." name="mail" minlength="11" required> <br> <br>
 
             Teléfono o Celular <br> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> <br> <br>
 

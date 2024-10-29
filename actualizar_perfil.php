@@ -21,4 +21,5 @@
     } else {echo " <br><br><br><br><h3> Error en la modificación... </h3>"; }
 
     echo "<br>";
+    
     echo "<input class='boton' type='button' value='Volver' onClick='location=\"perfil.php\"'> ";
