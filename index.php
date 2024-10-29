@@ -29,19 +29,19 @@
                 echo "<br></br>";
 
                 echo "</div>";
-                //barra lateral
-                //checkbox para controlar a la barra lateral
-                echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
-                //etiqueta de botón para abrir y cerrar la barra
-                echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
+                    //barra lateral
+                    //checkbox para controlar a la barra lateral
+                    echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
+                    //etiqueta de botón para abrir y cerrar la barra
+                    echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
 
                 //barra lateral
-                echo"<div class='barra-lateral'>
-                <a href='perfil.php'>Ver Perfil</a>
-                <a href='publicaciones.php'>Mis Publicaciones</a>
-                <a href='foto_perfil.php'>Foto de Perfil</a>
-                <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
-                </div>";
+                    echo"<div class='barra-lateral'>
+                    <a href='perfil.php'>Ver Perfil</a>
+                    <a href='publicaciones.php'>Mis Publicaciones</a>
+                    <a href='foto_perfil.php'>Foto de Perfil</a>
+                    <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
+                    </div>";
 
                 //echo "<input type='button' class='boton' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
                 //echo "<input type='button' class='boton' value='mis publicaciones' onclick='location=\"publicaciones.php\"'>";
