@@ -86,20 +86,22 @@
                 if ($cantfilas>=1){ //carga la primera publicacion, fila_p es publicaciones, fila_u es de usuarios
                     $fila_p = mysqli_fetch_assoc($resultado1);
                     $id = $fila_p['id_usuario'];
+                    $idp = $fila_p['id_publicaciones'];
                     $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                     $resultado2 = mysqli_query($conexion, $registro_usuarios);
                     $fila_u = mysqli_fetch_assoc($resultado2);  
-                    echo "<a href='' class='link'>
+                    echo "<a href='publicacion.php?id_publicacion=".$idp."?value=1' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
                      <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
+                        $idp = $fila_p['id_publicaciones'];
                         $registro_usuarios = "SELECT * from usuarios where id_usuario = '$id'";
                         $resultado2 = mysqli_query($conexion, $registro_usuarios);
                         $fila_u = mysqli_fetch_assoc($resultado2);  
-                        echo "<a href='' class='link'>
+                        echo "<a href='publicacion.php?id_publicacion=".$idp."' class='link'>
                         <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                         <b> ". $fila_p['nombre_publicacion'] ." </b>
                         <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>

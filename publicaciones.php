@@ -1,6 +1,8 @@
 <?php
         session_name("LOGIN");
         session_start();
+
+        
 ?>
 <!DOCTYPE html>
 <html>
@@ -72,12 +74,18 @@
             $cantfilas= mysqli_num_rows($resultado);
             if($cantfilas>=1){
                 $fila = mysqli_fetch_assoc($resultado);
-                echo "<a href='' class='link'>
-                    <img src='". $fila['foto_portada'] ."' id='fotopubli' c>
+                $idp = $fila['id_publicaciones']; //se rescata la id de la publicacion, luego se envia por metodo get a publicacion.php con el href (por url)
+                echo "
+                
+                <a href='publicacion.php?id_publicacion=".$idp."&value=1' class='link'> 
+                    <img src='". $fila['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila['nombre_publicacion'] ." </b>
-                </a>";
+                    <input type='hidden' name='id_publicacion' value='".$idp."'>
+                </a> ";
+                //se itera las siguientes publicaciones con un while
                while($fila = mysqli_fetch_assoc($resultado)){
-                    echo "<a href='' class='link'>
+                    $idp = $fila['id_publicaciones'];
+                    echo "<a href='publicacion.php?id_publicacion=".$idp."&value=1' class='link'>
                     <img src='".$fila['foto_portada']."' id='fotopubli' >
                     <b> ". $fila['nombre_publicacion'] ." </b>
                     </a>";

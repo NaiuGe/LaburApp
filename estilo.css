@@ -191,3 +191,38 @@
 .activar-checkbox:checked ~ .barra-lateral {
     width: 30dvh;
 }
+/*estilo en la pagina de cada publicacion*/
+.titulo-publicacion{
+    display: flex;
+    align-self: center;
+    text-align: center;
+    background-color: aquamarine;
+    
+}
+.elementos-publicacion{
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh;
+    margin: 2vh;
+    background: #575757;
+    width: 200vh;
+    
+    height: auto;
+}
+.seccion-publicacion{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    padding: 5vh;
+    margin-top: 5vh;
+    align-items: center;
+    
+}
+.foto-portada-en-publicacion{
+    display: flex;
+    max-width: 200vh;
+    min-width: 100vh;
+    height: auto;
+    
+}
