@@ -41,7 +41,9 @@
                         echo "<h4>Domicilio: </h4><p>". $fila['domicilio'] ."</p>";
                     }
                     echo "</div>";
-                } else {
+                }
+                
+                else {
                     echo "No tenes una cuenta ingresada. Inicia Sesión e intentalo de nuevo.";
                     echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';
                 }
