@@ -20,10 +20,26 @@
                 
                     $resultado= mysqli_query($conexion, $consulta);
                     $cantfilas= mysqli_num_rows($resultado);
-                    echo "<header> 
-                    <div class='logo'>Laburapp </div>
-                    <nav><a href='index.php'>Inicio</a></nav>
-                    </header>"; //barra superior
+
+                    
+                    //barra lateral
+                    //checkbox para controlar a la barra lateral
+                    echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
+                    //etiqueta de botón para abrir y cerrar la barra
+                    echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
+
+                    //barra lateral sss
+
+                    echo"<div class='barra-lateral'>
+                    <a href='index.php'>Inicio</a>
+                    <a href='perfil.php'>Ver Perfil</a>
+                    <a href='publicaciones.php'>Mis Publicaciones</a>
+                    <a href='foto_perfil.php'>Foto de Perfil</a>
+                    <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
+                    </div>";
+
+
+                    //contenido perfil
                     echo "<div class='barra-arriba'>";
                     echo "<div class='bloque-perfil'> <form id='contenedor-foto-perfil' action='info_perfil.php' method='POST'>";
                     if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
@@ -41,9 +57,7 @@
                         echo "<h4>Domicilio: </h4><p>". $fila['domicilio'] ."</p>";
                     }
                     echo "</div>";
-                }
-                
-                else {
+                } else {
                     echo "No tenes una cuenta ingresada. Inicia Sesión e intentalo de nuevo.";
                     echo '<br><input type="button" value="Iniciar sesion" onclick="location=\'login.html\'">';
                 }
