@@ -7,10 +7,12 @@
     <body>
         <h1> Registro de Usuario </h1>
         <br>
-        <form method="post" action="alta_usuario.php">
+        <form method="post" action="alta_usuario.php" enctype="multipart/form-data">
             Nombre <br> <input type="text" placeholder="Ingrese su nombre..." name="nombre" required autofocus> <br> <br>
 
             Apellido <br> <input type="text" placeholder="Ingrese su apellido..." name="apellido" required autofocus> <br> <br>
+
+            Foto de perfil <br> <input type="file" name='imagen' required>
 
             Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" minlength="4" maxlength="10" required> <br> <br>
 
@@ -18,8 +20,10 @@
 
             Teléfono o Celular <br> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> <br> <br>
 
+
             <input type="submit" value="enviar">
             <a href="index.php"> <h4> Volver al inicio </h4></a>
         </form>
+        
     </body>
 </html>

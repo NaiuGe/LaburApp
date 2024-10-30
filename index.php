@@ -15,8 +15,24 @@
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
-    <div class="grupo">
-        <aside class="perfil" href=""> 
+<header>
+    <input type="checkbox" id="btn_menu">
+        <label for="btn_menu">
+        <img src="./imagenes/fotoMenu.png" alt="Menu">
+        </label>
+        <nav class="nav-bar">
+                <ul>
+                    <div>
+                        <img class="logo-hidden"  src="./imagenes/logo.jpg" alt="logo-Laburapp">
+                    </div>
+                    <li><a href="#" alt="indice">Principal</a></li>
+                    <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href='publicaciones.php' alt="Mis publicaciones">Mis publicaciones</a></li>
+                    <li><a href='foto_perfil.php' alt="Foto de Perfil">Foto de Perfil</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                </ul>
+            </nav>
+            <div class="perfil"> 
             <?php
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
@@ -27,42 +43,25 @@
                 echo "<div class='nombre-botones-perfil'>";
                 echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo "<br></br>";
-
                 echo "</div>";
-                    //barra lateral
-                    //checkbox para controlar a la barra lateral
-                    echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
-                    //etiqueta de botón para abrir y cerrar la barra
-                    echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
 
-                //barra lateral
-                    echo"<div class='barra-lateral'>
-                    <a href='perfil.php'>Ver Perfil</a>
-                    <a href='publicaciones.php'>Mis Publicaciones</a>
-                    <a href='foto_perfil.php'>Foto de Perfil</a>
-                    <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
-                    </div>";
-
-                //echo "<input type='button' class='boton' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
-                //echo "<input type='button' class='boton' value='mis publicaciones' onclick='location=\"publicaciones.php\"'>";
-                //echo "<input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
-                //echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
             } else {
                 echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
                 echo '<input type="button" class="boton2" value="Iniciar sesion" onclick="location=\'login.html\'">';}
             header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
-
-     
-        </aside>
-    <header class="cabeceraindex">
+        </div>
+    </header>
+    <div class="grupo">
+        
+    <main class="cabeceraindex">
         <h1>Ponete a laburar</h1>
         <form>
             <input type="search" name="busq" class="caja" placeholder="Buscar profesión">
             <input type="submit" value="Enviar" class="boton">
         </form>
-    </header>
+    </main>
     
     <div class="seccion">
         <div class="publicaciones"> 
@@ -122,7 +121,7 @@
         }
     ?>
     <footer> 
-        <h3> sajhdjsahd@</h3>
+        <h3> sajhdjsahd@?copy</h3>
     </footer>
 </body>
     

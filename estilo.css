@@ -2,6 +2,56 @@ body {
     background-color: #fffbff;
 }
 
+header {
+    background-color: coral;
+    height: auto;
+    z-index: 99;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header .perfil{
+    display: flex;
+  }
+  header .logo {
+    display: none;
+  }
+  header #btn_menu {
+    display: none;
+  }
+  header label {
+    display: none;
+  }
+  header .nav-bar {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+  header .nav-bar ul {
+    padding-left: 0px;
+  }
+  header .nav-bar ul div .logo-hidden {
+    height: auto;
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  header .nav-bar ul li {
+    list-style-type: none;
+    display: inline;
+    font-family: fuente-parrafo;
+    font-weight: bolder;
+    padding: 1rem;
+  }
+  header .nav-bar ul li a {
+    text-decoration: none;
+    padding: 8px;
+    background-color: azure;
+    border-radius: 0.5rem;
+    color: coral;
+  }
+
 .grupo{
     width: auto;
     height: 50%;
@@ -17,15 +67,9 @@ body {
 .perfil{
     float: right;
     clear: both;
-    width: 60vh;
-    height: 26vh;
-    background-color: aqua;
-    padding-right: 5vh;
-    padding-bottom: 5vh;
-    border-radius: 10%;
+    border-radius: 5%;
     display: flex;
-    flex-wrap: wrap;
-    
+    flex-direction: column;
 }
 .fotoperfil{
     width: auto;
@@ -34,6 +78,7 @@ body {
     border-radius: 100%;
     margin-left: 5vh;
     margin-top: 3vh;
+    margin-bottom:2vh;
 }
 .nombre-botones-perfil{
     font-family: 'Courier New', Courier, monospace;
@@ -139,61 +184,47 @@ body {
 }
 
 
-/*Botón para abrir la barra lateral*/
-.boton-activar {
-    font-size: 20px;
-    padding: 10px 15px;
-    background-color: #0077b5;
-    color: white;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1;
-}
 
-.boton-activar:hover {
-    background-color: #005582;
-}
-
-/*Ocultar el checkbox*/
-.activar-checkbox {
-    display: none;
-}
-
-/*barra lateral en forma oculta*/
-.barra-lateral{
-    display: flex;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: width 0.3s;
-    padding-top: 60px;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*Botones de la barra lateral*/
-.barra-lateral a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #f4f4f4;
-    display: block;
-    transition: 0.3s;
-    margin: 2dvh;
-}
-
-.barra-lateral a:hover {
-    background-color: #575757;
-    color: #fff;
-}
-
-.activar-checkbox:checked ~ .barra-lateral {
-    width: 30dvh;
+/* Media de mobile */
+@media only screen and (max-width: 768px) {
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      display: block;
+      width: 200px;
+      margin-left: 25px;
+    }
+    header #btn_menu:checked ~ .nav-bar {
+      visibility: visible;
+    }
+    header label {
+      display: block;
+      position: relative;
+      right: 25px;
+    }
+    header img {
+      width: 40px;
+    }
+    .nav-bar {
+      position: absolute;
+      top: 50px;
+      background-color: #E2E3E5;
+      width: 100vw;
+      visibility: hidden;
+    }
+    .nav-bar ul {
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-bar ul div .logo-hidden {
+      display: none;
+    }
+    .nav-bar ul li {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+    }
 }
