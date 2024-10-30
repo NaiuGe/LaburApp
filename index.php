@@ -117,14 +117,17 @@
     </div>
     </main>
     <footer> 
+    <div class="paginacion">
     <?php
-        echo "<h2> Pág.:</h2>";
+        echo "<h2> Pág:</h2>";
         for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'>".$i."</a> ";
+            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
         }
         ?>
-        <h3> sajhdjsahd@?copy</h3>
+    </div>
+        <h3 id="derecho"></h3>
     </footer>
+    <script src="./script.js"></script> 
 </body>
     
 </html>
