@@ -86,13 +86,16 @@
     padding: 10vh;
 }
 .cuadro-inicio-sesion{
+    display: flex;
+    align-items: center;
     background-color: aqua;
     margin: 10vh;
     text-align: center;
     padding: 10vh;
     width: 40vh;
     height: 50vh;
-    
+    margin-left: 35%;
+    flex-direction: column;
 
 }
 
