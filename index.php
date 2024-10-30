@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="./imagenes/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Laburapp</title>
     <meta name="description" content="Trabajos y emprendimientos">
@@ -56,14 +57,14 @@
     <div class="grupo">
         
     <main class="cabeceraindex">
-        <h1>Ponete a laburar</h1>
-        <form>
-            <input type="search" name="busq" class="caja" placeholder="Buscar profesión">
-            <input type="submit" value="Enviar" class="boton">
+        <h1 class="titulo">Ponete a laburar</h1>
+        <form class="busqueda">
+            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
+            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
         </form>
-    </main>
+
     
-    <div class="seccion">
+        <div class="seccion">
         <div class="publicaciones"> 
             <?php
                 include ('conexion.php');
@@ -91,7 +92,7 @@
                     echo "<a href='' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
-                     <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                    <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
@@ -114,13 +115,14 @@
             ?>
         </div>
     </div>
+    </main>
+    <footer> 
     <?php
         echo "<h2> Pág.:</h2>";
         for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
             echo "<a href='?pagina=".$i."'>".$i."</a> ";
         }
-    ?>
-    <footer> 
+        ?>
         <h3> sajhdjsahd@?copy</h3>
     </footer>
 </body>

@@ -1,9 +1,9 @@
 body {
-    background-color: #fffbff;
+    background-color: #F3E7F3;
 }
 
 header {
-    background-color: coral;
+    background-color: #C2A1C2;
     height: auto;
     z-index: 99;
     position: relative;
@@ -56,9 +56,54 @@ header {
     width: auto;
     height: 50%;
 }
+
+.busqueda{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cajaDeBusqueda{
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.cajaDeBusqueda:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.btn-busqueda{
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.titulo{
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.btn-busqueda:hover{
+  background-color: #555;
+
+}
+
+
 .seccion{
     display: flex;
-    background-color: #362417a1;
+    background-color: #92817A;
     padding: 5vh;
     flex-direction: row;
     flex-wrap: wrap;
