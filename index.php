@@ -24,7 +24,7 @@
         <nav class="nav-bar">
                 <ul>
                     <div>
-                        <img class="logo-hidden"  src="./imagenes/logo.jpg" alt="logo-Laburapp">
+                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
                     </div>
                     <li><a href="#" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
@@ -42,7 +42,7 @@
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
-                echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo "<br></br>";
                 echo "</div>";
 
