@@ -57,7 +57,7 @@
     <div class="grupo">
         
     <main class="cabeceraindex">
-        <h1 class="titulo">Ponete a laburar</h1>
+        <h1 class="titulo">Ponete a laburar padre</h1>
         <form class="busqueda">
             <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
             <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
