@@ -68,7 +68,7 @@ header {
   }
 
   header .nav-bar ul li a:hover {
-    background-color: #cfac85;
+    background-color: #dbcdcd;
     color: black;
 }
 
@@ -111,8 +111,12 @@ header .fotoperfil{
 
 .btn-busqueda:hover{
   background-color: #555;
-
 }
+
+.perfil-modif{
+  text-decoration: none;
+}
+
 /* -------------------------------------CSS DEL MAIN---------------------------------- */
 
 .grupo{
@@ -181,6 +185,7 @@ header .fotoperfil{
     display: flex;
     flex-direction: column;
 }
+
 .fotoperfil{
     width: auto;
     height: 12vh;

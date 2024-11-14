@@ -26,10 +26,8 @@
                     <div>
                         <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
                     </div>
-                    <li><a href="#" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
                     <li><a href='publicaciones.php' alt="Mis publicaciones">Mis publicaciones</a></li>
-                    <li><a href='foto_perfil.php' alt="Foto de Perfil">Foto de Perfil</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
                 </ul>
             </nav>
@@ -38,11 +36,11 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php' class='perfil-modif'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
-                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b></a>';
                 echo "<br></br>";
                 echo "</div>";
 
@@ -59,8 +57,8 @@
     <main class="cabeceraindex">
         <h1 class="titulo">Ponete a laburar</h1>
         <form class="busqueda">
-            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
-            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
+            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Búsqueda por palabra">
+            <input class="btn-busqueda" type="submit" value="Buscar" class="boton">
         </form>
 
     
