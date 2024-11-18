@@ -8,14 +8,27 @@
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
-    <h1 id="bloque-texto"> Inicio de Sesión</h1>
-    <form name="logueo" method="post" action="login.php" class="cuadro-inicio-sesion">
+    <header class="texto-inicio-sesion">
+    <h1> Inicio de Sesión</h1>
+    </header>
+    <main>
+        <div class="centrar">
+    <form  name="logueo" method="post" action="login.php" class="cuadro-inicio-sesion">
         Email <br> <input type="email" placeholder="Ingrese email..." name="mail" required autofocus> <br> <br>
         Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" minlength="4" maxlength="10" required> 
         <br> <br>
-        <input type="submit" value="enviar">
+        <input type="submit" value="Iniciar Sesion">
         <br> <br>
         <a href="registro_usuario.php"> <h4> No tenés una cuenta? CREATE UNA SESIÓN ACÁ </h4> </a> 
+        <a href="index.php"><h4>Volver</h4> </a>
     </form>
+</div>
+    </main> 
+    <footer> 
+        <div class="paginacion">
+        </div>
+        <h3 id="derecho"></h3>
+        </footer>
+        <script src="./script.js"></script> 
 </body>
 </html>

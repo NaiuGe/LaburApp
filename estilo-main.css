@@ -1,0 +1,286 @@
+.grupo{
+    width: auto;
+    height: 50%;
+}
+.seccion{
+    display: flex;
+    background-color: gray;
+    padding: 5vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+}
+.perfil{
+    float: right;
+    clear: both;
+    width: 50vh;
+    height: 20vh;
+    background-color: aqua;
+    border-radius: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    
+}
+.fotoperfil{
+    width: 14vh;
+    height: 12vh;
+    border-style: groove;
+    border-radius: 100%;
+    margin-left: 5vh;
+}
+.nombre-botones-perfil{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    height: 12vh;
+    width: 30vh;
+    float: right;
+    text-align: center;
+}
+
+#fotopubli{
+    width: 20vh;
+    height: auto;
+    margin:7%;
+}
+.cabeceraindex{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh;
+}
+
+.barra-superior {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    background-color: aqua;
+    margin: 3vh;
+    width: 50vh;
+    height: auto;
+    padding: 4vh;
+}
+
+
+.foto-de-perfil-pagina-centrar{
+    display:flex;
+    flex-direction: initial;
+    margin: 10vh;
+    text-align: center;
+    align-items: center;
+    background-color: gray;
+}
+
+.pagina-centrar{
+    align-items: center;
+    background-color: aqua;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+}
+.cuadro-inicio-sesion{
+    background-color: aqua;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+    width: 40vh;
+    height: 50vh;
+    
+
+}
+
+#bloque-texto{
+    background-color: gray;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+
+.boton-fotoperfil{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    width: 40vh;
+    background-color: beige;
+    margin: 5vh;
+}
+.boton{
+    height: 5vh;
+    width: auto;
+    padding-bottom: 1vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: antiquewhite;
+    border-style: groove, black;
+}
+.boton2{
+    height: 5vh;
+    width: auto;
+    padding-bottom: 1vh;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: antiquewhite;
+    border-style: groove, black;
+    margin: 4vh;
+}
+.publicaciones{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/*Botón para abrir la barra lateral*/
+.boton-activar {
+    font-size: 20px;
+    padding: 10px 15px;
+    background-color: #0077b5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.boton-activar:hover {
+    background-color: #005582;
+}
+
+/*Ocultar el checkbox*/
+.activar-checkbox {
+    display: none;
+}
+
+/*barra lateral en forma oculta*/
+.barra-lateral{
+    display: flex;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.3s;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Botones de la barra lateral*/
+.barra-lateral a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f4f4f4;
+    display: block;
+    transition: 0.3s;
+    margin: 2dvh;
+}
+
+.barra-lateral a:hover {
+    background-color: #575757;
+    color: #fff;
+}
+
+.activar-checkbox:checked ~ .barra-lateral {
+    width: 30dvh;
+}
+/*estilo en la pagina de cada publicacion*/
+.titulo-publicacion{
+    display: flex;
+    align-self: center;
+    text-align: center;
+    background-color: aquamarine;
+    
+}
+.elementos-publicacion{
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    padding: 5vh;
+    margin: 2vh;
+    background: #575757;
+    width: 200vh;
+    
+    height: auto;
+}
+.seccion-publicacion{
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    padding: 5vh;
+    margin-top: 5vh;
+    align-items: center;
+    
+}
+.foto-portada-en-publicacion{
+    display: flex;
+    max-width: 200vh;
+    min-width: 100vh;
+    height: auto;
+    
+}
+/* Componentes de la pagina de resultados de busqueda*/
+.seccion-publicaciones{
+    display: flex;
+    background-color: gray;
+    padding: 5vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 5vh;
+    width: 120vh;
+    height: auto;
+    margin-left: 20%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.div-resultados-users{
+    display: flex;
+    background-color: #575757;
+    padding: 2vh;
+    flex-direction: column;
+    margin: 2vh;
+    align-items: center;
+}
+.div-usuario{
+    display: flex;
+    margin: 2vh;
+    background-color: aquamarine;
+    flex-direction: row;
+    padding: 2vh;
+    width: 50vh;
+    height: auto;
+    align-items: center;
+}
+.foto-usuario-busq-resultado{
+    width: 20vh;
+    height: auto;
+}
+.div-resultados-publicacion{
+    display: flex;
+    background-color: #575757;
+    padding: 2vh;
+    flex-direction: column;
+    margin: 2vh;
+    align-items: center;
+}
+.div-publicacion{
+    display: flex;
+    margin: 2vh;
+    background-color: aquamarine;
+    flex-direction: column;
+    padding: 2vh;
+    width: 100vh;
+    height: auto;
+    align-items: flex-start;
+}
+.foto-publicacion-busq-resultado{
+    width: 50vh;
+    height: auto;
+    margin: 2vh;
+}
