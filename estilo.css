@@ -303,7 +303,7 @@ header .fotoperfil{
     padding: 10vh;
     width: 40vh;
     height: 50vh;
-    
+}
 
 
 #bloque-texto{
@@ -503,7 +503,6 @@ footer h3{
       align-items: center;
       padding: 10px;
     }
- 
     header #btn_menu:checked ~ .nav-bar {
       visibility: visible;
     }
