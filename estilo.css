@@ -296,6 +296,14 @@ header .fotoperfil{
     text-align: center;
     padding: 10vh;
 }
+.cuadro-inicio-sesion{
+    background-color: #92817A;
+    margin: 10vh;
+    text-align: center;
+    padding: 10vh;
+    width: 40vh;
+    height: 50vh;
+    
 
 
 #bloque-texto{
@@ -327,7 +335,7 @@ header .fotoperfil{
 }
 
 b {
-  color: black;
+  color: white;
 }
 
 
