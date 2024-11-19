@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
 <?php
 
 include("conexion.php");
@@ -12,13 +21,16 @@ $consulta = "SELECT * FROM usuarios WHERE mail='$mail'";
 $resultado = mysqli_query($conexion, $consulta);
 $cantfilas = mysqli_num_rows($resultado);
 if ($cantfilas == 1) {
-    echo "<h3> El usuario ya se encuentra registrado. </h3>";
+    echo '<script>';
+    echo 'alert("El usuario ya se encuentra registrado.")';
     echo "<input type='button' value='Volver' onClick='location=\"index.php\"'> ";
+    echo '</script>';
 } else {
     $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono' )";
     mysqli_query($conexion, $sql);
-    echo "registrado con éxito.";
-    echo "<br> <br>";
+    echo '<script>';
+    echo 'alert("El usuario fue registrado con exito.")';
+    echo '</script>';
     $consulta = "SELECT * FROM usuarios WHERE mail='$mail' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
@@ -39,3 +51,7 @@ if ($cantfilas == 1) {
         mysqli_close($conexion);
         echo "<input type='button' value='Volver' onClick='location=\"index.php\"'> ";}
 }
+
+?>
+</body>
+</html>

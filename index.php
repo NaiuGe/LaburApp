@@ -115,7 +115,9 @@
         </div>
     </div>
     </main>
+    
     <footer> 
+        
     <div class="paginacion">
     <?php
         echo "<h2> Pág:</h2>";
@@ -128,5 +130,4 @@
     </footer>
     <script src="./script.js"></script> 
 </body>
-    
 </html>
