@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
     <title>Edición de Perfil</title>
 </head>
 <body>
@@ -19,7 +21,12 @@
     $resultado = mysqli_query($conexion, $consulta);
 
     if ($row = mysqli_fetch_row($resultado)) {
-        echo "<h2>Modificar Perfil </h2>";
+        
+        echo " <header class='texto-inicio-sesion'>
+        <h1>Modificar Perfil</h1>
+        </header>";
+
+        echo " <div class='centrar'>"; //Inicio contenedor central y principal
         
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
             echo "<img src='" . $_SESSION['info-foto-perfil']  . "' width='200px'>";
@@ -63,7 +70,7 @@
             header('Cache-Control: no-store, no-cache, must-revalidate');
             
         echo "<br>";
-        echo "<form method='post' action='actualizar_perfil.php'>";
+        echo "<form method='post' onsubmit='return verificar()' action='actualizar_perfil.php'>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
         echo "<h3>Nombre y Apellido</h3> <p>".$row[1]. " ".$row[2]."</p>";
         echo "<h3> Correo Electrónico </h3>";
@@ -71,7 +78,7 @@
         echo "<h3> Domicilio </h3>";
         echo "<input type='text' name='domicilio' value='".$row[4]."'>";
         echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[7]."'>";
+        echo "<input type='text' name='pass' id='pass' value='".$row[7]."'>";
         echo "<h3> Número de Telefono </h3>";
         echo "<input type='tel' name='telefono' value='".$row[8]."'>";
         echo "<h3> Descripción personal </h3>";
@@ -80,10 +87,12 @@
         echo"<input class='boton' type='submit' value='Enviar'> ";
         echo "&nbsp;&nbsp;&nbsp;&nbsp;";
         echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
-        echo "</form>";
+        echo "</form> </div>";
     }
 
 
     ?>
+    
+    <script src="script.js"></script> 
 </body>
 </html>

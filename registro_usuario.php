@@ -3,13 +3,15 @@
     <head> 
         <meta charset="UTF-8">
     <title> Registo de Usuario </title>
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     </head>
 
     <body>
         <div class="centrar">
         <h1> Registro de Usuario </h1>
-        <form class="cuadro-inicio-sesion" onsubmit="return verificar()" method="post" action="alta_usuario.php">
+        <form class="cuadro-inicio-sesion" onsubmit="return verificar()" method="post" action="alta_usuario.php" enctype="multipart/form-data">
+            Foto de perfil <br> <input type="file" name="imagen" required> <br> <br>
             Nombre <br> <input type="text" placeholder="Ingrese su nombre..." name="nombre" id="nombre"  required autofocus> <br> <br>
             Apellido <br> <input type="text" placeholder="Ingrese su apellido..." name="apellido" required autofocus> <br> <br>
             Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required> <br> <br>

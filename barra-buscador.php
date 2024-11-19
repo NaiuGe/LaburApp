@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="icon" href="imagenes/logo.png" type="image/png">
     <title>Laburapp</title>
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
