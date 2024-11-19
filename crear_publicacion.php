@@ -15,49 +15,77 @@
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
-<script>
-    function fecha(){
-        var fecha;
-        fecha= new Date();
-        
-        var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
-        document.getElementById("fecha").value=cadena1 ;
-    }
-    function hora(){
-        var hora;
-        fecha= new Date();
-        var cadena = fecha.getHours() + '/' + fecha.getMinutes() + '/' + fecha.getSeconds();
-        return cadena;
-    }
 
+<header>
+    <input type="checkbox" id="btn_menu">
+        <label for="btn_menu">
+        <img src="./imagenes/fotoMenu.png" alt="Menu">
+        </label>
+        <nav class="nav-bar">
+                <ul>
+                    <div>
+                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
+                    </div>
+                    <li><a href="index.php" alt="indice">Principal</a></li>
+                    <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                </ul>
+            </nav>
+            <div class="perfil"> 
+            <?php
+            if(isset($_SESSION['contador'])){
+                header('Cache-Control: no-store, no-cache, must-revalidate');
+                if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
+                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    header('Cache-Control: no-store, no-cache, must-revalidate');
+                } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
+                echo "<div class='nombre-botones-perfil'>";
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
+                echo "<br></br>";
+                echo "</div>";
+
+            } else {
+                echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
+                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+            header('Cache-Control: no-store, no-cache, must-revalidate');
+            ?>
+            <br></br>
+        </div>
+    </header>
     
-</script>
-    <header>
-        <form action="crear_publicacion.php" method="POST" enctype="multipart/form-data">
-            <h1>fotos</h1> <input type="file" name="imagen" required>
-        
-            <h1>titulo</h1><br><textarea name="nombre_publicacion" id="" placeholder="titulo" rows="2" cols="100" required></textarea><br><br>
-            <h1>descripcion</h1><br><textarea name="descripcion" id="" placeholder="descripcion" rows="20" cols="100" required></textarea><br><br>
+        <main>
+        <div class="centrar">
+        <form class="cuadro-crear-formulario" action="crear_publicacion.php" method="POST" enctype="multipart/form-data">
+            <h1>Crear publicación</h1>
+            <h3>Título de la publicación</h3>
+            <textarea class="titulo-publicacion" type="text" name="nombre_publicacion"  required> </textarea>
+            <h3>Descripcion de la publicación</h3><br>            
+            <textarea type="text" name="descripcion"  required> </textarea> 
+            <h3>Seleccione una foto</h3> 
+            <input type="file" name="imagen" required>
             <input type="hidden" value=" fecha" id="fecha" name="fecha1" >
-            <h1>profeciones</h1> 
-            <select name="profecion"  required>    
-                <option value="" selected disabled > seleccionar rubro </option>
-               <?php
+            <h3>Seleccionar profesión</h3> 
+            <select name="profesion"  required>    
+                <option value="" selected disabled > Seleccionar profesión </option>
+            <?php
                 include("conexion.php");
                 $consulta = "SELECT * FROM profesiones  ORDER BY id_profesion  ";        
                 $resultado = mysqli_query($conexion, $consulta); 
                 while($row = mysqli_fetch_array($resultado)){
-                    $profecion = $row['nombre_profesion'];
-                    $id_profecion = $row['id_profesion']; 
+                    $profesion = $row['nombre_profesion'];
+                    $id_profesion = $row['id_profesion']; 
                     ?>  
-                    <option value="<?php echo $id_profecion; ?>" ><?php echo $profecion;  ?></option>
+                    <option value="<?php echo $id_profesion; ?>" ><?php echo $profesion;  ?></option>
                     <?php
                 }
                 ?> <br>
-               </select><br><br>
-            <input type="submit" name="enviar" onclick="fecha()">
+            </select><br><br>
+            <input class="btn-busqueda" type="submit" value="Crear publicación" name="enviar" onclick="fecha()">
         
         </form>
+
+        </div>
+
         <script>
             fecha();
         </script>
@@ -69,7 +97,7 @@
             $id = $_SESSION['id_usuario'];
             $nom = $_POST['nombre_publicacion'];
             $descripcion = $_POST['descripcion'];
-            $profesion = $_POST['profecion'];
+            $profesion = $_POST['profesion'];
             $fecha = $_POST['fecha1'];
             $imagen=$_FILES['imagen']['tmp_name']; //$_FILES es una variable global que cumple las funciones necesarias para cargar las imagenes (tmp_name es nombre temporal)
             $nombreImg=$_FILES['imagen']['name']; //se guarda el nombre del archivo
@@ -91,25 +119,24 @@
                 if (move_uploaded_file($imagen,$ruta)){ //mueve el archivo hacia la ruta
                     
                 }
-                header ("location:publicaciones.php");
+                header ("location:perfil.php");
             }
             else{
             $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
             }
             mysqli_query($conexion, $sql);
             mysqli_close($conexion);
-            header ("location:publicaciones.php");
+            header ("location:perfil.php");
             
         }
         ?>
-    </header>
-    
-    
-        
+        </main> 
     </div>
     <footer> 
-        <h3> sajhdjsahd@</h3>
+    <div class="paginacion">
+    </div>
+        <h3 id="derecho"></h3>
     </footer>
+    <script src="script.js"></script> 
 </body>
-    
 </html> 

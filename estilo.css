@@ -435,6 +435,48 @@ margin: 20px;
   color: #333; 
 }
 
+/*--------------------- CSS DE CREAR PUBLICACIÓN -----------------------*/
+
+.cuadro-crear-formulario{
+  background: #ffffff; 
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width:  50%;
+  height: auto;
+  text-align: center;
+  margin: 20px;
+}
+
+.cuadro-crear-formulario input[type="text"],
+.cuadro-crear-formulario input[type="file"]{
+  width: 70%; 
+  padding: 15px;
+  margin: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  font-size: 14px; 
+}
+
+.cuadro-crear-formulario h1,
+.cuadro-crear-formulario h3  {
+  margin: 2vw;
+}
+
+.cuadro-crear-formulario textarea {
+  width: 70%;
+  height: 10vw;
+  resize: none;
+}
+
+.cuadro-crear-formulario .titulo-publicacion{
+  width: 70%;
+  height: 2vw;
+  resize: none;
+}
+
 /*--------------------------- CSS DE REGISTRAR USUARIO ---------------*/
 
 #volver{
