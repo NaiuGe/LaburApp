@@ -122,7 +122,7 @@
     <?php
         echo "<h2> Pág:</h2>";
         for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
+            echo "<a href='?pagina=".$i."'class='pag'>".$i.","."</a> ";
         }
         ?>
     </div>
