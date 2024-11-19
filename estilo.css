@@ -376,9 +376,10 @@ margin: 20px;
 
 .centrar{
   display: flex;
+  margin-top: 20px;
+  flex-direction: column;
   justify-content: center; 
   align-items: center;
-  height: 50vh;
   background-color: #f9f9f9; 
 }
 
@@ -396,13 +397,16 @@ margin: 20px;
   border-radius: 8px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width: 300px; 
+  width:  300px;
+  height: auto;
   text-align: center;
 
 }
 
 .cuadro-inicio-sesion input[type="email"],
-.cuadro-inicio-sesion input[type="password"] {
+.cuadro-inicio-sesion input[type="password"],
+.cuadro-inicio-sesion input[type="text"],
+.cuadro-inicio-sesion input[type="tel"] {
     width: 100%; 
     padding: 10px;
     margin: 10px 0; 
@@ -444,6 +448,17 @@ margin: 20px;
   font-weight: normal; 
   color: #333; 
 }
+
+/*--------------------------- CSS DE REGISTRAR USUARIO ---------------*/
+
+#volver{
+  text-decoration: underline;
+}
+
+#volver:hover{
+  color: #0f6ccf;
+}
+
 
 /* --------------------------CSS del Footer----------------------------------- */
 
