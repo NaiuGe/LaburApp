@@ -9,14 +9,29 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="./imagenes/logo.jpg" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Laburapp</title>
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
-    <div class="grupo">
-        <aside class="perfil" href=""> 
+<header>
+    <input type="checkbox" id="btn_menu">
+        <label for="btn_menu">
+        <img src="./imagenes/fotoMenu.png" alt="Menu">
+        </label>
+        <nav class="nav-bar">
+                <ul>
+                    <div>
+                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
+                    </div>
+                    <li><a href="#" alt="indice">Principal</a></li>
+                    <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                </ul>
+            </nav>
+            <div class="perfil"> 
             <?php
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
@@ -25,63 +40,26 @@
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
-                echo '<b>Bienvenido '. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
-                
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
                 echo "<br></br>";
-
                 echo "</div>";
-                //barra lateral
-                //checkbox para controlar a la barra lateral
-                echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
-                //etiqueta de botón para abrir y cerrar la barra
-                echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
 
-                //barra lateral
-                echo"<div class='barra-lateral'>
-                <a href='perfil.php'>Ver Perfil</a>
-                <a href='publicaciones.php'>Mis Publicaciones</a>
-                <a href='foto_perfil.php'>Foto de Perfil</a>
-                <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
-                </div>";
-
-                //echo "<input type='button' class='boton' value='Ver Perfil' onclick='location=\"perfil.php\"'>";
-                //echo "<input type='button' class='boton' value='mis publicaciones' onclick='location=\"publicaciones.php\"'>";
-                //echo "<input type='submit' class='boton' value='ingresar/cambiar foto de perfil' onclick=location=\"foto_perfil.php\">";
-                //echo "<input type='button' class='boton' value='cerrar sesion' onclick='location=\"cerrarlogin.php\"'>";
-
-                
-                    //barra lateral
-                    //checkbox para controlar a la barra lateral
-                    echo "<input type='checkbox' id='activar-barra' class='activar-checkbox'>";
-                    //etiqueta de botón para abrir y cerrar la barra
-                    echo "<label for='activar-barra' class='boton-activar'>☰ Menú</label>";
-
-                    //barra lateral sss
-
-                    echo"<div class='barra-lateral'>
-                    <a href='index.php'>Inicio</a>
-                    <a href='perfil.php'>Ver Perfil</a>
-                    <a href='publicaciones.php'>Mis Publicaciones</a>
-                    <a href='foto_perfil.php'>Foto de Perfil</a>
-                    <a href='cerrarlogin.php'>CERRAR SESIÓN</a>
-                    </div>";
-                    
             } else {
                 echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
-                echo '<input type="button" class="boton2" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\'">';}
             header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
-
-     
-        </aside>
-    <header class="cabeceraindex">
-        <h1>Ponete a laburar</h1>
-        <form action="barra-buscador.php" method="get">
-            <input type="search" name="busq" class="caja" placeholder="Buscar profesión" required>
-            <input type="submit" value="Enviar" class="boton" name="Enviar">
-        </form>
+        </div>
     </header>
+
+    <div class="grupo">
+    <main class="cabeceraindex">
+        <h1 class="titulo">Ponete a laburar</h1>
+        <form class="busqueda">
+            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
+            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
+        </form>
     
     <div class="seccion">
         <div class="publicaciones"> 
@@ -112,7 +90,7 @@
                     echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
-                     <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                    <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
@@ -136,15 +114,19 @@
             ?>
         </div>
     </div>
-    <?php
-        echo "<h2> Pág.:</h2>";
-        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'>".$i."</a> ";
-        }
-    ?>
+    </main>
     <footer> 
-        <h3> sajhdjsahd@</h3>
+    <div class="paginacion">
+    <?php
+        echo "<h2> Pág:</h2>";
+        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
+            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
+        }
+        ?>
+    </div>
+        <h3 id="derecho"></h3>
     </footer>
+    <script src="./script.js"></script> 
 </body>
     
 </html>

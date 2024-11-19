@@ -71,11 +71,11 @@
         echo "<h3> Domicilio </h3>";
         echo "<input type='text' name='domicilio' value='".$row[4]."'>";
         echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[6]."'>";
+        echo "<input type='text' name='pass' value='".$row[7]."'>";
         echo "<h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[7]."'>";
+        echo "<input type='tel' name='telefono' value='".$row[8]."'>";
         echo "<h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[8]."'>";
+        echo "<input type='text' name='informacion' value='".$row[9]."'>";
         echo "<br><br>";
         echo"<input class='boton' type='submit' value='Enviar'> ";
         echo "&nbsp;&nbsp;&nbsp;&nbsp;";
