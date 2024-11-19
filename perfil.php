@@ -50,7 +50,7 @@
         echo "<div class='info'><h1>" . $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] . "</h1>";
         echo "<h3>Información</h3>";
         while ($fila = mysqli_fetch_assoc($resultado)) {
-            echo "<p>" . $fila['info'] . "</p>";
+            echo "<p>" . $fila['informacion'] . "</p>";
             echo "<h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p>";
             echo "<h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p>";
             echo "<h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p>";
