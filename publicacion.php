@@ -10,7 +10,8 @@
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
-    <div class="seccion-publicacion">
+    <div class="centrar">
+    <div class="cuadro-ver-publicacion">
     <?php
         session_name("LOGIN");
         session_start();
@@ -76,6 +77,6 @@
             echo "<input type='button' class='boton' value='volver' onclick='location=\"solicitudes.php\"'>";
         }
         ?>
-        
-    </div>
+        </div>
+        </div>
 </body>
