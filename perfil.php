@@ -47,13 +47,13 @@
         echo "<input class='boton' type='button' value='Modificar perfil' onClick='location=\"info_perfil.php\"'>";
         echo '</div>';
 
-        echo "<div class='info'><h1>" . $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] . "</h1>";
-        echo "<h3>Información</h3>";
+        echo "<div class='info'> <div class='contenedor-datos'> <h1>" . $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] . "</h1> </div>";
+        echo "<div class='contenedor-datos'> <h3>Información</h3>";
         while ($fila = mysqli_fetch_assoc($resultado)) {
-            echo "<p>" . $fila['informacion'] . "</p>";
-            echo "<h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p>";
-            echo "<h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p>";
-            echo "<h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p>";
+            echo "<p>" . $fila['informacion'] . "</p> </div>";
+            echo "<div class='contenedor-datos'> <h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p> </div>";
+            echo "<div class='contenedor-datos'> <h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p> </div>";
+            echo "<div class='contenedor-datos'> <h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p> </div>";
         }
         echo "</div></div>";
 
@@ -76,8 +76,6 @@
                         <b>" . $fila['nombre_publicacion'] . "</b>
                         </a>";
             }
-        } else {
-            echo "No hay publicaciones.";
         }
         echo '</div>'; 
         echo '</div>';

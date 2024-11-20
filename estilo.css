@@ -210,6 +210,11 @@ header .fotoperfil{
   border-radius: 0px 8px 8px 0px;
 }
 
+.contenedor-datos {
+  margin: 3dvh;
+  margin-left: 0;
+}
+
 .boton {
   padding: 10px 20px;
   background-color: #362417;
@@ -219,7 +224,7 @@ header .fotoperfil{
   font-size: 1em;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin: 4dvh;
+  margin: 1dvh;
 }
 
 .boton:hover{
@@ -338,7 +343,52 @@ b {
   color: white;
 }
 
+/* -------------------------CSS de Modificar Perfil ------------------------- */
 
+.cuadro-modificar-perfil{
+  background: #ffffff; 
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width:  400px;
+  height: auto;
+  text-align: center;
+}
+
+.cuadro-modificar-perfil input[type="file"]{
+  width: 100%; 
+  padding: 10px;
+}
+.cuadro-modificar-perfil input[type="email"],
+.cuadro-modificar-perfil input[type="password"],
+.cuadro-modificar-perfil input[type="text"],
+.cuadro-modificar-perfil input[type="tel"] {
+    width: 100%; 
+    padding: 10px;
+    margin: 10px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    font-size: 14px; 
+}
+
+.contenedor-input {
+  margin: 2dvh;
+  margin-bottom: 3dvh;
+}
+
+#nombre-usuario {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%; 
+  padding: 10px;
+  margin: 10px 0; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  font-size: 14px; 
+}
 /* -------------------------CSS del Contenido Principal------------------------- */
 .trabajos-disponibles {
   padding: 20px;
@@ -403,6 +453,10 @@ margin: 20px;
 
 }
 
+.cuadro-inicio-sesion input[type="file"]{
+  width: 100%; 
+  padding: 10px;
+}
 .cuadro-inicio-sesion input[type="email"],
 .cuadro-inicio-sesion input[type="password"],
 .cuadro-inicio-sesion input[type="text"],
