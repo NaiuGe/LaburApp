@@ -127,6 +127,7 @@
         ?>
     </div>
         <h3 id="derecho"></h3>
+        <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
     </footer>
     <script src="./script.js"></script> 
 </body>

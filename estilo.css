@@ -25,9 +25,12 @@ header {
     background-color: #362417;
     color: white;
     display: flex;
+    height: 180px;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+/*     position: sticky;
+    top: 0;
+    z-index: 10; */
   }
 
   header .perfil{
@@ -48,6 +51,7 @@ header {
     display: flex;
     justify-content: center;
     flex-grow: 1;
+
   }
   header .nav-bar ul {
     padding-left: 0;
@@ -483,6 +487,42 @@ margin: 20px;
   color: #333; 
 }
 
+/*--------------------- CSS DE VER PUBLICACIÓN -----------------------*/
+.cuadro-ver-publicacion{
+  background: #ffffff; 
+  border: 1px solid #ddd;
+  border-radius: 8px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width:  35vw;
+  height: auto;
+  text-align: center;
+  margin: 20px;
+}
+.centrar h1{
+  font-size: 2vw;
+  margin: 1vh;
+}
+.cuadro-ver-publicacion h2 {
+  font-size: 1.5vw;
+  margin: 1vh;
+}
+
+.cuadro-ver-publicacion p {
+  font-size: 1vw;
+  margin: 2vh;
+}
+
+.cuadro-ver-publicacion img {
+  width: 80%;
+  margin: 1vh;
+  border-radius: 10px;
+}
+
+.cuadro-ver-publicacion .btn-busqueda{
+  margin-top: 2vh;
+}
+
 /*--------------------- CSS DE CREAR PUBLICACIÓN -----------------------*/
 
 .cuadro-crear-formulario{
@@ -535,6 +575,13 @@ margin: 20px;
   color: #0f6ccf;
 }
 
+.cuadro-inicio-sesion h3 , select {
+  margin: 0.8vw;
+}
+
+.cuadro-inicio-sesion input[type="file"]{
+  width: 100%;
+}
 
 /* --------------------------CSS del Footer----------------------------------- */
 
@@ -586,8 +633,17 @@ footer h3{
   font-size: 3vh;
 }
 
+.btn-wsp{
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  width: 4rem;
+}
+
 /* -------------------------- Media de mobile----------------------------------- */
 @media only screen and (max-width: 768px) {
+
+
     header {
       display: flex;
       justify-content: space-between;
