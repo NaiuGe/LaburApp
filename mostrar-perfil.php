@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./imagenes/logo.png" type="image/png">
-    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Perfil de usuario </title>
 </head>
 <body>
@@ -39,7 +38,31 @@
                     echo "<h4>Número de Teléfono: </h4><p>". $fila['telefono'] ."</p>";
                     echo "<h4>Correo Electrónico: </h4><p>". $fila['mail'] ."</p>";
                     echo "<h4>Domicilio: </h4><p>". $fila['domicilio'] ."</p>";
-                    echo "</div>";
+                    echo "</div>
+                    </div>";
+                    echo '<div class="seccion">';
+                    echo '<h3>Trabajos disponibles</h3>';
+                    echo ' <div class="publicaciones"> ' ;
+                            $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id_usuario' ";
+                            $resultado = mysqli_query($conexion, $consulta);
+                            $cantfilas= mysqli_num_rows($resultado);
+                            if($cantfilas>=1){
+                                $fila = mysqli_fetch_assoc($resultado);
+                                echo "<a href='publicacion.php?id_publicacion=".$fila['id_publicaciones']."&value=4' class='link'>
+                                    <img src='". $fila['foto_portada'] ."' id='fotopubli' c>
+                                    <b> ". $fila['nombre_publicacion'] ." </b>
+                                </a>";
+                            while($fila = mysqli_fetch_assoc($resultado)){
+                                    echo "<a href='publicacion.php?id_publicacion=".$fila['id_publicaciones']."&value=4' class='link'>
+                                    <img src='".$fila['foto_portada']."' id='fotopubli' >
+                                    <b> ". $fila['nombre_publicacion'] ." </b>
+                                    </a>";
+                            }
+                            } else {echo "no hay publicaciones";}
+                            
+                
+                        echo '  </div> ';
+                    echo '  </div> ';
                 }
                 
                 else {
@@ -49,12 +72,6 @@
                 
             ?>
         
-    </div>
-    <div class="central">
-        <h3>Trabajos Disponibles</h3>
-        <div class="opciones">
-
-        </div>
     </div>
 
 

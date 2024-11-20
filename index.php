@@ -56,9 +56,9 @@
     <div class="grupo">
     <main class="cabeceraindex">
         <h1 class="titulo">Ponete a laburar</h1>
-        <form class="busqueda">
+        <form class="busqueda" action="barra-buscador.php">
             <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
-            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
+            <input class="btn-busqueda" type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     
     <div class="seccion">
@@ -115,6 +115,19 @@
         </div>
     </div>
     </main>
+    <footer> 
+    <div class="paginacion">
+    <?php
+        echo "<h2> Pág:</h2>";
+        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
+            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
+        }
+        ?>
+    </div>
+        <h3 id="derecho"></h3>
+    </footer>
+    <script src="./script.js"></script> 
+</body>
     
     <footer> 
         
