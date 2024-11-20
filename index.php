@@ -56,9 +56,9 @@
     <div class="grupo">
     <main class="cabeceraindex">
         <h1 class="titulo">Ponete a laburar</h1>
-        <form class="busqueda">
+        <form class="busqueda" action="barra-buscador.php">
             <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
-            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
+            <input class="btn-busqueda" type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     
     <div class="seccion">
