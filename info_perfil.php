@@ -68,6 +68,7 @@
         header('Cache-Control: no-store, no-cache, must-revalidate');
         }
         echo "</div>";
+        echo "<form method='post' onsubmit='return verificar()' action='actualizar_perfil.php'>";
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
@@ -77,11 +78,11 @@
         echo "<h3> Domicilio </h3>";
         echo "<input type='text' name='domicilio' value='".$row[4]."'>";
         echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[6]."'>";
+        echo "<input type='text' name='pass' value='".$row[7]."'>";
         echo "<h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[7]."'>";
+        echo "<input type='tel' name='telefono' value='".$row[8]."'>";
         echo "<h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[8]."'>";
+        echo "<input type='text' name='informacion' value='".$row[9]."'>";
         echo "<br><br>";
         echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
         echo "&nbsp;&nbsp;&nbsp;&nbsp;";
@@ -106,30 +107,12 @@
                 }
                 $_SESSION['info-foto-perfil']=$ruta;
                 header('Cache-Control: no-store, no-cache, must-revalidate');
-            } else { 
-                echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
                 
+            }
             }
             header('Cache-Control: no-store, no-cache, must-revalidate');
 
         echo "<br>";
-        echo "<form method='post' onsubmit='return verificar()' action='actualizar_perfil.php'>";
-        echo "<div class='contenedor-input'> <input name='id_usuario' value='".$row[0]."'hidden> </div>";
-        echo "<div class='contenedor-input'> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
-        echo "<div class='contenedor-input'> <h3> Correo Electrónico </h3>";
-        echo "<input type='text' name='mail' value='".$row[3]."'> </div>";
-        echo "<div class='contenedor-input'> <h3> Domicilio </h3>";
-        echo "<input type='text' name='domicilio' value='".$row[4]."'> </div>";
-        echo "<div class='contenedor-input'> <h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' id='pass' value='".$row[7]."'> </div>";
-        echo "<div class='contenedor-input'> <h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[8]."'> </div>";
-        echo "<div class='contenedor-input'> <h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[9]."'> </div>";
-        echo "<br>";
-        echo"<input class='boton' type='submit' value='Enviar'> ";
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-        echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
      
 
             //--- carga de los demas datos ---
@@ -142,6 +125,7 @@
             $informacion = $_POST["informacion"];
         
             $sql = "UPDATE usuarios SET foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
+            mysqli_query($conexion, $sql);
 
             header("location:perfil.php");;}
 
