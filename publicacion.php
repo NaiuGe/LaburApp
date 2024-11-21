@@ -37,19 +37,20 @@
                         echo "<a href='perfil.php'>
                         <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>
                         </div>";}
-                        else{    
-                            echo "<a href='mostrar-perfil.php?id_usuario=".$id_usuario."'>
-                            <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>
-                            <a href='solicitar.php?id_publicacion=".$id."' class='boton'>
-                            <h4>Solicitar</h4>
-                            </a>
-                            </div>
-                            </div>";}}
+                    else{    
+                        echo "<a href='mostrar-perfil.php?id_usuario=".$id_usuario."'>
+                        <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>";
+                        
+                        echo "<a href='solicitar.php?id_publicacion=".$id."' class='boton'>
+                        <h4>Solicitar</h4>
+                        </a>
+                        </div>
+                        </div>";
+                        }}
                 else{    
                     echo "<a href='mostrar-perfil.php?id_usuario=".$id_usuario."'>
                     <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>
-                    <a href='solicitar.php?id_publicacion=".$id."' class='boton'>
-                    <h4>Solicitar</h4>
+                    <a href='login.html'><h3>¡Inicie sesion para solicitar trabajos!</h3></a>
                     </a>
                     </div>
                     </div>";}

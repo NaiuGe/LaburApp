@@ -57,20 +57,13 @@
                 echo "<h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p>";
             }
             echo "</div></div>";
-        } else {
-            echo "<div class='contenedor-no-sesion'>";
-            echo "No tienes una cuenta ingresada. Inicia sesión e inténtalo de nuevo.";
-            echo '<br><input  class="btn-busqueda" type="button" value="Iniciar sesión" onclick="location=\'login.html\'">';
-            echo "</div>";
-        }
-
-    echo '<div class="seccion">';
-    echo '<h2>Mis publicaciones</h2>';
-    echo ' <div class="publicaciones"> ' ;
-        echo '  <a href="crear_publicacion.php" class="link"> ' ;
-            echo '   <img src="imagenes/icono_trabajo.png" id="fotopubli"> ';
-            echo '   <b>Crear una publicación</b> ';
-            echo '  </a> ';
+            echo '<div class="seccion">';
+            echo '<h2>Mis publicaciones</h2>';
+            echo '<div class="publicaciones"> ' ;
+            echo '<a href="crear_publicacion.php" class="link"> ' ;
+            echo '<img src="imagenes/icono_trabajo.png" id="fotopubli"> ';
+            echo '<b>Crear una publicación</b> ';
+            echo '</a> ';
             include("conexion.php");
             $id=$_SESSION['id_usuario'];
             $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id' ";
@@ -93,6 +86,14 @@
 
         echo '  </div> ';
     echo '  </div> ';
+        } else {
+            echo "<div class='contenedor-no-sesion'>";
+            echo "No tienes una cuenta ingresada. Inicia sesión e inténtalo de nuevo.";
+            echo '<br><input  class="btn-busqueda" type="button" value="Iniciar sesión" onclick="location=\'login.html\'">';
+            echo "</div>";
+            }
+
+    
     ?>
 </main>
 <footer> 

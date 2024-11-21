@@ -51,7 +51,7 @@ session_start();
                     echo "<div class='bloque-solicitud'>
                     <h3>Tienes una solicitud de ".$fila_user['nombre']." ".$fila_user['apellido']. " para ''".$fila_p['nombre_publicacion']."''</h3>
                     <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
-                    <img src='".$fila_p['foto_portada']."' class=='foto-publicacion-solicitudes'>
+                    <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
                     </a>
                 </div>";
             }

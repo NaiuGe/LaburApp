@@ -75,19 +75,33 @@
                 echo "<div class='seccion-usuarios-busq'><h3>Usuarios</h3>";
                 if(!empty($_SESSION['id_usuario'])){
                     if ($filas_u['id_usuario']==$_SESSION['id_usuario']){
-                    echo "<a class='usuarios-busq' href='perfil.php'>";}}
+                    echo "<a class='usuarios-busq' href='perfil.php'>";}
+                    else{
+                        echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";
+                        }}
                 else{
-                echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";
-                }
+                    echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";
+                    }
                 if (!empty($filas_u['foto_perfil'])){
                     echo "<img src='".$filas_u['foto_perfil']."' id='foto-usuario-busq' ><h4>".$filas_u['nombre']. " ".$filas_u['apellido']."</h4> ";}
                 else{
                     echo "<img src='imagenes/icono_usuario.png' id='foto-usuario-busq' ><h4>".$filas_u['nombre']. " ".$filas_u['apellido']."</h4> ";}
-                echo"</a>";
-                while($filas_u = mysqli_fetch_assoc($resultado)) { //se itera para q muestre mas resultado si hay
-                    echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";
-                    echo "<img src='".$filas_u['foto_perfil']."' id='foto-usuario-busq' ><h4>".$filas_u['nombre']. " ".$filas_u['apellido']."</h4> ";
                     echo"</a>";
+                    while($filas_u = mysqli_fetch_assoc($resultado)) { //se itera para q muestre mas resultado si hay
+                        if(!empty($_SESSION['id_usuario'])){
+                            if ($filas_u['id_usuario']==$_SESSION['id_usuario']){
+                            echo "<a class='usuarios-busq' href='perfil.php'>";}
+                            else{
+                                echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";
+                                }}
+                        else{
+                        echo "<a class='usuarios-busq' href='mostrar-perfil.php?id_usuario=".$filas_u['id_usuario']."'>";}
+                        if (!empty($filas_u['foto_perfil'])){
+                            echo "<img src='".$filas_u['foto_perfil']."' id='foto-usuario-busq' ><h4>".$filas_u['nombre']. " ".$filas_u['apellido']."</h4> ";}
+                        else{
+                            echo "<img src='imagenes/icono_usuario.png' id='foto-usuario-busq' ><h4>".$filas_u['nombre']. " ".$filas_u['apellido']."</h4> ";}
+                            echo"</a>";
+                        
                 }
                 echo "</div>";
             }
@@ -118,7 +132,8 @@
                 echo "<h1>Sin resultados</h1>";
             }
         echo "</div>";
-       
+            
+        
         }
         //else {header("location:index.php");}
         ?>
