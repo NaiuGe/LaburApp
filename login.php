@@ -4,9 +4,6 @@
     
     $mail = $_POST["mail"];
     $pass = $_POST["pass"];
-    $id_usuario = $_POST["id_usuario"];
-    
-    //echo var_dump($id_usuario);
 
     $consulta = "SELECT * FROM usuarios WHERE mail='$mail' AND contraseña='$pass'";
 
@@ -28,8 +25,10 @@
         header("location:index.php");
     }
     else {
-        echo "<h1>No se pudo conectar, nombre de usuario o contraseña incorrecta.</h1>";
-        echo "<input class='boton2' type='button' value='Volver' onclick='location=\"login.html\"'>";
+        echo '<script>';
+        echo "alert('No se pudo iniciar sesión, usuario o contraseña incorrecta. Por favor intente nuevamente');";
+        echo 'window.location.href = "login.html";';
+        echo '</script>';
     }
     mysqli_close($conexion);
     

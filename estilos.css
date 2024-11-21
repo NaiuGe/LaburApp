@@ -1,66 +1,16 @@
-body{
-    background-color: rgb(238, 237, 237);
-}
 
-header {    
-    background-color: #362417;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
 
-a,header {
-    text-decoration: none;
-    color: wheat;
-}
 
-.barra-arriba {
-    display: flex;
-    margin: 2dvh;
-    background-color: #92817a;
-    flex-direction: row;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
-.bloque-perfil {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.info {
-    background-color:  #ffffff;
-    padding: 5dvh;
-    padding-top: 2dvh;
-    width: 200dvh;
-    border-radius: 0px 8px 8px 0px;
-}
 
-#contenedor-foto-perfil {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5vh;
-}
 
-.boton {
-    padding: 10px 20px;
-    background-color: #362417;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 4dvh;
-}
 
-.boton:hover{
-    background-color: #543c2b;
-}
+
+
+
+
+
 
 img{
     height: 100px;
