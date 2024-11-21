@@ -17,21 +17,6 @@
             Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required> <br> <br>
             Correo Electrónico <br> <input type="email" placeholder="Ingrese su Correo Electrónico..." id="mail" name="mail" minlength="11" required> <br> <br>
             Teléfono o Celular <br> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> <br> <br>
-            <h3>Seleccionar localidad</h3> 
-            <select name="localidad"  required>    
-                <option value="" selected disabled > Seleccionar Localidad </option>
-            <?php
-            include("conexion.php");
-            $consulta = "SELECT * FROM localidades ORDER BY id_localidad";
-            $resultado = mysqli_query($conexion, $consulta);
-            while($fila = mysqli_fetch_array($resultado)){
-                $localidad = $fila['nombre_localidad'];
-                $id_localidad = $fila['id_localidad'];
-                            ?>
-                <option value="<?php echo $id_localidad; ?>" ><?php echo $localidad; ?></option>
-                <?php
-            }
-            ?>
             <input class="btn-busqueda" type="submit" value="Crear usuario">
             <br>
             <a href="index.php"> <h4 id="volver"> Volver al inicio </h4></a>

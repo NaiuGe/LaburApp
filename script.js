@@ -40,7 +40,13 @@ function verificar() {
     return true;
 }
 
-
+function fecha(){
+    var fecha;
+    fecha= new Date();
+    
+    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
+    document.getElementById("fecha").value=cadena1 ;
+}
 
 
 function hora(){

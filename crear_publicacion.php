@@ -53,16 +53,6 @@
         </div>
     </header>
     
-<script>
-    function fecha(){
-    var fecha;
-    fecha= new Date();
-    
-    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
-    document.getElementById("fecha").value=cadena1 ;
-}
-</script>
-
         <main>
         <div class="centrar">
         <form class="cuadro-crear-formulario" action="crear_publicacion.php" method="POST" enctype="multipart/form-data">
@@ -73,7 +63,7 @@
             <textarea type="text" name="descripcion"  required> </textarea> 
             <h3>Seleccione una foto</h3> 
             <input type="file" name="imagen" required>
-            <input type="hidden" value="fecha" id="fecha" name="fecha1" >
+            <input type="hidden" value=" fecha" id="fecha" name="fecha1" >
             <h3>Seleccionar profesión</h3> 
             <select name="profesion"  required>    
                 <option value="" selected disabled > Seleccionar profesión </option>

@@ -16,7 +16,6 @@ $apellido = $_POST['apellido'];
 $pass = $_POST["pass"];
 $mail = $_POST["mail"];
 $telefono = $_POST["telefono"];
-$localidad = $POST["localidad"];
 
 $consulta = "SELECT * FROM usuarios WHERE mail='$mail'";
 $resultado = mysqli_query($conexion, $consulta);

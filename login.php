@@ -25,10 +25,8 @@
         header("location:index.php");
     }
     else {
-        echo '<script>';
-        echo "alert('No se pudo iniciar sesión, usuario o contraseña incorrecta. Por favor intente nuevamente');";
-        echo 'window.location.href = "login.html";';
-        echo '</script>';
+        echo "<h1>No se pudo conectar, nombre de usuario o contraseña incorrecta.</h1>";
+        echo "<input class='boton2' type='button' value='Volver' onclick='location=\"login.html\"'>";
     }
     mysqli_close($conexion);
     
