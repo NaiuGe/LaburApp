@@ -81,7 +81,7 @@
                     <b> ". $fila['nombre_publicacion'] ." </b>
                     </a>";
             }
-            } else {echo "no hay publicaciones";}
+            }
             
 
         echo '  </div> ';

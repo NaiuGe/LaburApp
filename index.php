@@ -36,7 +36,7 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<a href='perfil.php' class='perfil-modif'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
@@ -114,21 +114,7 @@
             ?>
         </div>
     </div>
-    </main>
-    <footer> 
-    <div class="paginacion">
-    <?php
-        echo "<h2> Pág:</h2>";
-        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
-        }
-        ?>
-    </div>
-        <h3 id="derecho"></h3>
-    </footer>
-    <script src="./script.js"></script> 
-</body>
-    
+    </main>   
     <footer> 
         
     <div class="paginacion">

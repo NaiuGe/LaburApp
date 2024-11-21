@@ -18,8 +18,8 @@
                 <img class="logo-hidden" src="./imagenes/logo.png" alt="logo-Laburapp">
             </div>
             <li><a href="index.php" alt="indice">Principal</a></li>
-            <li><a href="#" alt="Ver Perfil">Ver Perfil</a></li>
-            <li><a href="cerrarlogin.php" alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+            <li><a href="perfil.php" alt="Ver Perfil">Ver Perfil</a></li>
+            <li><a href="cerrarlogin.php" alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
         </ul>
     </nav>
 </header>
@@ -59,7 +59,6 @@ session_start();
                 
             
         
-       
     }
 
 ?>

@@ -31,9 +31,6 @@
     }
 </script>
 <body>
-    <div class='centrar'>
-    <div class='mod-perfil'>
-    <h2>Modificar Perfil </h2>
     <form method="post" action="info_perfil.php" enctype="multipart/form-data">
         
     <?php
@@ -58,8 +55,9 @@
         echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3>";
         
         echo "<div class='contenedor-foto'>";
+     
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
-            echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "'>";
+            echo "<img class='fotoperfil' src='" . $_SESSION['info-foto-perfil']  . "'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
         header('Cache-Control: no-store, no-cache, must-revalidate');}
         else {
@@ -72,7 +70,7 @@
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
-        echo "<h3>Nombre y Apellido</h3> <p>".$row[1]. " ".$row[2]."</p>";
+        echo "<div> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
         echo "<h3> Correo Electrónico </h3>";
         echo "<input type='text' name='mail' value='".$row[3]."'>";
         echo "<h3> Domicilio </h3>";
@@ -113,7 +111,6 @@
             header('Cache-Control: no-store, no-cache, must-revalidate');
 
         echo "<br>";
-     
 
             //--- carga de los demas datos ---
             if(isset($_POST['btnregistrar'])){

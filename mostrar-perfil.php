@@ -6,6 +6,23 @@
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Perfil de usuario </title>
 </head>
+<header>
+    <input type="checkbox" id="btn_menu">
+    <label for="btn_menu">
+        <img src="./imagenes/fotoMenu.png" alt="Menu">
+    </label>
+    <nav class="nav-bar">
+        <ul>
+            <div>
+                <img class="logo-hidden" src="./imagenes/logo.png" alt="logo-Laburapp">
+            </div>
+            <li><a href="index.php" alt="indice">Principal</a></li>
+            <li><a href="perfil.php" alt="Ver Perfil">Ver Perfil</a></li>
+            <li><a href="cerrarlogin.php" alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+        </ul>
+    </nav>
+</header>
+    
 <body>
             <?php
                 session_name("LOGIN");
@@ -21,10 +38,6 @@
                     $resultado= mysqli_query($conexion, $consulta);
                     $cantfilas= mysqli_num_rows($resultado);
                     $fila = mysqli_fetch_assoc($resultado);
-                    echo "<header> 
-                    <div class='logo'>Laburapp </div>
-                    <nav><a href='index.php'>Inicio</a></nav>
-                    </header>"; //barra superior
                     echo "<div class='barra-arriba'>";
                     echo "<div class='bloque-perfil'> <form id='contenedor-foto-perfil' action='info_perfil.php' method='POST'>";
                     if (!empty($fila['foto_perfil'] )){
@@ -73,7 +86,12 @@
             ?>
         
     </div>
-
+    <footer> 
+    <div class="paginacion">
+    </div>
+        <h3 id="derecho"></h3>
+    </footer>
+    <script src="./script.js"></script> 
 
 </body>
 </html>
