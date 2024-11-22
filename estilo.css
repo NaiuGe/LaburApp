@@ -406,8 +406,6 @@ b {
 }
 /* -------------------------------------CSS DE BUSQUEDA---------------------------------- */
 .seccion-general-busq{
-  width: 100vh;
-  height: auto;
   padding: 5vh;
 }
 .seccion-usuarios-busq{
@@ -420,19 +418,18 @@ b {
   width: 100vh;
   height: auto;
   justify-content: center;
-  
- 
+  align-items: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);;
 }
 .usuarios-busq{
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: 3vh;
   padding: 3vh;
   background-color: #f1dabf;
-  width: 80vh;
+  /*width: 80vh;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333;
@@ -490,7 +487,9 @@ b {
   text-decoration: none;
   color: #333;
   transition: transform 0.2s, box-shadow 0.2s;
+  justify-content: center;
 }
+
 
 .link:hover {
   transform: translateY(-2px);
@@ -712,7 +711,8 @@ margin: 20px;
   align-items: center;
   background-color: #cfac85;
   margin: 5vh;
-  padding: 10vh;
+  padding: 4vh;
+  
 .cuadro-inicio-sesion h3 , select {
   margin: 0.8vw;
 }
