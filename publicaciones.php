@@ -83,6 +83,7 @@
                     <b> ". $fila['nombre_publicacion'] ." </b>
                     <input type='hidden' name='id_publicacion' value='".$idp."'>
                 </a> ";
+                
                 //se itera las siguientes publicaciones con un while
                while($fila = mysqli_fetch_assoc($resultado)){
                     $idp = $fila['id_publicaciones'];

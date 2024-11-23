@@ -796,6 +796,7 @@ footer h3{
 .abrir-menu,
 .cerrar-menu {
   width: 3rem;
+  color: white;
 }
 
 
@@ -831,9 +832,9 @@ footer h3{
   gap: 1rem;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   bottom: 0;
-  background-color: #362417;
+  background-color:black;
   padding: 2rem;
   box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
   }
