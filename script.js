@@ -1,3 +1,16 @@
+const nav = document.querySelector("#nav");
+const abrir = document.querySelector("#abrir");
+const cerrar = document.querySelector("#cerrar");
+
+abrir.addEventListener("click", () => {
+    nav.classList.add("visible");
+})
+
+cerrar.addEventListener("click", () => {
+    nav.classList.remove("visible");
+})
+
+
 let hoy = new Date() // crea una nueva fecha
 let anio = hoy.getFullYear() // selecciona el año de esa fecha
 let derechos = `&copy; <strong> ${anio} </strong> - LaburAPP - Todos los derechos reservados`

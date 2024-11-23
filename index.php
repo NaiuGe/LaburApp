@@ -17,18 +17,14 @@
 </head>
 <body>
 <header>
-    <input type="checkbox" id="btn_menu">
-        <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-        </label>
-        <nav class="nav-bar">
-                <ul>
-                    <div>
-                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
-                    </div>
+    <img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+                    <ul class="nav-list"> 
                     <li><a href="#" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
-                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
             <div class="perfil"> 
@@ -128,6 +124,6 @@
         <h3 id="derecho"></h3>
         <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
     </footer>
-    <script src="./script.js"></script> 
+    <script src="script.js"></script> 
 </body>
 </html>

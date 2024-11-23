@@ -9,20 +9,16 @@
 </head>
 <body>
 <header>
-    <input type="checkbox" id="btn_menu">
-    <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-    </label>
-    <nav class="nav-bar">
-        <ul>
-            <div>
-                <img class="logo-hidden" src="./imagenes/logo.png" alt="logo-Laburapp">
-            </div>
-            <li><a href="index.php" alt="indice">Principal</a></li>
-            <li><a href="#" alt="Ver Perfil">Ver Perfil</a></li>
-            <li><a href="cerrarlogin.php" alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
-        </ul>
-    </nav>
+<img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+                    <ul class="nav-list"> 
+                    <li><a href="index.php" alt="indice">Principal</a></li>
+                    <li><a href='#' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
+                </ul>
+            </nav>
 </header>
 <main>
     <?php
