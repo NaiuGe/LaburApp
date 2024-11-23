@@ -496,7 +496,7 @@ margin: 20px;
 
 .password-container input {
   flex: 1;
-  padding-right: 40px; /* Espacio para el botón de ver contraseña */
+  padding-right: 40px; /* Espacio para el botón */
 }
 
 .password-container button {
@@ -516,6 +516,7 @@ margin: 20px;
   height: 24px;
   color: #555;
 }
+
 /*--------------------- CSS DE VER PUBLICACIÓN -----------------------*/
 .cuadro-ver-publicacion{
   background: #ffffff; 

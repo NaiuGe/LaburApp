@@ -48,24 +48,8 @@
         <div class="paginacion"></div>
         <h3 id="derecho"></h3>
     </footer>
-    <script>
-        // Seleccionamos los elementos necesarios
-        const passwordInput = document.getElementById('pass');
-        const togglePassButton = document.getElementById('togglePass');
-        const openEyeIcon = document.getElementById('openEye');
-        const closedEyeIcon = document.getElementById('closedEye');
+    <script src="script.js">
 
-        // Agregamos un evento al botón
-        togglePassButton.addEventListener('click', () => {
-            const isPassword = passwordInput.getAttribute('type') === 'password';
-
-            // Cambiar el tipo de input
-            passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
-
-            // Alternar íconos
-            openEyeIcon.style.display = isPassword ? 'inline' : 'none';
-            closedEyeIcon.style.display = isPassword ? 'none' : 'inline';
-        });
     </script>
 </body>
 </html>

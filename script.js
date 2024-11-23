@@ -49,3 +49,22 @@ function hora(){
     var cadena = fecha.getHours() + '/' + fecha.getMinutes() + '/' + fecha.getSeconds();
     return cadena;
 }
+
+
+// Seleccionamos los elementos necesarios
+const passwordInput = document.getElementById('pass');
+const togglePassButton = document.getElementById('togglePass');
+const openEyeIcon = document.getElementById('openEye');
+const closedEyeIcon = document.getElementById('closedEye');
+
+// Agregamos un evento al botón
+togglePassButton.addEventListener('click', () => {
+    const isPassword = passwordInput.getAttribute('type') === 'password';
+
+    // Cambiar el tipo de input
+    passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+
+    // Alternar íconos
+    openEyeIcon.style.display = isPassword ? 'inline' : 'none';
+    closedEyeIcon.style.display = isPassword ? 'none' : 'inline';
+});
