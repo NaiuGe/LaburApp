@@ -487,6 +487,35 @@ margin: 20px;
   color: #333; 
 }
 
+/*Modificador Ojo de ver la contraseña*/
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  flex: 1;
+  padding-right: 40px; /* Espacio para el botón de ver contraseña */
+}
+
+.password-container button {
+  position: absolute;
+  right: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.password-container svg {
+  width: 24px;
+  height: 24px;
+  color: #555;
+}
 /*--------------------- CSS DE VER PUBLICACIÓN -----------------------*/
 .cuadro-ver-publicacion{
   background: #ffffff; 
