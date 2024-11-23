@@ -42,11 +42,11 @@
                     } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                     echo '<br></br></div>';
                     echo '<div class="info"> <h1>'. $fila['nombre'].' '. $fila['apellido'] .'</h1>';
-                    echo " <h3> Información</h3>";
-                    echo "<p> ". $fila['informacion'] ." </p>";
-                    echo "<h4>Número de Teléfono: </h4><p>". $fila['telefono'] ."</p>";
-                    echo "<h4>Correo Electrónico: </h4><p>". $fila['mail'] ."</p>";
-                    echo "<h4>Domicilio: </h4><p>". $fila['domicilio'] ."</p>";
+                    echo "<div class='contenedor-datos'> <h3> Información</h3>";
+                    echo "<p> ". $fila['informacion'] ." </p> </div>";
+                    echo "<div class='contenedor-datos'> <h4>Número de Teléfono: </h4><p>". $fila['telefono'] ."</p> </div>";
+                    echo "<div class='contenedor-datos'> <h4>Correo Electrónico: </h4><p>". $fila['mail'] ."</p> </div>";
+                    echo "<div class='contenedor-datos'><h4>Domicilio: </h4><p>". $fila['domicilio'] ."</p> </div>";
                     echo "</div>
                     </div>";
                     echo '<div class="seccion">';

@@ -45,12 +45,12 @@
             echo '</div>';
 
             echo "<div class='info'><h1>" . $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] . "</h1>";
-            echo "<h3>Información</h3>";
+            echo "<div class='contenedor-datos'><h3>Información</h3>";
             while ($fila = mysqli_fetch_assoc($resultado)) {
-                echo "<p>" . $fila['informacion'] . "</p>";
-                echo "<h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p>";
-                echo "<h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p>";
-                echo "<h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p>";
+                echo "<p>" . $fila['informacion'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p> </div>";
             }
             echo "</div></div>";
             echo '<div class="seccion">';

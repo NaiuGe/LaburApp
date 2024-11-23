@@ -28,7 +28,7 @@
                 $fila_usuario = mysqli_fetch_assoc($resultado2);
                 echo "<h1>" . $fila['nombre_publicacion'] . "</h1>";
                 echo "<div class='seccion'> 
-                    <h2>" . $fila['descripcion'] . "</h2>
+                    <p>" . $fila['descripcion'] . "</p>
                     <div class='foto-portada-en-publicacion'><img class='foto-portada-en-publicacion' src='" . $fila['foto_portada'] . "' width='500vh'></div>
                     <h4>Publicado el: " . $fila['fecha'] . ".</h4>";
                 if (isset($_SESSION['id_usuario'])) {

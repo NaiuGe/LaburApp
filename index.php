@@ -85,7 +85,7 @@
                     $fila_u = mysqli_fetch_assoc($resultado2);  
                     echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
-                    <b> ". $fila_p['nombre_publicacion'] ." </b> 
+                    <p> ". $fila_p['nombre_publicacion'] ." </p> 
                     <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
@@ -97,7 +97,7 @@
                         echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                         <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                         <b> ". $fila_p['nombre_publicacion'] ." </b>
-                        <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                        <p> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</p>
                         </a>";
                         
                     }
