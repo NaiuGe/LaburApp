@@ -37,12 +37,19 @@
                         echo "<a href='perfil.php'>
                         <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>
                         </div>";}
-                    else{    
+                    else{ 
+                        $id_cliente = $_SESSION['id_usuario'];   
                         echo "<a href='mostrar-perfil.php?id_usuario=".$id_usuario."'>
                         <h4>Por: ".$fila_usuario['nombre']. " ".$fila_usuario['apellido'].".</h4></a>";
-                        
-                        echo "<a href='solicitar.php?id_publicacion=".$id."' class='boton'>
-                        <h4>Solicitar</h4>
+                        $sql = "SELECT * from solicitudes WHERE id_usuario='$id_cliente' and id_publicaciones='$id'";
+                        $sql = "SELECT * from solicitudes WHERE id_usuario='$id_cliente' and id_publicaciones='$id'";
+                        $resultado = mysqli_query($conexion, $sql);
+                        if (mysqli_num_rows($resultado)==0){
+                            echo "<a href='solicitar.php?id_publicacion=".$id."' class='boton'>
+                            <h4>Solicitar</h4>";}
+                        else{echo "
+                            <h4><input type='button' disabled class='boton' value='Solicitado'></h4>";} 
+                        echo "
                         </a>
                         </div>
                         </div>";

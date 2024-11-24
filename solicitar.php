@@ -13,11 +13,9 @@ if(!empty($_GET['id_publicacion'])){
     if($cantfilas==0){
         $sql = "INSERT INTO solicitudes (id_publicaciones, id_usuario) VALUES ('$id_p', '$id_u')";
         mysqli_query($conexion, $sql);
-        echo "solicitud enviada";
-        echo "<input type=button onclick='location=\"index.php\"'>";
+        header("location:index.php");
     }
-    else{ echo "ya solicitaste este servicio";
-        echo "<input type=button onclick='location=\"index.php\"'>";}
+    else{header("location:index.php");}
     mysqli_close($conexion);
 }
 else{ header("location:index.php");}

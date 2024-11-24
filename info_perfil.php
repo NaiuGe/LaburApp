@@ -59,11 +59,11 @@
         
         echo "<div class='contenedor-foto'>";
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
-            echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "'>";
+            echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "' class='fotoperfil'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
         header('Cache-Control: no-store, no-cache, must-revalidate');}
         else {
-            echo "img id='imagenPreview' src='imagenes/icono_usuario.png' >";
+            echo "<img id='imagenPreview' src='imagenes/icono_usuario.png' >";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
         header('Cache-Control: no-store, no-cache, must-revalidate');
         }

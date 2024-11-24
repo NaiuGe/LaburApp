@@ -66,8 +66,19 @@
             echo '</a> ';
             include("conexion.php");
             $id=$_SESSION['id_usuario'];
-            $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id' ";
-            $resultado = mysqli_query($conexion, $consulta);
+            if (isset($_GET['pagina'])){
+                $pagina = $_GET['pagina'];
+            } else {
+                $pagina = 1;
+            }
+            $rango_publi = 2;
+            $desde = ($pagina-1)*$rango_publi;             
+            $registro_publicaciones = "SELECT * from publicaciones where id_usuario='$id'";
+            $resultado = mysqli_query($conexion, $registro_publicaciones);
+            $cantf = mysqli_num_rows($resultado);
+            $cant_publi= ceil($cantf/$rango_publi);
+            $sql = "SELECT * from publicaciones where id_usuario='$id' limit $desde, $rango_publi";
+            $resultado = mysqli_query($conexion, $sql);
             $cantfilas= mysqli_num_rows($resultado);
             if($cantfilas>=1){
                 $fila = mysqli_fetch_assoc($resultado);
@@ -98,6 +109,12 @@
 </main>
 <footer> 
     <div class="paginacion">
+    <?php
+        echo "<h2> Pág:</h2>";
+        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
+            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
+        }
+        ?>
     </div>
         <h3 id="derecho"></h3>
     </footer>

@@ -34,33 +34,36 @@ session_start();
 
     $consulta = "SELECT * from publicaciones WHERE id_usuario='$id_u'";
     $resultado = mysqli_query($conexion, $consulta);
-    
     if (mysqli_num_rows($resultado)>=1){
-        $fila_p= mysqli_fetch_assoc($resultado);
+       while( $fila_p = mysqli_fetch_assoc($resultado)){
         $id_p = $fila_p['id_publicaciones'];
         $sql = "SELECT * from solicitudes WHERE id_publicaciones = '$id_p'";
         $resultado_solicitudes = mysqli_query($conexion, $sql);
-        if (mysqli_num_rows($resultado)>=1){
-        
+        if (mysqli_num_rows($resultado_solicitudes)>=1){
             while ($solicitudes = mysqli_fetch_assoc($resultado_solicitudes)){
-                    $id_solicitud = $solicitudes['id_solicitudes'];
-                    $id_cliente = $solicitudes ['id_usuario'];
-                    $sql2 ="SELECT * from usuarios WHERE id_usuario='$id_cliente'";
-                    $resultado = mysqli_query($conexion, $sql2);
-                    $fila_user= mysqli_fetch_assoc($resultado);
-                    echo "<div class='bloque-solicitud'>
-                    <h3>Tienes una solicitud de ".$fila_user['nombre']." ".$fila_user['apellido']. " para ''".$fila_p['nombre_publicacion']."''</h3>
-                    <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
-                    <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
-                    </a>
-                </div>";
-            }
-            }
-                
+                $id_solicitud = $solicitudes['id_solicitudes'];
+                $id_cliente = $solicitudes ['id_usuario'];
+                $sql2 ="SELECT * from usuarios WHERE id_usuario='$id_cliente'";
+                $resultado = mysqli_query($conexion, $sql2);
+                $fila_user= mysqli_fetch_assoc($resultado);
+                echo "<div class='bloque-solicitud'>
+                <h3>Tienes una solicitud de ".$fila_user['nombre']." ".$fila_user['apellido']. " para ''".$fila_p['nombre_publicacion']."''</h3>
+                <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
+                <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
+                </a>
+            </div>";
+        }}
+           
+            
+    }
+
+
+        
+    }        
             
         
        
-    }
+    
 
 ?>
 </div>
