@@ -16,6 +16,7 @@
                     <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='#' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="grafico.php">Ver gráfico</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>

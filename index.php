@@ -20,10 +20,11 @@
     <img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
         <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
         <nav class="nav-bar" id="nav">
-        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+            <button id="cerrar" class="cerrar-menu">X</button>
                     <ul class="nav-list"> 
                     <li><a href="#" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="grafico.php">Ver gráfico</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
