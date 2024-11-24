@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2024 a las 23:47:24
+-- Tiempo de generación: 25-11-2024 a las 00:43:07
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,19 +18,20 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `laburapp`
+-- Base de datos: `labur_app`
 --
-
+drop database if exists labur_app;
+create database labur_app;
+use labur_app;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `foto`
+-- Estructura de tabla para la tabla `localidades`
 --
 
-CREATE TABLE `foto` (
-  `id_foto` int(11) NOT NULL,
-  `foto` varchar(222) NOT NULL,
-  `id_publicaciones` int(11) NOT NULL
+CREATE TABLE `localidades` (
+  `id_localidad` int(11) NOT NULL,
+  `nombre_localidad` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -44,17 +45,6 @@ CREATE TABLE `profesiones` (
   `nombre_profesion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `profesiones`
---
-
-INSERT INTO `profesiones` (`id_profesion`, `nombre_profesion`) VALUES
-(1, 'albañil'),
-(2, 'fletero'),
-(3, 'jardinero'),
-(4, 'almacen'),
-(5, 'otros');
-
 -- --------------------------------------------------------
 
 --
@@ -67,18 +57,21 @@ CREATE TABLE `publicaciones` (
   `id_profesion` int(11) NOT NULL,
   `nombre_publicacion` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
-  `fecha` varchar(255) NOT NULL,
+  `fecha` varchar(11) NOT NULL,
+  `id_solicitud` int(11) NOT NULL,
   `foto_portada` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `publicaciones`
+-- Estructura de tabla para la tabla `publicacionxprofesion`
 --
 
-INSERT INTO `publicaciones` (`id_publicaciones`, `id_usuario`, `id_profesion`, `nombre_publicacion`, `descripcion`, `fecha`, `foto_portada`) VALUES
-(27, 13, 1, 'trabajo de albañil', 'contruyo', '22/10/2024', 'imagenes/fotos_portadas_publicaciones/momo13nombrepublicaciontrabajo de albañil.jpg'),
-(28, 13, 3, 'corta pasto nashe', 'corto pasto', '22/10/2024', 'imagenes/fotos_portadas_publicaciones/momo13nombrepublicacioncorta pasto nashe.jpg'),
-(29, 13, 5, 'servicio de flete', 'hago servicio de flete', '22/10/2024', 'imagenes/fotos_portadas_publicaciones/momo13nombrepublicacionservicio de flete.jpeg');
+CREATE TABLE `publicacionxprofesion` (
+  `id_publicaciones` int(11) NOT NULL,
+  `id_profesion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -88,7 +81,8 @@ INSERT INTO `publicaciones` (`id_publicaciones`, `id_usuario`, `id_profesion`, `
 
 CREATE TABLE `rating` (
   `id_rating` int(11) NOT NULL,
-  `id_publicaciones` int(11) NOT NULL
+  `id_publicaciones` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -113,31 +107,14 @@ CREATE TABLE `usuarios` (
   `id_usuario` int(111) NOT NULL,
   `nombre` text NOT NULL,
   `apellido` text NOT NULL,
-  `mail` varchar(222) NOT NULL,
-  `info` varchar(222) NOT NULL,
-  `domicilio` varchar(222) NOT NULL,
+  `mail` text NOT NULL,
+  `domicilio` text NOT NULL,
   `foto_perfil` varchar(222) NOT NULL,
   `contraseña` varchar(222) NOT NULL,
-  `telefono` bigint(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `mail`, `info`, `domicilio`, `foto_perfil`, `contraseña`, `telefono`) VALUES
-(12, 'Gero', 'Caporale', 'andrescaporale11@gmail.com', '', '', '', '1234', 3402445508),
-(13, 'momo', 'momardo', 'momom@gmail.com', '', '', 'imagenes/fotos_perfiles/momo13.jpg', 'momo', 3402666666);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `usuariosxprofesion`
---
-
-CREATE TABLE `usuariosxprofesion` (
-  `id_usuario` int(11) NOT NULL,
-  `id_profesion` int(11) NOT NULL
+  `telefono` bigint(50) NOT NULL,
+  `informacion` varchar(999) NOT NULL,
+  `id_localidad` int(11) NOT NULL,
+  `id_rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -145,10 +122,10 @@ CREATE TABLE `usuariosxprofesion` (
 --
 
 --
--- Indices de la tabla `foto`
+-- Indices de la tabla `localidades`
 --
-ALTER TABLE `foto`
-  ADD PRIMARY KEY (`id_foto`);
+ALTER TABLE `localidades`
+  ADD PRIMARY KEY (`id_localidad`);
 
 --
 -- Indices de la tabla `profesiones`
@@ -161,52 +138,62 @@ ALTER TABLE `profesiones`
 --
 ALTER TABLE `publicaciones`
   ADD PRIMARY KEY (`id_publicaciones`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_profesion` (`id_profesion`);
+  ADD KEY `fk_usuarios_publicaciones` (`id_usuario`),
+  ADD KEY `fk_publicaciones_solicitudes` (`id_solicitud`),
+  ADD KEY `fk_publicaciones_profesiones` (`id_profesion`);
+
+--
+-- Indices de la tabla `publicacionxprofesion`
+--
+ALTER TABLE `publicacionxprofesion`
+  ADD KEY `fk_publicacionxprofesion_profesion` (`id_profesion`),
+  ADD KEY `fk_publicacionxprofesion_publicaciones` (`id_publicaciones`);
 
 --
 -- Indices de la tabla `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`id_rating`),
-  ADD KEY `id_publicaciones` (`id_publicaciones`);
+  ADD KEY `fk_usuarios_rating` (`id_usuario`),
+  ADD KEY `fk_rating_publicaciones` (`id_publicaciones`);
 
 --
 -- Indices de la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
   ADD PRIMARY KEY (`id_solicitudes`),
-  ADD KEY `id_publicaciones` (`id_publicaciones`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD KEY `fk_usuarios_solicitudes` (`id_usuario`),
+  ADD KEY `fk_solicitudes_publicaciones` (`id_publicaciones`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `mail` (`mail`);
+  ADD KEY `fk_usuarios_localidades` (`id_localidad`),
+  ADD KEY `id_rating` (`id_rating`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `foto`
+-- AUTO_INCREMENT de la tabla `localidades`
 --
-ALTER TABLE `foto`
-  MODIFY `id_foto` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `localidades`
+  MODIFY `id_localidad` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `profesiones`
 --
 ALTER TABLE `profesiones`
-  MODIFY `id_profesion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_profesion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `id_publicaciones` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_publicaciones` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `rating`
@@ -224,7 +211,7 @@ ALTER TABLE `solicitudes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_usuario` int(111) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -234,23 +221,38 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `publicaciones_ibfk_2` FOREIGN KEY (`id_profesion`) REFERENCES `profesiones` (`id_profesion`);
+  ADD CONSTRAINT `fk_publicaciones_profesiones` FOREIGN KEY (`id_profesion`) REFERENCES `profesiones` (`id_profesion`),
+  ADD CONSTRAINT `fk_publicaciones_solicitudes` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitudes` (`id_solicitudes`),
+  ADD CONSTRAINT `fk_usuarios_publicaciones` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+--
+-- Filtros para la tabla `publicacionxprofesion`
+--
+ALTER TABLE `publicacionxprofesion`
+  ADD CONSTRAINT `fk_publicacionxprofesion_profesion` FOREIGN KEY (`id_profesion`) REFERENCES `profesiones` (`id_profesion`),
+  ADD CONSTRAINT `fk_publicacionxprofesion_publicaciones` FOREIGN KEY (`id_publicaciones`) REFERENCES `publicaciones` (`id_publicaciones`);
 
 --
 -- Filtros para la tabla `rating`
 --
 ALTER TABLE `rating`
-  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`id_publicaciones`) REFERENCES `publicaciones` (`id_publicaciones`);
+  ADD CONSTRAINT `fk_rating_publicaciones` FOREIGN KEY (`id_publicaciones`) REFERENCES `publicaciones` (`id_publicaciones`),
+  ADD CONSTRAINT `fk_usuarios_rating` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `solicitudes`
 --
 ALTER TABLE `solicitudes`
-  ADD CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`id_publicaciones`) REFERENCES `publicaciones` (`id_publicaciones`),
-  ADD CONSTRAINT `solicitudes_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
-COMMIT;
+  ADD CONSTRAINT `fk_solicitudes_publicaciones` FOREIGN KEY (`id_publicaciones`) REFERENCES `publicaciones` (`id_publicaciones`),
+  ADD CONSTRAINT `fk_usuarios_solicitudes` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fk_usuarios_localidades` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id_localidad`),
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_rating`) REFERENCES `rating` (`id_rating`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
