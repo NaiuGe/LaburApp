@@ -70,18 +70,18 @@
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
-        echo "<div> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
-        echo "<h3> Correo Electrónico </h3>";
-        echo "<input type='text' name='mail' value='".$row[3]."'>";
-        echo "<h3> Domicilio </h3>";
-        echo "<input type='text' name='domicilio' value='".$row[4]."'>";
-        echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[6]."'>";
-        echo "<h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[7]."'>";
-        echo "<h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[8]."'>";
-        echo "<h3>Seleccionar localidad</h3> ";
+        echo "<div class='contenedor-input'> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
+        echo "<div class='contenedor-input'><h3> Correo Electrónico </h3>";
+        echo "<input type='text' name='mail' value='".$row[3]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Domicilio </h3>";
+        echo "<input type='text' name='domicilio' value='".$row[4]."'> </div>";
+        echo "<div class='contenedor-input'><h3> CONTRASEÑA </h3>";
+        echo "<input type='text' name='pass' value='".$row[6]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Número de Telefono </h3>";
+        echo "<input type='tel' name='telefono' value='".$row[7]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Descripción personal </h3>";
+        echo "<input type='text' name='informacion' value='".$row[8]."'> </div>";
+        echo "<div class='contenedor-input'><h3>Seleccionar localidad</h3> ";
 
         $consulta2 = "SELECT * FROM localidades WHERE id_localidad = '$row[9]';";
         $resultado2 = mysqli_query($conexion, $consulta2);
@@ -99,8 +99,7 @@
                 if($id_localidad==$row[9]){}         
                 else{echo "<option value='". $id_localidad ."'> ".$localidad." </option>";}
             }
-        echo "</select>";
-        echo "<br></br>";
+        echo "</select></div>";
         echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
         echo "&nbsp;&nbsp;&nbsp;&nbsp;";
         echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";

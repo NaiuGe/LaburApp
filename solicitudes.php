@@ -77,11 +77,13 @@ session_start();
                                 </div>";     
                             }  
             }
-            }
-            echo "sss";
+            } echo "<div class='bloque-solicitud'> <h2>No hay solicitudes de momento.</h2> </div>";
                 
             
         
+    } 
+    if (mysqli_num_rows($resultado)==0){ 
+        echo "<div class='bloque-solicitud'> <h2>No hay publicaciones hechas, haz una publicación para tener solicitudes!.</h2> </div>";
     }
 
 ?>

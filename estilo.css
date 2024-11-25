@@ -537,7 +537,7 @@ margin: 20px;
   border-radius: 8px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  width:  300px;
+  width:  400px;
   height: auto;
   text-align: center;
 
@@ -684,8 +684,8 @@ margin: 20px;
 
 }
 .contenedor-foto{
-  margin: 5vh;
-  width: 200px;
+  display: flex;
+  justify-content: center;
 }
 .mod-perfil{
   display: inline;
