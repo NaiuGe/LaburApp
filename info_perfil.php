@@ -57,11 +57,11 @@
         echo "<div class='contenedor-foto'>";
      
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
-            echo "<img class='fotoperfil' src='" . $_SESSION['info-foto-perfil']  . "'>";
+            echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "' class='fotoperfil'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
         header('Cache-Control: no-store, no-cache, must-revalidate');}
         else {
-            echo "img id='imagenPreview' src='imagenes/icono_usuario.png' >";
+            echo "<img id='imagenPreview' src='imagenes/icono_usuario.png' class='fotoperfil'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
         header('Cache-Control: no-store, no-cache, must-revalidate');
         }
@@ -70,34 +70,39 @@
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
-        echo "<div> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
-        echo "<h3> Correo Electrónico </h3>";
-        echo "<input type='text' name='mail' value='".$row[3]."'>";
-        echo "<h3> Domicilio </h3>";
-        echo "<input type='text' name='domicilio' value='".$row[4]."'>";
-        echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[6]."'>";
-        echo "<h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[7]."'>";
-        echo "<h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[8]."'>";
+        echo "<div class='contenedor-input'> <h3>Nombre y Apellido</h3> <p id='nombre-usuario'>".$row[1]. " ".$row[2]."</p> </div>";
+        echo "<div class='contenedor-input'><h3> Correo Electrónico </h3>";
+        echo "<input type='text' name='mail' value='".$row[3]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Domicilio </h3>";
+        echo "<input type='text' name='domicilio' value='".$row[4]."'> </div>";
+        echo "<div class='contenedor-input'><h3> CONTRASEÑA </h3>";
+        echo "<input type='text' name='pass' value='".$row[6]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Número de Telefono </h3>";
+        echo "<input type='tel' name='telefono' value='".$row[7]."'> </div>";
+        echo "<div class='contenedor-input'><h3> Descripción personal </h3>";
+        echo "<input type='text' name='informacion' value='".$row[8]."'> </div>";
+        echo "<div class='contenedor-input'><h3>Seleccionar localidad</h3> ";
 
-        $consulta2 = "SELECT nombre_localidad FROM `localidades` WHERE id_localidad = '$row[9]';";
-
+        $consulta2 = "SELECT * FROM localidades WHERE id_localidad = '$row[9]';";
         $resultado2 = mysqli_query($conexion, $consulta2);
-
-        $pruebas = mysqli_fetch_assoc($resultado2);
-
-        echo $pruebas["nombre_localidad"];
-
-        /*if ($row2 = mysqli_fetch_row($resultado2)){
-            echo "<h3> Localidad </h3>";
-            echo "<input type='text' name='localidad' value='".$row2[]."'>";
-            echo "<br><br>";
-            echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
-            echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-            echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
-        }*/
+        $localidad1 = mysqli_fetch_assoc($resultado2);
+        
+        echo "<select name='localidad'  required>    
+                <option value='".$localidad1['id_localidad']."' selected > ".$localidad1['nombre_localidad']." </option>";
+            
+            
+            $sql = "SELECT * FROM localidades ORDER BY id_localidad  ";
+            $resultado = mysqli_query($conexion, $sql);
+            while($fila = mysqli_fetch_array($resultado)){
+                $localidad = $fila['nombre_localidad'];
+                $id_localidad = $fila['id_localidad'];
+                if($id_localidad==$row[9]){}         
+                else{echo "<option value='". $id_localidad ."'> ".$localidad." </option>";}
+            }
+        echo "</select></div>";
+        echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
+        echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+        echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
 
             //--- php de la foto ---
             if(!empty($_POST['btnregistrar'])){
@@ -136,7 +141,7 @@
             $informacion = $_POST["informacion"];
             $localidad = $_POST["localidad"];
         
-            $sql = "UPDATE usuarios SET foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
+            $sql = "UPDATE usuarios SET id_localidad= '$localidad' ,foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
             mysqli_query($conexion, $sql);
 
             header("location:perfil.php");;}

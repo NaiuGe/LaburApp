@@ -52,6 +52,11 @@
                 echo "<div class='contenedor-datos'> <h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p> </div>";
                 echo "<div class='contenedor-datos'> <h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p> </div>";
                 echo "<div class='contenedor-datos'> <h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p> </div>";
+                $id_localidad = $fila['id_localidad'];
+                $consulta2 = "SELECT * FROM `localidades` WHERE id_localidad = '$id_localidad';";
+                $resultado2 = mysqli_query($conexion, $consulta2);
+                $localidad1 = mysqli_fetch_assoc($resultado2);
+                echo "<div class='contenedor-datos'> <h4>Localidad:</h4><p>" . $localidad1['nombre_localidad'] . "</p> </div>";
             }
             echo "</div></div>";
             echo '<div class="seccion">';

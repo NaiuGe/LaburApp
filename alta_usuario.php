@@ -40,7 +40,7 @@ if ($cantfilas == 1) {
         $fila= mysqli_fetch_assoc($registro);
         $id2="-".$user."-".$apellido;
         $ruta=$dir.$id2.".".$extImg;
-    $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono, id_localidad) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono', '$localidad' )";
+    $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono, id_localidad, foto_perfil) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono', '$localidad', '$ruta')";
     mysqli_query($conexion, $sql);
     echo '<script>';
     echo 'alert("El usuario fue registrado con exito.");';
