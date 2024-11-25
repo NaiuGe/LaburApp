@@ -22,6 +22,15 @@
             </nav>
 </header>
 <main>
+<script>
+			function preguntar(id) {
+           
+				rpta = confirm("Estas seguro de eliminar la publicacion ?");
+                if (rpta) {
+                    // Si la respuesta es sí, redirigir con el id y el parámetro 'eliminar'
+                    window.location.href = "perfil.php?id_publicacion=" + id + "&eliminar=1";
+                }}
+		  </script>
     <?php
         session_name("LOGIN");
         session_start();
@@ -73,15 +82,22 @@
             $cantfilas= mysqli_num_rows($resultado);
             if($cantfilas>=1){
                 $fila = mysqli_fetch_assoc($resultado);
-                echo "<a href='publicacion.php?id_publicacion=".$fila['id_publicaciones']."&value=5' class='link'>
-                    <img src='". $fila['foto_portada'] ."' id='fotopubli' c>
-                    <b> ". $fila['nombre_publicacion'] ." </b>
-                </a>";
+                $valor=0;
+                echo '<div>
+                <a href="#" onclick="preguntar(' . $fila['id_publicaciones'] . '); return false;">eliminar</a>
+                <a href="publicacion.php?id_publicacion=' . $fila['id_publicaciones'] . '&value=5" class="link">
+                    <img src="' . $fila['foto_portada'] . '" id="fotopubli" />
+                    <b>' . $fila['nombre_publicacion'] . '</b>
+                </a>
+            </div>';
             while($fila = mysqli_fetch_assoc($resultado)){
-                    echo "<a href='publicacion.php?id_publicacion=".$fila['id_publicaciones']."&value=5' class='link'>
-                    <img src='".$fila['foto_portada']."' id='fotopubli' >
-                    <b> ". $fila['nombre_publicacion'] ." </b>
-                    </a>";
+                echo '<div>
+                <a href="#" onclick="preguntar(' . $fila['id_publicaciones'] . '); return false;">eliminar</a>
+                <a href="publicacion.php?id_publicacion=' . $fila['id_publicaciones'] . '&value=5" class="link">
+                    <img src="' . $fila['foto_portada'] . '" id="fotopubli" />
+                    <b>' . $fila['nombre_publicacion'] . '</b>
+                </a>
+            </div>';
             }
             }
             
@@ -94,9 +110,16 @@
             echo '<br><input  class="btn-busqueda" type="button" value="Iniciar sesión" onclick="location=\'login.html\'">';
             echo "</div>";
             }
+            if (isset($_GET['eliminar'])) {      
+                $id = $_GET['id_publicacion'];   
+                $eliminar = "DELETE from publicaciones where id_publicaciones = '$id'";
+                mysqli_query($conexion, $eliminar);
+                header("location:perfil.php");
+                 }
 
     
     ?>
+  
 </main>
 <footer> 
     <div class="paginacion">
