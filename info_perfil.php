@@ -82,13 +82,13 @@
         echo "<h3> Descripción personal </h3>";
         echo "<input type='text' name='informacion' value='".$row[8]."'>";
 
-        $consulta2 = "SELECT * FROM `localidades` WHERE id_localidad = '$row[9]';";
+        $consulta2 = "SELECT nombre_localidad FROM `localidades` WHERE id_localidad = '$row[9]';";
 
         $resultado2 = mysqli_query($conexion, $consulta2);
 
         $pruebas = mysqli_fetch_assoc($resultado2);
 
-        echo $pruebas;
+        echo $pruebas["nombre_localidad"];
 
         /*if ($row2 = mysqli_fetch_row($resultado2)){
             echo "<h3> Localidad </h3>";
