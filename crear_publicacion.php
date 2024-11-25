@@ -17,18 +17,15 @@
 <body>
 
 <header>
-    <input type="checkbox" id="btn_menu">
-        <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-        </label>
-        <nav class="nav-bar">
-                <ul>
-                    <div>
-                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
-                    </div>
+<img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+                    <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
-                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                    <li><a href="grafico.php">Ver gráfico</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
             <div class="perfil"> 
@@ -120,6 +117,7 @@
                 $fila= mysqli_fetch_assoc($registro);
                 $id2=$fila['id_usuario'];
                 $ruta=$dir.$_SESSION['nombre'].$id2."nombrepublicacion".$nom.".".$extImg; //es crea la variable ruta que guarda el nombre final del archivo, mas el directorio para que la base de datos tenga de referencia donde encontrar la imagen
+                echo $ruta;
                 $sql= "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion, foto_portada) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom', '$ruta' )";
                 mysqli_query($conexion, $sql);
                 mysqli_close($conexion);
@@ -132,7 +130,7 @@
                 header ("location:perfil.php");
             }
             else{
-            $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
+            $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion,) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
             }
             mysqli_query($conexion, $sql);
             mysqli_close($conexion);

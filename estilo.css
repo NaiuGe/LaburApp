@@ -20,7 +20,6 @@ a,header {
   color: black;
 }
 
-
 header {
     background-color: #362417;
     color: white;
@@ -28,38 +27,37 @@ header {
     height: 180px;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
 /*     position: sticky;
     top: 0;
     z-index: 10; */
   }
 
+.abrir-menu,
+.cerrar-menu{
+  display: none;
+}
+
+
   header .perfil{
     display: flex;
     align-items: center;
   }
-  header .logo {
-    display: none;
-  }
-  header #btn_menu {
-    display: none;
-  }
-  header label {
-    display: none;
-  }
+
   header .nav-bar {
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content:center;
     flex-grow: 1;
 
   }
   header .nav-bar ul {
     padding-left: 0;
     display: flex;
+    gap: 1rem;
   }
-  header .nav-bar ul div .logo-hidden {
-    height: auto;
-    width: 5dvh;
+    .logo{
+    width: 5rem;
     margin-bottom: 20px;
   }
   header .nav-bar ul li {
@@ -87,7 +85,7 @@ header .fotoperfil{
   border-radius: 30%;
   height: 10dvh;
   width: auto;
-  margin: 2dvh;
+  margin: 1dvh;
   margin-top: 5dvh;
 }
 
@@ -256,10 +254,8 @@ header .fotoperfil{
     flex-direction: column;
 }
 .fotoperfil{
-    width: auto;
-    height: 12vh;
-    border-style: groove;
-    border-radius: 100%;
+    width: 25vh;
+    height: 25vh;
 }
 .nombre-botones-perfil{
     font-family: 'Courier New', Courier, monospace;
@@ -337,8 +333,12 @@ header .fotoperfil{
   background-color: #af9679;
 }
 
-b {
+header b {
   color: white;
+}
+
+.seccion b {
+  padding: 1dvh;
 }
 
 /* -------------------------CSS de Modificar Perfil ------------------------- */
@@ -407,8 +407,6 @@ b {
 }
 /* -------------------------------------CSS DE BUSQUEDA---------------------------------- */
 .seccion-general-busq{
-  width: 100vh;
-  height: auto;
   padding: 5vh;
 }
 .seccion-usuarios-busq{
@@ -421,19 +419,18 @@ b {
   width: 100vh;
   height: auto;
   justify-content: center;
-  
- 
+  align-items: center;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);;
 }
 .usuarios-busq{
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: 3vh;
   padding: 3vh;
   background-color: #f1dabf;
-  width: 80vh;
+  /*width: 80vh;*/
   border-radius: 8px;
   text-decoration: none;
   color: #333;
@@ -491,7 +488,9 @@ b {
   text-decoration: none;
   color: #333;
   transition: transform 0.2s, box-shadow 0.2s;
+  justify-content: center;
 }
+
 
 .link:hover {
   transform: translateY(-2px);
@@ -561,20 +560,6 @@ margin: 20px;
     font-size: 14px; 
 }
 
-.cuadro-inicio-sesion input[type="submit"] {
-  background-color: #007bff; 
-  color: #ffffff;
-  border: none; 
-  border-radius: 4px; 
-  padding: 10px 15px;
-  cursor: pointer; 
-  font-size: 14px;
-  transition: background-color 0.3s ease;
-}
-
-.cuadro-inicio-sesion input[type="submit"]:hover {
-  background-color: #0056b3; 
-}
 
 .cuadro-inicio-sesion a {
   text-decoration: none; 
@@ -596,7 +581,7 @@ margin: 20px;
 
 /*--------------------- CSS DE VER PUBLICACIÓN -----------------------*/
 .cuadro-ver-publicacion{
-  background: #ffffff; 
+  background: #f1dabf; 
   border: 1px solid #ddd;
   border-radius: 8px; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -681,16 +666,26 @@ margin: 20px;
 #volver:hover{
   color: #0f6ccf;
 }
+
+.cuadro-inicio-sesion h3 , select {
+  margin: 0.8vw;
+}
+
+.cuadro-inicio-sesion input[type="file"]{
+  width: 100%;
+}
+
 /*--------------------------- CSS DE MODIFICAR USUARIO ---------------*/
 
+
+
 #imagenPreview{
-  width: 40vh;
-  height: 30vh;
   margin: 5vh;
 
 }
 .contenedor-foto{
   margin: 5vh;
+  width: 200px;
 }
 .mod-perfil{
   display: inline;
@@ -716,7 +711,8 @@ margin: 20px;
   align-items: center;
   background-color: #cfac85;
   margin: 5vh;
-  padding: 10vh;
+  padding: 4vh;
+  
 .cuadro-inicio-sesion h3 , select {
   margin: 0.8vw;
 }
@@ -729,7 +725,6 @@ margin: 20px;
 .foto-publicacion-solicitudes{
   width: 30vh;
   height: auto;
- 
 }
 /* --------------------------CSS del Footer----------------------------------- */
 
@@ -790,47 +785,181 @@ footer h3{
 
 /* -------------------------- Media de mobile----------------------------------- */
 @media only screen and (max-width: 768px) {
-
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px;
-    }
-    header #btn_menu:checked ~ .nav-bar {
-      visibility: visible;
-    }
-    header label {
+  .abrir-menu,
+  .cerrar-menu {
       display: block;
-      position: relative;
-      right: 25px;
-    }
-    header img {
-      width: 40px;
-    }
-    .nav-bar {
-      position: absolute;
-      top: 50px;
-      background-color: #362417;
-      width: 100%;
-      visibility: hidden;
-    }
-    .nav-bar ul {
-      display: flex;
-      flex-direction: column;
-    }
-    .nav-bar ul div .logo-hidden {
-      display:inline;
-    }
-    .nav-bar ul li {
-      display: flex;
-      flex-direction: column;
-      padding: 5px;
-    }
+      border: 0;
+      font-size: 1.25rem;
+      background-color: transparent;
+      cursor: pointer;
+  }
 
-  .perfil-container {
-      flex-direction: column;
-      align-items: center;
+.abrir-menu,
+.cerrar-menu {
+  width: 3rem;
+  color: white;
+}
+
+
+  body {
+    padding: 0 10px; 
+  }
+
+  header {
+    height: auto;
+    padding: 10px;
+  }
+
+  header .perfil {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  header .fotoperfil {
+    width: 20vw; 
+    height: auto;
+    margin: 10px 0;
+  }
+
+
+.nav-bar {
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color:black;
+  padding: 2rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+  }
+
+  .nav-bar.visible{
+    opacity: 1;
+    visibility: visible;
+    align-items: end;
+  }
+
+.nav-list{
+  flex-direction: column;
+  align-items: end;
+}
+
+.nav-list li a{
+  color: #ccc;
+}
+
+  .publicaciones {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .seccion {
+    width: 90%; 
+  }
+
+  #fotopubli {
+    height: auto;
+    max-height: 200px; 
+  }
+
+  .link {
+    width: 100%;
+    height: auto;
+  }
+
+  .barra-arriba {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .bloque-perfil {
+    align-items: center; 
+  }
+
+  #contenedor-foto-perfil {
+    margin: 20px 0;
+  }
+
+  .info {
+    width: auto; 
+    padding: 20px;
+  }
+
+  .trabajos-disponibles {
+    padding: 10px;
+  }
+
+  .opciones {
+    flex-direction: column; 
+    gap: 10px;
+  }
+
+  .seccion-general-busq {
+    padding: 10px;
+  }
+
+  .seccion-usuarios-busq {
+    width: 100%;
+  }
+
+  .usuarios-busq {
+    width: 100%;
+  }
+
+  #foto-usuario-busq {
+    width: 20vw; 
+    height: auto;
+  }
+
+  .seccion-busq {
+    width: 100%;
+  }
+
+  #fotopubli-busq {
+    height: auto;
+  }
+
+  .link-busq {
+    width: 50%;
+    height: auto;
+  }
+
+  .centrar {
+    padding: 10px;
+  }
+
+  .cuadro-inicio-sesion {
+    width: 90%; 
+    padding: 15px;
+  }
+
+  .cuadro-crear-formulario {
+    width: 90%; 
+    padding: 15px;
+  }
+
+  .cuadro-ver-publicacion {
+    width: 90%; 
+  }
+
+  footer {
+    padding: 20px;
+    align-items: center;
+  }
+
+  #derecho{
+    text-align: center;
+  }
+
+  .btn-wsp {
+    width: 3rem; 
+    bottom: 10px;
   }
 }

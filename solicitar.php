@@ -13,9 +13,15 @@ if(!empty($_GET['id_publicacion'])){
     if($cantfilas==0){
         $sql = "INSERT INTO solicitudes (id_publicaciones, id_usuario) VALUES ('$id_p', '$id_u')";
         mysqli_query($conexion, $sql);
-        header("location:index.php");
+        echo '<script>';
+        echo 'alert("Solicitud enviada con exito.");';
+        echo 'window.location.href = "index.php";';
+        echo '</script>';
     }
-    else{header("location:index.php");}
+    else{echo '<script>';
+        echo 'alert("Ya solicitaste este servicio.");';
+        echo 'window.location.href = "index.php";';
+        echo '</script>';}
     mysqli_close($conexion);
 }
 else{ header("location:index.php");}

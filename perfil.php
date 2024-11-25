@@ -9,20 +9,17 @@
 </head>
 <body>
 <header>
-    <input type="checkbox" id="btn_menu">
-    <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-    </label>
-    <nav class="nav-bar">
-        <ul>
-            <div>
-                <img class="logo-hidden" src="./imagenes/logo.png" alt="logo-Laburapp">
-            </div>
-            <li><a href="index.php" alt="indice">Principal</a></li>
-            <li><a href="#" alt="Ver Perfil">Ver Perfil</a></li>
-            <li><a href="cerrarlogin.php" alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
-        </ul>
-    </nav>
+<img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+                    <ul class="nav-list"> 
+                    <li><a href="index.php" alt="indice">Principal</a></li>
+                    <li><a href='#' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="grafico.php">Ver gráfico</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
+                </ul>
+            </nav>
 </header>
 <main>
     <?php
@@ -49,12 +46,17 @@
             echo '</div>';
 
             echo "<div class='info'><h1>" . $_SESSION['nombre'] . ' ' . $_SESSION['apellido'] . "</h1>";
-            echo "<h3>Información</h3>";
+            echo "<div class='contenedor-datos'><h3>Información</h3>";
             while ($fila = mysqli_fetch_assoc($resultado)) {
-                echo "<p>" . $fila['informacion'] . "</p>";
-                echo "<h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p>";
-                echo "<h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p>";
-                echo "<h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p>";
+                echo "<p>" . $fila['informacion'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Número de Teléfono:</h4><p>" . $fila['telefono'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Correo Electrónico:</h4><p>" . $fila['mail'] . "</p> </div>";
+                echo "<div class='contenedor-datos'> <h4>Domicilio:</h4><p>" . $fila['domicilio'] . "</p> </div>";
+                $id_localidad = $fila['id_localidad'];
+                $consulta2 = "SELECT * FROM `localidades` WHERE id_localidad = '$id_localidad';";
+                $resultado2 = mysqli_query($conexion, $consulta2);
+                $localidad1 = mysqli_fetch_assoc($resultado2);
+                echo "<div class='contenedor-datos'> <h4>Localidad:</h4><p>" . $localidad1['nombre_localidad'] . "</p> </div>";
             }
             echo "</div></div>";
             echo '<div class="seccion">';
@@ -66,19 +68,8 @@
             echo '</a> ';
             include("conexion.php");
             $id=$_SESSION['id_usuario'];
-            if (isset($_GET['pagina'])){
-                $pagina = $_GET['pagina'];
-            } else {
-                $pagina = 1;
-            }
-            $rango_publi = 2;
-            $desde = ($pagina-1)*$rango_publi;             
-            $registro_publicaciones = "SELECT * from publicaciones where id_usuario='$id'";
-            $resultado = mysqli_query($conexion, $registro_publicaciones);
-            $cantf = mysqli_num_rows($resultado);
-            $cant_publi= ceil($cantf/$rango_publi);
-            $sql = "SELECT * from publicaciones where id_usuario='$id' limit $desde, $rango_publi";
-            $resultado = mysqli_query($conexion, $sql);
+            $consulta = "SELECT * FROM publicaciones WHERE id_usuario='$id' ";
+            $resultado = mysqli_query($conexion, $consulta);
             $cantfilas= mysqli_num_rows($resultado);
             if($cantfilas>=1){
                 $fila = mysqli_fetch_assoc($resultado);
@@ -92,7 +83,7 @@
                     <b> ". $fila['nombre_publicacion'] ." </b>
                     </a>";
             }
-            } else {echo "no hay publicaciones";}
+            }
             
 
         echo '  </div> ';
@@ -109,12 +100,6 @@
 </main>
 <footer> 
     <div class="paginacion">
-    <?php
-        echo "<h2> Pág:</h2>";
-        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'class='pag'>".$i."</a> ";
-        }
-        ?>
     </div>
         <h3 id="derecho"></h3>
     </footer>
