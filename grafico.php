@@ -3,7 +3,6 @@
     session_start();
     include ("conexion.php");
 
-
 ?>
 <html>
     <head>
@@ -22,6 +21,7 @@
             </nav>
     </header>
 <body>
+    
     <main>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -32,7 +32,6 @@ function drawCharts() {
     drawChart1();
     drawChart2();
 }
-
 function drawChart1() {
     var data = google.visualization.arrayToDataTable([
         ['Localidades', 'Personas'],
@@ -52,7 +51,7 @@ while ($r = mysqli_fetch_assoc($resultado)) echo $r['fila'];
         is3D: true,
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('grafico'));
+    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
     chart.draw(data, options);
 
     document.getElementById('imagen1').value = chart.getImageURI();
@@ -101,19 +100,22 @@ document.getElementById('imagen2').value = chart.getImageURI();
 }
 
 </script>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+
+
+</script>
 
         </script>
         <section>
         <form method="post" id="hacer_pdf" action="generarGrafico.php">
     <input type="hidden" size="100" name="imagen1" id="imagen1">
     <input type="hidden" size="100" name="imagen2" id="imagen2">
-    <div id="grafico" style="width:50%; height: 50%; float:right;"></div>
     <div id="grafico2" style= "height: 300px;"></div>
 
     <br><br><br><br><br><br>    
     <input class="btn-busqueda" type="submit" value="Cargar PDF"/>
 </form>
 	</section>
-    </main>
     </body>
+    </main>
 </html>

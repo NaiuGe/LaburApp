@@ -40,7 +40,6 @@ session_start();
            
             if (mysqli_num_rows($resultado_solicitudes)>=1){
                     $id_p = $fila_p['id_publicaciones'];
-                    echo $id_p;
                     while ($solicitudes = mysqli_fetch_assoc($resultado_solicitudes)){
                             $id_solicitud = $solicitudes['id_solicitudes'];
                             $id_cliente = $solicitudes ['id_usuario'];
@@ -54,6 +53,8 @@ session_start();
                             </a>
                         </div>";     
                     }     
+            } else {
+                echo "<div class='bloque-solicitud'> <h2>No hay solicitudes de momento.</h2> </div>";
             }
             while ($fila_p= mysqli_fetch_assoc($resultado)){
                 $id_p = $fila_p['id_publicaciones'];
@@ -77,7 +78,7 @@ session_start();
                                 </div>";     
                             }  
             }
-            } echo "<div class='bloque-solicitud'> <h2>No hay solicitudes de momento.</h2> </div>";
+            }
                 
             
         
