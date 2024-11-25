@@ -16,7 +16,7 @@ $apellido = $_POST['apellido'];
 $pass = $_POST["pass"];
 $mail = $_POST["mail"];
 $telefono = $_POST["telefono"];
-$localidad = $POST["localidad"];
+$localidad = $_POST["localidad"];
 
 $consulta = "SELECT * FROM usuarios WHERE mail='$mail'";
 $resultado = mysqli_query($conexion, $consulta);
@@ -40,7 +40,7 @@ if ($cantfilas == 1) {
         $fila= mysqli_fetch_assoc($registro);
         $id2="-".$user."-".$apellido;
         $ruta=$dir.$id2.".".$extImg;
-    $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono' )";
+    $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono, id_localidad) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono', '$localidad' )";
     mysqli_query($conexion, $sql);
     echo '<script>';
     echo 'alert("El usuario fue registrado con exito.");';

@@ -76,15 +76,29 @@
         echo "<h3> Domicilio </h3>";
         echo "<input type='text' name='domicilio' value='".$row[4]."'>";
         echo "<h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[7]."'>";
+        echo "<input type='text' name='pass' value='".$row[6]."'>";
         echo "<h3> Número de Telefono </h3>";
-        echo "<input type='tel' name='telefono' value='".$row[8]."'>";
+        echo "<input type='tel' name='telefono' value='".$row[7]."'>";
         echo "<h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[9]."'>";
-        echo "<br><br>";
-        echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
-        echo "&nbsp;&nbsp;&nbsp;&nbsp;";
-        echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
+        echo "<input type='text' name='informacion' value='".$row[8]."'>";
+
+        $consulta2 = "SELECT * FROM `localidades` WHERE id_localidad = '$row[9]';";
+
+        $resultado2 = mysqli_query($conexion, $consulta2);
+
+        $pruebas = mysqli_fetch_assoc($resultado2);
+
+        echo $pruebas;
+
+        /*if ($row2 = mysqli_fetch_row($resultado2)){
+            echo "<h3> Localidad </h3>";
+            echo "<input type='text' name='localidad' value='".$row2[]."'>";
+            echo "<br><br>";
+            echo '<input type="submit" value="Actualizar" class="boton" name="btnregistrar">';
+            echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+            echo "<input class='boton' type='button' value='Cancelar' onClick='location=\"perfil.php\"'> ";
+        }*/
+
             //--- php de la foto ---
             if(!empty($_POST['btnregistrar'])){
             $imagen=$_FILES['imagen']['tmp_name'];
@@ -120,6 +134,7 @@
             $pass = $_POST["pass"];
             $telefono = $_POST["telefono"];
             $informacion = $_POST["informacion"];
+            $localidad = $_POST["localidad"];
         
             $sql = "UPDATE usuarios SET foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
             mysqli_query($conexion, $sql);

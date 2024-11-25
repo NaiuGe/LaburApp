@@ -32,7 +32,7 @@
                 <?php
             }
             ?>
-            
+            </select>
             <input class="btn-busqueda" type="submit" value="Crear usuario">
             <br>
             <a href="index.php"> <h4 id="volver"> Volver al inicio </h4></a>

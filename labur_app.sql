@@ -222,7 +222,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `publicaciones`
   ADD CONSTRAINT `fk_publicaciones_profesiones` FOREIGN KEY (`id_profesion`) REFERENCES `profesiones` (`id_profesion`),
-  ADD CONSTRAINT `fk_publicaciones_solicitudes` FOREIGN KEY (`id_solicitud`) REFERENCES `solicitudes` (`id_solicitudes`),
   ADD CONSTRAINT `fk_usuarios_publicaciones` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
@@ -251,7 +250,6 @@ ALTER TABLE `solicitudes`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fk_usuarios_localidades` FOREIGN KEY (`id_localidad`) REFERENCES `localidades` (`id_localidad`),
-  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_rating`) REFERENCES `rating` (`id_rating`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
