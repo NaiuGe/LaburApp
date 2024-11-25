@@ -72,7 +72,7 @@
             <input type="file" name="imagen" required>
             <input type="hidden" value="fecha" id="fecha" name="fecha1" >
             <h3>Seleccionar profesión</h3> 
-            <select name="profesion"  required>    
+            <select class="seleccion-localidad" name="profesion"  required>    
                 <option value="" selected disabled > Seleccionar profesión </option>
             <?php
                 include("conexion.php");
