@@ -80,7 +80,7 @@
         echo "<div class='contenedor-input'><h3> Número de Telefono </h3>";
         echo "<input type='tel' name='telefono' value='".$row[7]."'> </div>";
         echo "<div class='contenedor-input'><h3> Descripción personal </h3>";
-        echo "<input type='text' name='informacion' value='".$row[8]."'> </div>";
+        echo "<textarea id='info-input' type='text' name='informacion'>".$row[8]."</textarea> </div>";
         echo "<div class='contenedor-input'><h3>Seleccionar localidad</h3> ";
 
         $consulta2 = "SELECT * FROM localidades WHERE id_localidad = '$row[9]';";

@@ -12,22 +12,22 @@
         <h1> Registro de Usuario </h1>
         <form class="cuadro-inicio-sesion" onsubmit="return verificar()" method="post" action="alta_usuario.php" enctype="multipart/form-data">
             <div class='contenedor-input'>
-                Foto de perfil <br> <input type="file" name="imagen" required>
+                <h3>Foto de perfil</h3> <input type="file" name="imagen" required>
             </div>
             <div class='contenedor-input'>
-                Nombre <br> <input type="text" placeholder="Ingrese su nombre..." name="nombre" id="nombre"  required autofocus>
+                <h3>Nombre</h3> <input type="text" placeholder="Ingrese su nombre..." name="nombre" id="nombre"  required autofocus>
             </div>
             <div class='contenedor-input'>
-                Apellido <br> <input type="text" placeholder="Ingrese su apellido..." name="apellido" required autofocus> 
+                <h3>Apellido</h3> <input type="text" placeholder="Ingrese su apellido..." name="apellido" required autofocus> 
             </div>
             <div class='contenedor-input'>
-                Contraseña <br> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required>
+                <h3>Contraseña</h3> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required>
             </div>
             <div class='contenedor-input'>
-                Correo Electrónico <br> <input type="email" placeholder="Ingrese su Correo Electrónico..." id="mail" name="mail" minlength="11" required> 
+                <h3>Correo Electrónico</h3> <input type="email" placeholder="Ingrese su Correo Electrónico..." id="mail" name="mail" minlength="11" required> 
             </div>
             <div class='contenedor-input'>
-                Teléfono o Celular <br> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> 
+                <h3>Teléfono o Celular</h3> <input type="tel" placeholder="Ingrese su Número de Teléfono..." name="telefono" required> 
             </div>
             <div class='contenedor-input'>
                 <h3>Seleccionar localidad</h3> 
