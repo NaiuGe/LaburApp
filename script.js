@@ -50,7 +50,7 @@ function hora(){
     return cadena;
 }
 
-
+//CAMBIO OJO EN CONTRASEÑAS
 // Seleccionamos los elementos necesarios
 const passwordInput = document.getElementById('pass');
 const togglePassButton = document.getElementById('togglePass');
