@@ -204,6 +204,17 @@ header .fotoperfil{
   margin: 5vh;
 }
 
+
+.bloque-perfil .fotoperfil{ /*Le pone un marco a la foto de perfil*/
+  width: 25vh;
+  height: 25vh;
+  padding: 2vh;
+  margin: 2vh;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .info {
   background-color:  #ffffff;
   padding: 5dvh;
@@ -253,10 +264,18 @@ header .fotoperfil{
     display: flex;
     flex-direction: column;
 }
-.fotoperfil{
+
+.bloque-perfil .fotoperfil{
     width: 25vh;
     height: 25vh;
+    margin: 2vh;
+    padding: 5px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
 }
+
 .nombre-botones-perfil{
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
@@ -371,6 +390,18 @@ header b {
     font-size: 14px; 
 }
 
+.cuadro-modificar-perfil #info-input {
+  width: 100%;
+  height: 10vw;
+  resize: none;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
 .contenedor-input {
   margin: 2dvh;
   margin-bottom: 3dvh;
@@ -386,6 +417,11 @@ header b {
   border-radius: 4px; 
   box-sizing: border-box; 
   font-size: 14px; 
+}
+
+.fotoperfil{
+  width: 20vw;
+  height: auto;
 }
 /* -------------------------CSS del Contenido Principal------------------------- */
 .trabajos-disponibles {
@@ -657,6 +693,17 @@ margin: 20px;
   resize: none;
 }
 
+.seleccion-localidad { /*Modifica el botón dentro de Crear publicacion*/
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+
 /*--------------------------- CSS DE REGISTRAR USUARIO ---------------*/
 
 #volver{
@@ -667,8 +714,14 @@ margin: 20px;
   color: #0f6ccf;
 }
 
-.cuadro-inicio-sesion h3 , select {
-  margin: 0.8vw;
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
 }
 
 .cuadro-inicio-sesion input[type="file"]{
@@ -701,7 +754,7 @@ margin: 20px;
 .seccion-solicitudes{
   display: flex;
   flex-direction: column;
-  background-color: #fcefef;
+  background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
@@ -712,6 +765,7 @@ margin: 20px;
   background-color: #cfac85;
   margin: 5vh;
   padding: 4vh;
+  border-radius: 4px;
   
 .cuadro-inicio-sesion h3 , select {
   margin: 0.8vw;

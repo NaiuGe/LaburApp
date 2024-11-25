@@ -33,7 +33,7 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' id='logeado' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
@@ -86,8 +86,8 @@
                     $fila_u = mysqli_fetch_assoc($resultado2);  
                     echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
-                    <p> ". $fila_p['nombre_publicacion'] ." </p> 
-                    <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                    <b> ". $fila_p['nombre_publicacion'] ." </b> 
+                    <p> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</p>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
