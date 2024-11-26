@@ -2,6 +2,7 @@
 <html>
     <head> 
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Registo de Usuario </title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="estilo.css">

@@ -1,4 +1,7 @@
 /* -----------------Reseteo --------------------------------- */
+@supports (-webkit-appearance: none) {
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -855,6 +858,20 @@ footer h3{
   width: 4rem;
 }
 
+/*-------------------- CSS DE GRAFICO------------------------------ */
+
+.grafico-contenedor {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.grafico {
+  max-width: 100%;
+  height: auto;
+}
+
+
 /* -------------------------- Media de mobile----------------------------------- */
 @media only screen and (max-width: 768px) {
   .abrir-menu,
@@ -1034,4 +1051,13 @@ footer h3{
     width: 3rem; 
     bottom: 10px;
   }
+
+  .grafico-contenedor {
+    padding: 5px;
+}
+
+.grafico {
+    width: 100%; /* Ajustar al ancho del contenedor */
+    height: auto; /* Mantener proporción */
+}
 }
