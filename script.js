@@ -1,14 +1,24 @@
-const nav = document.querySelector("#nav");
-const abrir = document.querySelector("#abrir");
-const cerrar = document.querySelector("#cerrar");
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM completamente cargado");
 
-abrir.addEventListener("click", () => {
-    nav.classList.add("visible");
-})
+/* Verifica si el responsive está activa sino no crea estos eventos */
+    const abrir = document.querySelector("#abrir");
+    const cerrar = document.querySelector("#cerrar");
+    const nav = document.querySelector("#nav");
 
-cerrar.addEventListener("click", () => {
-    nav.classList.remove("visible");
-})
+    if (abrir && cerrar && nav) {
+        abrir.addEventListener("click", () => {
+            nav.classList.add("visible");
+        });
+
+        cerrar.addEventListener("click", () => {
+            nav.classList.remove("visible");
+        });
+    } else {
+        console.log("No se encontraron los elementos del menú móvil. Esto puede ser debido al diseño responsivo.");
+    }
+
+
 
 
 let hoy = new Date() // crea una nueva fecha
@@ -62,3 +72,33 @@ function hora(){
     var cadena = fecha.getHours() + '/' + fecha.getMinutes() + '/' + fecha.getSeconds();
     return cadena;
 }
+
+
+
+    // Selección de elementos
+    const eye = document.querySelector('.eye');
+    const iconos = document.querySelector('.eye img');
+
+    // Verificación de elementos
+    if (!eye || !iconos) {
+        console.error("No se encontró el botón o el ícono del ojo. Verificá tu HTML.");
+        return;
+    }
+
+    eye.addEventListener('click', () => {
+        console.log("Botón del ojo clickeado");
+        const input = document.querySelector('#pass');
+        if (input) {
+            if (input.type === "password") {
+                input.type = "text";
+                iconos.src = './imagenes/ojo-abierto.png';
+            } else {
+                input.type = "password";
+                iconos.src = './imagenes/ojo-cerrado.png';
+            }
+        } else {
+            console.error("No se encontró el campo de contraseña");
+        }
+    });
+});
+

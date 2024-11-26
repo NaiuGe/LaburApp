@@ -22,6 +22,7 @@
             </div>
             <div class='contenedor-input'>
                 <h3>Contraseña</h3> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required>
+                <p class="eye"><img src="./imagenes/ojo-cerrado.png" alt="Ojo cerrado"></p>
             </div>
             <div class='contenedor-input'>
                 <h3>Correo Electrónico</h3> <input type="email" placeholder="Ingrese su Correo Electrónico..." id="mail" name="mail" minlength="11" required> 

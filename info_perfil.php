@@ -75,8 +75,11 @@
         echo "<input type='text' name='mail' value='".$row[3]."'> </div>";
         echo "<div class='contenedor-input'><h3> Domicilio </h3>";
         echo "<input type='text' name='domicilio' value='".$row[4]."'> </div>";
-        echo "<div class='contenedor-input'><h3> CONTRASEÑA </h3>";
-        echo "<input type='text' name='pass' value='".$row[6]."'> </div>";
+        echo "<div class='contenedor-input'>
+        <h3> CONTRASEÑA </h3>";
+        echo "<input type='password' name='pass' id='pass' value='".$row[6]."'>";
+        echo "<p class ='eye'><img src='./imagenes/ojo-cerrado.png'</p>";
+        echo"</div>";
         echo "<div class='contenedor-input'><h3> Número de Telefono </h3>";
         echo "<input type='tel' name='telefono' value='".$row[7]."'> </div>";
         echo "<div class='contenedor-input'><h3> Descripción personal </h3>";
@@ -150,7 +153,9 @@
     }
 
     ?>
-    
+            <footer> 
+        <h3 id="derecho"></h3>
+        </footer>
     <script src="script.js"></script> 
 </div>
 </div>
