@@ -33,11 +33,11 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
-                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b></a>';
                 echo "<br></br>";
                 echo "</div>";
 
