@@ -47,14 +47,13 @@ session_start();
                             $resultado2 = mysqli_query($conexion, $sql2);
                             $fila_user= mysqli_fetch_assoc($resultado2);
                             echo "<div class='bloque-solicitud'>
-                            <div class='texto-solicitudes'> <p>Tienes una solicitud de <b>".$fila_user['nombre']." ".$fila_user['apellido']. " </b> para <b>''".$fila_p['nombre_publicacion']."''</b></p></div>
+                            <div class='texto-solicitudes'><p>Tienes una solicitud de <b>".$fila_user['nombre']." ".$fila_user['apellido']. " </b> para <b>''".$fila_p['nombre_publicacion']."''</b></p></div>
                             <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
                             <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
                             </a>
                         </div>";     
                     }     
-            } else {
-                echo "<div class='bloque-solicitud'> <h2>No hay solicitudes de momento.</h2> </div>";
+            } 
             }
             while ($fila_p= mysqli_fetch_assoc($resultado)){
                 $id_p = $fila_p['id_publicaciones'];
@@ -63,7 +62,6 @@ session_start();
                 
                     if (mysqli_num_rows($resultado_solicitudes)>=1){
                             $id_p = $fila_p['id_publicaciones'];
-                            echo $id_p;
                             while ($solicitudes = mysqli_fetch_assoc($resultado_solicitudes)){
                                     $id_solicitud = $solicitudes['id_solicitudes'];
                                     $id_cliente = $solicitudes ['id_usuario'];
@@ -71,18 +69,20 @@ session_start();
                                     $resultado2 = mysqli_query($conexion, $sql2);
                                     $fila_user= mysqli_fetch_assoc($resultado2);
                                     echo "<div class='bloque-solicitud'>
-                                    <h3>Tienes una solicitud de ".$fila_user['nombre']." ".$fila_user['apellido']. " para ''".$fila_p['nombre_publicacion']."''</h3>
+                                    <div class='texto-solicitudes'> <p>Tienes una solicitud de <b>".$fila_user['nombre']." ".$fila_user['apellido']. " </b> para <b>''".$fila_p['nombre_publicacion']."''</b></p></div>
                                     <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
                                     <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
                                     </a>
-                                </div>";     
+                                </div>";    
                             }  
             }
             }
+            
                 
             
-        
-    } 
+            
+                
+    
     if (mysqli_num_rows($resultado)==0){ 
         echo "<div class='bloque-solicitud'> <h2>No hay publicaciones hechas, haz una publicación para tener solicitudes!.</h2> </div>";
     }

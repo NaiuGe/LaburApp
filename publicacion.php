@@ -16,6 +16,7 @@
             session_name("LOGIN");
             session_start();
             include('conexion.php');
+            
 
             if (isset($_GET['id_publicacion'])) {
                 include("conexion.php");
@@ -40,12 +41,16 @@
                     } else {
                         echo "<a href='mostrar-perfil.php?id_usuario=" . $id_usuario . "'>
                         <h4>Por: " . $fila_usuario['nombre'] . " " . $fila_usuario['apellido'] . ".</h4></a>";
-                        
-                        echo "<a href='solicitar.php?id_publicacion=" . $id . "' class='boton'>
-                        <h4>Solicitar</h4>
-                        </a>
-                        </div>
-                        </div>";
+                        $sql="SELECT * from solicitudes where id_usuario='".$_SESSION['id_usuario']."' and id_publicaciones='$id'";
+                        $solicitudes=mysqli_query($conexion, $sql);
+                        if (mysqli_num_rows($solicitudes)==0){echo "<a href='solicitar.php?id_publicacion=" . $id . "' class='boton'>
+                            <h4>Solicitar</h4>
+                            </a>
+                            </div>
+                            </div>";}
+                        else{
+                            echo "<input type='button' class='boton-disabled' value='Solicitado'>";
+                        }
                     }
                 } else {
                     echo "<a href='mostrar-perfil.php?id_usuario=" . $id_usuario . "'>

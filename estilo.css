@@ -242,6 +242,16 @@ header .fotoperfil{
   transition: background-color 0.3s ease;
   margin: 1dvh;
 }
+.boton-disabled {
+  padding: 10px 20px;
+  background-color: #362417;
+  color: #e0d9d9;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+  margin: 1dvh;
+}
 
 .boton:hover{
   background-color: #543c2b;
