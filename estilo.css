@@ -1,4 +1,7 @@
 /* -----------------Reseteo --------------------------------- */
+@supports (-webkit-appearance: none) {
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -463,7 +466,7 @@ header b {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3vh;
+  margin: 2vh;
   padding: 3vh;
   background-color: #f1dabf;
   /*width: 80vh;*/
@@ -472,6 +475,15 @@ header b {
   color: #333;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.contenedor-usuarios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vh;
+  height: auto;
+}
+
 #foto-usuario-busq{
   width: 15vh;
   height: 15vh;
@@ -516,7 +528,7 @@ header b {
   flex-direction: row;
   align-items: center;
   background-color: #f1dabf;
-  margin: 1vh;
+  margin: 2vh;
   width: 30vh;
   height: 35vh;
   padding: 2vh;
@@ -531,6 +543,11 @@ header b {
 .link:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.centrar-boton{
+  display: flex;
+  justify-content: center;
 }
 
 /*-------------------- CSS DE VER PUBLICACION -------------------------*/
@@ -689,7 +706,7 @@ margin: 20px;
 
 .cuadro-crear-formulario .titulo-publicacion{
   width: 70%;
-  height: 2vw;
+  height: 3vw;
   resize: none;
 }
 
@@ -758,17 +775,24 @@ select {
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 .bloque-solicitud{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #cfac85;
+  background-color: #f1dabf;
   margin: 5vh;
   padding: 4vh;
   border-radius: 4px;
+  flex-wrap: wrap;
   
 .cuadro-inicio-sesion h3 , select {
   margin: 0.8vw;
+}
+
+.texto-solicitudes {
+  display: flex;
+  padding: 2vh;
 }
 
 .cuadro-inicio-sesion input[type="file"]{
@@ -779,6 +803,8 @@ select {
 .foto-publicacion-solicitudes{
   width: 30vh;
   height: auto;
+  border-radius: 4px;
+  margin-left: 3vh;
 }
 /* --------------------------CSS del Footer----------------------------------- */
 
@@ -795,7 +821,12 @@ footer{
   display: flex;
   align-items: center;
   font-size: 2vh;
-  margin-bottom: 1vw;
+  margin: 1vh;
+}
+
+.paginacion a {
+  font-size: larger;
+  margin: 1vh;
 }
 
 
@@ -837,6 +868,18 @@ footer h3{
   width: 4rem;
 }
 
+/*-------------------- CSS DE GRAFICO------------------------------ */
+
+.grafico-contenedor {
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.grafico {
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* -------------------------- Media de mobile----------------------------------- */
@@ -1018,4 +1061,13 @@ footer h3{
     width: 3rem; 
     bottom: 10px;
   }
+
+  .grafico-contenedor {
+    padding: 5px;
+}
+
+.grafico {
+    width: 100%; /* Ajustar al ancho del contenedor */
+    height: auto; /* Mantener proporción */
+}
 }

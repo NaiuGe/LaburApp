@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <link rel="icon" href="imagenes/logo.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laburapp</title>
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
@@ -23,6 +24,7 @@
                     <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="grafico.php">Ver gráfico</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
@@ -31,11 +33,11 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
-                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b>';
+                echo '<b>Bienvenido <br>'. $_SESSION['nombre'] .' ' .$_SESSION['apellido'].'</b></a>';
                 echo "<br></br>";
                 echo "</div>";
 
@@ -69,7 +71,7 @@
                 echo "<div class='seccion-general-busq'>";
                 $filas_u = mysqli_fetch_assoc($resultado);
                 
-                echo "<div class='seccion-usuarios-busq'><h3>Usuarios</h3>";
+                echo "<div class='seccion-usuarios-busq'><h3>Usuarios</h3> <div class='contenedor-usuarios'>";
                 if(!empty($_SESSION['id_usuario'])){
                     if ($filas_u['id_usuario']==$_SESSION['id_usuario']){
                     echo "<a class='usuarios-busq' href='perfil.php'>";}
@@ -100,7 +102,7 @@
                             echo"</a>";
                         
                 }
-                echo "</div>";
+                echo "</div></div>";
             }
             $sql_publicaciones = "SELECT * from publicaciones where nombre_publicacion like '%$busqueda%' order by id_usuario asc";
             $resultado2 = mysqli_query($conexion,$sql_publicaciones);
@@ -126,7 +128,7 @@
                 echo "</div>";  
             }
             if ($cantfilas_u == 0 && $cantfilas_p == 0){ // si no llega a ver ningun resultado, se muestra en pantalla un aviso de que no hay resultados
-                echo "<h1>Sin resultados</h1>";
+                echo "<br> <br> <h1>Sin resultados</h1>";
             }
         echo "</div>";
             
@@ -136,11 +138,13 @@
         ?>
 
 </div>
-<input type='button' class='btn-busqueda' value='Volver' onclick="location='index.php'">
-    <footer>
+<div class="centrar-boton"> 
+    <input type='button' class='btn-busqueda' value='Volver' onclick="location='index.php'">
+</div>
+<footer>
 <h3 id="derecho"></h3>
-        <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
-    </footer>
-    <script src="./script.js"></script>
+    <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
+</footer>
+<script src="./script.js"></script>
 </body>
 </html>

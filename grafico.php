@@ -7,15 +7,17 @@
 <html>
     <head>
         <link rel="stylesheet" href="estilo.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <header>
     <img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
         <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
         <nav class="nav-bar" id="nav">
-        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+            <button id="cerrar" class="cerrar-menu">X</button>
                     <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="#">Ver gráfico</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
@@ -100,22 +102,25 @@ document.getElementById('imagen2').value = chart.getImageURI();
 }
 
 </script>
-    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+<div class="grafico-contenedor">
+        <div id="piechart_3d" class="grafico" style="width: 900px; height: 500px;"></div>
+    </div>
 
-
-</script>
-
-        </script>
         <section>
         <form method="post" id="hacer_pdf" action="generarGrafico.php">
     <input type="hidden" size="100" name="imagen1" id="imagen1">
     <input type="hidden" size="100" name="imagen2" id="imagen2">
-    <div id="grafico2" style= "height: 300px;"></div>
+    <div class="grafico-contenedor">
+                <div id="grafico2" class="grafico" style="height: 300px;"></div>
+            </div>
 
     <br><br><br><br><br><br>    
     <input class="btn-busqueda" type="submit" value="Cargar PDF"/>
 </form>
 	</section>
+    <footer>
+        <script src="script.js"></script>
+    </footer>
     </body>
     </main>
 </html>

@@ -47,7 +47,7 @@ session_start();
                             $resultado2 = mysqli_query($conexion, $sql2);
                             $fila_user= mysqli_fetch_assoc($resultado2);
                             echo "<div class='bloque-solicitud'>
-                            <h3>Tienes una solicitud de ".$fila_user['nombre']." ".$fila_user['apellido']. " para ''".$fila_p['nombre_publicacion']."''</h3>
+                            <div class='texto-solicitudes'> <p>Tienes una solicitud de <b>".$fila_user['nombre']." ".$fila_user['apellido']. " </b> para <b>''".$fila_p['nombre_publicacion']."''</b></p></div>
                             <a href='publicacion.php?id_publicacion=".$id_p."&value=6'>
                             <img src='".$fila_p['foto_portada']."' class='foto-publicacion-solicitudes'>
                             </a>

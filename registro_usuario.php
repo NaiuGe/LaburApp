@@ -2,6 +2,7 @@
 <html>
     <head> 
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Registo de Usuario </title>
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="estilo.css">
@@ -22,6 +23,7 @@
             </div>
             <div class='contenedor-input'>
                 <h3>Contraseña</h3> <input type="password" placeholder="Contraseña..." name="pass" id="pass" minlength="4" maxlength="10" required>
+                <p class="eye"><img src="./imagenes/ojo-cerrado.png" alt="Ojo cerrado"></p>
             </div>
             <div class='contenedor-input'>
                 <h3>Correo Electrónico</h3> <input type="email" placeholder="Ingrese su Correo Electrónico..." id="mail" name="mail" minlength="11" required> 
