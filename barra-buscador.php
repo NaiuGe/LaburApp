@@ -23,6 +23,7 @@
                     <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
+                    <li><a href="grafico.php">Ver gráfico</a></li>
                     <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
@@ -69,7 +70,7 @@
                 echo "<div class='seccion-general-busq'>";
                 $filas_u = mysqli_fetch_assoc($resultado);
                 
-                echo "<div class='seccion-usuarios-busq'><h3>Usuarios</h3>";
+                echo "<div class='seccion-usuarios-busq'><h3>Usuarios</h3> <div class='contenedor-usuarios'>";
                 if(!empty($_SESSION['id_usuario'])){
                     if ($filas_u['id_usuario']==$_SESSION['id_usuario']){
                     echo "<a class='usuarios-busq' href='perfil.php'>";}
@@ -100,7 +101,7 @@
                             echo"</a>";
                         
                 }
-                echo "</div>";
+                echo "</div></div>";
             }
             $sql_publicaciones = "SELECT * from publicaciones where nombre_publicacion like '%$busqueda%' order by id_usuario asc";
             $resultado2 = mysqli_query($conexion,$sql_publicaciones);
