@@ -85,6 +85,7 @@
                 $valor=0;
                 echo '<div>
                 <a href="#" onclick="preguntar(' . $fila['id_publicaciones'] . '); return false;">eliminar</a>
+                <a href="modificar-publicacion.php?id_publicacion='.$fila['id_publicaciones'].'">modificar</a>
                 <a href="publicacion.php?id_publicacion=' . $fila['id_publicaciones'] . '&value=5" class="link">
                     <img src="' . $fila['foto_portada'] . '" id="fotopubli" />
                     <b>' . $fila['nombre_publicacion'] . '</b>
@@ -93,6 +94,7 @@
             while($fila = mysqli_fetch_assoc($resultado)){
                 echo '<div>
                 <a href="#" onclick="preguntar(' . $fila['id_publicaciones'] . '); return false;">eliminar</a>
+                <a href="modificar-publicacion.php?id_publicacion='.$fila['id_publicaciones'].'">modificar</a>
                 <a href="publicacion.php?id_publicacion=' . $fila['id_publicaciones'] . '&value=5" class="link">
                     <img src="' . $fila['foto_portada'] . '" id="fotopubli" />
                     <b>' . $fila['nombre_publicacion'] . '</b>
