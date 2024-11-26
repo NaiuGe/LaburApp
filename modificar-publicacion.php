@@ -119,7 +119,7 @@ include("conexion.php");
                 echo "<input type='text' disabled value='".$row['nombre_profesion']."'>";   
            echo'<br></br> 
                  <input class="btn-busqueda" type="submit" value="Actualizar" name="enviar" onclick="fecha()"> 
-                  <input class="btn-busqueda" type="button" onclick="location=\'perfil.php\'">
+                
         
         </form>
 
