@@ -545,6 +545,11 @@ header b {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+.centrar-boton{
+  display: flex;
+  justify-content: center;
+}
+
 /*-------------------- CSS DE VER PUBLICACION -------------------------*/
 .contenedor-no-sesion{
 display: flex;
@@ -816,7 +821,12 @@ footer{
   display: flex;
   align-items: center;
   font-size: 2vh;
-  margin-bottom: 1vw;
+  margin: 1vh;
+}
+
+.paginacion a {
+  font-size: larger;
+  margin: 1vh;
 }
 
 

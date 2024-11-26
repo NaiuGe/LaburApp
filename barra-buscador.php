@@ -128,7 +128,7 @@
                 echo "</div>";  
             }
             if ($cantfilas_u == 0 && $cantfilas_p == 0){ // si no llega a ver ningun resultado, se muestra en pantalla un aviso de que no hay resultados
-                echo "<h1>Sin resultados</h1>";
+                echo "<br> <br> <h1>Sin resultados</h1>";
             }
         echo "</div>";
             
@@ -138,11 +138,13 @@
         ?>
 
 </div>
-<input type='button' class='btn-busqueda' value='Volver' onclick="location='index.php'">
-    <footer>
+<div class="centrar-boton"> 
+    <input type='button' class='btn-busqueda' value='Volver' onclick="location='index.php'">
+</div>
+<footer>
 <h3 id="derecho"></h3>
-        <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
-    </footer>
-    <script src="./script.js"></script>
+    <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
+</footer>
+<script src="./script.js"></script>
 </body>
 </html>
