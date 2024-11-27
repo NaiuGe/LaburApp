@@ -22,15 +22,6 @@
             </nav>
 </header>
 <main>
-<script>
-			function preguntar(id) {
-           
-				rpta = confirm("Estas seguro de eliminar la publicacion ?");
-                if (rpta) {
-                    // Si la respuesta es sí, redirigir con el id y el parámetro 'eliminar'
-                    window.location.href = "perfil.php?id_publicacion=" + id + "&eliminar=1";
-                }}
-		  </script>
     <?php
         session_name("LOGIN");
         session_start();

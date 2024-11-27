@@ -136,8 +136,9 @@
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 
             }
-            
-            
+            else { 
+                echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
+            }
             header('Cache-Control: no-store, no-cache, must-revalidate');
 
         echo "<br>";
