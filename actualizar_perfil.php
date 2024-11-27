@@ -16,26 +16,10 @@
     
     if (mysqli_query($conexion, $sql )){
         if (mysqli_affected_rows($conexion) > 0) {
-            echo '<script>';
-            echo 'alert ("Se modificaron los datos del perfil");';
-            echo 'window.location.href = "perfil.php";';
-            echo '</script>';
-        } else { 
-            echo '<script>';
-            echo 'alert ("No se modificaron los datos del perfil");';
-            echo 'window.location.href = "info_perfil.php";';
-            echo '</script>';
-        }
-    }else { 
-        echo '<script>';
-        echo 'alert ("Error al modificar.");';
-        echo 'window.location.href = "info_perfil.php";';
-        echo '</script>';
-    }
+            echo "<br> <br> <br> <br> <h3> Se modificaron los datos del perfil ...</h3>";
+        } else { echo " <br><br><br><br><h3> No se modificaron los datos del perfil... </h3>"; }
+    } else {echo " <br><br><br><br><h3> Error en la modificación... </h3>"; }
+
+    echo "<br>";
     
-    ?>
-    <html>
-        <body>
-            <script src="script.js"></script>
-        </body>
-    </html> 
+    echo "<input class='boton' type='button' value='Volver' onClick='location=\"perfil.php\"'> ";

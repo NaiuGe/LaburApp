@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <title>Laburapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
@@ -83,6 +84,7 @@
                     <b> ". $fila['nombre_publicacion'] ." </b>
                     <input type='hidden' name='id_publicacion' value='".$idp."'>
                 </a> ";
+                
                 //se itera las siguientes publicaciones con un while
                while($fila = mysqli_fetch_assoc($resultado)){
                     $idp = $fila['id_publicaciones'];

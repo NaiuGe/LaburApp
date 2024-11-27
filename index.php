@@ -2,8 +2,6 @@
     session_name("LOGIN");
     session_start();
     include ("conexion.php");
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,23 +10,21 @@
     <link rel="icon" href="./imagenes/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <title>Laburapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
 <header>
-    <input type="checkbox" id="btn_menu">
-        <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-        </label>
-        <nav class="nav-bar">
-                <ul>
-                    <div>
-                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
-                    </div>
+    <img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+            <button id="cerrar" class="cerrar-menu">X</button>
+                    <ul class="nav-list"> 
                     <li><a href="#" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
-                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                    <li><a href="grafico.php">Ver gráfico</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
             <div class="perfil"> 
@@ -36,7 +32,7 @@
             if(isset($_SESSION['contador'])){
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 if (!empty($_SESSION['contador-fotoperfil']  && $_SESSION['info-foto-perfil']!='')){
-                    echo "<a href='perfil.php' class='perfil-modif'><img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
+                    echo "<a href='perfil.php'><img src='" . $_SESSION['info-foto-perfil'] . "' id='logeado' class='fotoperfil'>";
                     header('Cache-Control: no-store, no-cache, must-revalidate');
                 } else {echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';}
                 echo "<div class='nombre-botones-perfil'>";
@@ -46,7 +42,7 @@
 
             } else {
                 echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
-                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\' ">';}
             header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
@@ -56,9 +52,9 @@
     <div class="grupo">
     <main class="cabeceraindex">
         <h1 class="titulo">Ponete a laburar</h1>
-        <form class="busqueda">
-            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
-            <input class="btn-busqueda" type="submit" value="Enviar" class="boton">
+        <form class="busqueda" action="barra-buscador.php">
+            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra" required>
+            <input class="btn-busqueda" type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     
     <div class="seccion">
@@ -90,7 +86,7 @@
                     echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                     <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                     <b> ". $fila_p['nombre_publicacion'] ." </b> 
-                    <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                    <p> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</p>
                     </a>";
                     while ($fila_p = mysqli_fetch_assoc($resultado1) ){ //itera para q cargue las demas publicaciones
                         $id = $fila_p['id_usuario'];
@@ -101,7 +97,7 @@
                         echo "<a href='publicacion.php?id_publicacion=".$idp."&value=3' class='link'>
                         <img src='". $fila_p['foto_portada'] ."' id='fotopubli' >
                         <b> ". $fila_p['nombre_publicacion'] ." </b>
-                        <b> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</b>
+                        <p> ". $fila_u['nombre']. " " .$fila_u['apellido']. "</p>
                         </a>";
                         
                     }
@@ -113,22 +109,24 @@
                 }
             ?>
         </div>
+        <div class="paginacion">
+            <?php
+                echo "<h2> Pág:</h2>";
+                for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
+                    echo "<a href='?pagina=".$i."'class='pag'>".$i."  "."</a> ";
+                }
+            ?>
+        </div>
     </div>
-    </main>
-    
+    </main>   
     <footer> 
-        
-    <div class="paginacion">
-    <?php
-        echo "<h2> Pág:</h2>";
-        for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-            echo "<a href='?pagina=".$i."'class='pag'>".$i.","."</a> ";
-        }
-        ?>
-    </div>
         <h3 id="derecho"></h3>
         <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
     </footer>
-    <script src="./script.js"></script> 
+    <script src="script.js"></script>
+    
+    <script>
+        
+    </script>
 </body>
 </html>

@@ -2,8 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css">
-    <title>LaburApp</title>
+    <title>Laburapp</title>
     <meta name="description" content="Trabajos y emprendimientos">
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
@@ -14,42 +15,29 @@
     <main>
         <div class="centrar">
             <form name="logueo" method="post" action="login.php" class="cuadro-inicio-sesion">
-                Email <br>
-                <input type="email" placeholder="Ingrese email..." name="mail" required autofocus>
-                <br><br>
+                Email <br> 
+                <input type="email" placeholder="Ingrese email..." name="mail" required autofocus> 
+                <br> <br>
                 Contraseña <br>
-                <div class="password-container">
-                    <input type="password" id="pass" placeholder="Contraseña..." name="pass" minlength="4" maxlength="10" required>
-                    <button type="button" id="togglePass" aria-label="Mostrar/Ocultar contraseña">
-                        <!-- Icono del ojo cerrado -->
-                        <svg id="closedEye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: inline;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18M19.74 15.64C20.99 14.18 22 12 22 12s-2.72-4.5-10-4.5S2 12 2 12s.71 1.19 1.87 2.36m4.96-.35a3 3 0 104.3-4.3M3 3l18 18"></path>
-                        </svg>
-                        <!-- Icono del ojo abierto -->
-                        <svg id="openEye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-.728 2.214-2.885 4.557-5.654 6.187A9.954 9.954 0 0112 19c-4.477 0-8.268-2.943-9.542-7z"></path>
-                        </svg>
-                    </button>
+                <div class="input-row">
+                    <input id="pass" type="password" placeholder="Contraseña..." name="pass" minlength="4" maxlength="10" required>
+                    <p class="eye">
+                        <img src="./imagenes/ojo-cerrado.png" alt="Mostrar contraseña">
+                    </p>
                 </div>
-                <br><br>
+                <br> <br>
                 <input class="btn-busqueda" type="submit" value="Iniciar Sesión">
-                <br><br>
-                <a href="registro_usuario.php">
-                    <h4>¿No tenés cuenta? REGISTRATE ACÁ</h4>
-                </a>
-                <a href="index.php">
-                    <h4>Volver</h4>
-                </a>
+                <br> <br>
+                <a href="registro_usuario.php"><h4>¿No tenés cuenta? REGISTRATE ACÁ</h4></a> 
+                <a href="index.php"><h4>Volver</h4></a>
             </form>
         </div>
-    </main>
-    <footer>
+    </main> 
+    <footer> 
         <div class="paginacion"></div>
         <h3 id="derecho"></h3>
     </footer>
-    <script src="script.js">
-
-    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>

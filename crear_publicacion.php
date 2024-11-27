@@ -8,6 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <link rel="icon" href="./imagenes/logo.png" type="image/png">
     <title>Laburapp</title>
@@ -16,19 +17,26 @@
 </head>
 <body>
 
+<script>
+    function fecha(){
+    var fecha;
+    fecha= new Date();
+    
+    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
+    document.getElementById("fecha").value=cadena1 ;
+}
+</script>
+
 <header>
-    <input type="checkbox" id="btn_menu">
-        <label for="btn_menu">
-        <img src="./imagenes/fotoMenu.png" alt="Menu">
-        </label>
-        <nav class="nav-bar">
-                <ul>
-                    <div>
-                        <img class="logo-hidden"  src="./imagenes/logo.png" alt="logo-Laburapp">
-                    </div>
+<img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
+        <img class="logo" src="./imagenes/logo.png" alt="Logo de Laburapp">
+        <nav class="nav-bar" id="nav">
+        <img id="cerrar" class="cerrar-menu" src="./imagenes/cerrar.png" alt="Cruz para cerrar el menú">
+                    <ul class="nav-list"> 
                     <li><a href="index.php" alt="indice">Principal</a></li>
                     <li><a href='perfil.php' alt="Ver Perfil">Ver Perfil</a></li>
-                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">CERRAR SESIÓN</a></li>            
+                    <li><a href="grafico.php">Ver gráfico</a></li>
+                    <li><a href='cerrarlogin.php' alt="CERRAR SESIÓN">Cerrar sesión</a></li>            
                 </ul>
             </nav>
             <div class="perfil"> 
@@ -52,8 +60,28 @@
             <br></br>
         </div>
     </header>
-    
-<script>
+
+    <script>
+    // Función para mostrar la vista previa de la imagen seleccionada 
+    function previewImage(event) {
+        const file = event.target.files[0];
+        
+        // Verificar si el archivo es una imagen
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Mostrar la imagen de vista previa
+                const image = document.getElementById('imagenPreview');
+                image.src = e.target.result;
+                image.style.display = 'block'; // Mostrar la imagen
+            };
+            
+            reader.readAsDataURL(file);
+        } else {
+            alert('Por favor selecciona un archivo de imagen');
+        }
+    }
     function fecha(){
     var fecha;
     fecha= new Date();
@@ -72,10 +100,10 @@
             <h3>Descripcion de la publicación</h3><br>            
             <textarea type="text" name="descripcion"  required> </textarea> 
             <h3>Seleccione una foto</h3> 
-            <input type="file" name="imagen" required>
+            <input type="file" accept="imagen/*" onchange="previewImage(event)" name="imagen" width="50vh" required>
             <input type="hidden" value="fecha" id="fecha" name="fecha1" >
             <h3>Seleccionar profesión</h3> 
-            <select name="profesion"  required>    
+            <select class="seleccion-localidad" name="profesion"  required>    
                 <option value="" selected disabled > Seleccionar profesión </option>
             <?php
                 include("conexion.php");
@@ -120,6 +148,7 @@
                 $fila= mysqli_fetch_assoc($registro);
                 $id2=$fila['id_usuario'];
                 $ruta=$dir.$_SESSION['nombre'].$id2."nombrepublicacion".$nom.".".$extImg; //es crea la variable ruta que guarda el nombre final del archivo, mas el directorio para que la base de datos tenga de referencia donde encontrar la imagen
+                echo $ruta;
                 $sql= "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion, foto_portada) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom', '$ruta' )";
                 mysqli_query($conexion, $sql);
                 mysqli_close($conexion);
@@ -132,7 +161,10 @@
                 header ("location:perfil.php");
             }
             else{
-            $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
+                echo '<script>';
+                echo "alert('Formato de foto incorrecta por favor ingrese una foto jpg o jpeg . Por favor intente nuevamente');";
+                echo 'window.location.href = "crear_publicacion.php";';
+                echo '</script>';
             }
             mysqli_query($conexion, $sql);
             mysqli_close($conexion);
