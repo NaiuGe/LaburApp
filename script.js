@@ -73,7 +73,7 @@ function hora(){
     return cadena;
 }
 
-
+/* ---------------SCRIPT PARA EL OJO -------------------*/
 
     // Selección de elementos
     const eye = document.querySelector('.eye');
@@ -100,5 +100,51 @@ function hora(){
             console.error("No se encontró el campo de contraseña");
         }
     });
-});
 
+
+			function preguntar(id) {
+				rpta = confirm("Estas seguro de eliminar la publicacion ?");
+                if (rpta) {
+                    // Si la respuesta es sí, redirigir con el id y el parámetro 'eliminar'
+                    window.location.href = "perfil.php?id_publicacion=" + id + "&eliminar=1";
+                }}
+
+
+
+   
+
+})
+function verificar() {
+    let clav = document.getElementById("pass").value;
+
+    if (clav.length !== 8) {
+    alert("La clave debe tener exactamente 8 caracteres.");
+    return false;
+    }
+
+    let tMayuscula = false;
+    let tMinuscula = false;
+    let tDigito = false;
+
+    for (let i = 0; i < clav.length; i++) {
+    let letraClav = clav[i];
+
+    if (letraClav >= 'A' && letraClav <= 'Z') {
+        tMayuscula = true;
+    } else if (letraClav >= 'a' && letraClav <= 'z') {
+        tMinuscula = true;
+    } else if (letraClav >= '0' && letraClav <= '9') {
+        tDigito = true;
+    } else {
+        alert("La clave solo debe contener caracteres alfanuméricos.");
+        return false;
+    }
+    }
+
+    if (!tMayuscula || !tMinuscula || !tDigito) {
+    alert("La clave debe contener al menos una letra mayúscula, una letra minúscula y un dígito.");
+    return false;
+    }
+
+    return true;
+};

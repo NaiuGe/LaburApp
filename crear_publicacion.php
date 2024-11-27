@@ -1,6 +1,7 @@
 <?php
         session_name("LOGIN");
         session_start();
+        ob_start();
 
 ?>
 
@@ -16,6 +17,16 @@
     <meta name="keywords" content="Trabajo, empleo, rubro, emprendimiento, laburo">
 </head>
 <body>
+
+<script>
+    function fecha(){
+    var fecha;
+    fecha= new Date();
+    
+    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
+    document.getElementById("fecha").value=cadena1 ;
+}
+</script>
 
 <header>
 <img id="abrir" class="abrir-menu" src="./imagenes/fotoMenu.png" alt="Menú hamburguesa">
@@ -50,8 +61,28 @@
             <br></br>
         </div>
     </header>
-    
-<script>
+
+    <script>
+    // Función para mostrar la vista previa de la imagen seleccionada 
+    function previewImage(event) {
+        const file = event.target.files[0];
+        
+        // Verificar si el archivo es una imagen
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Mostrar la imagen de vista previa
+                const image = document.getElementById('imagenPreview');
+                image.src = e.target.result;
+                image.style.display = 'block'; // Mostrar la imagen
+            };
+            
+            reader.readAsDataURL(file);
+        } else {
+            alert('Por favor selecciona un archivo de imagen');
+        }
+    }
     function fecha(){
     var fecha;
     fecha= new Date();
@@ -70,7 +101,7 @@
             <h3>Descripcion de la publicación</h3><br>            
             <textarea type="text" name="descripcion"  required> </textarea> 
             <h3>Seleccione una foto</h3> 
-            <input type="file" name="imagen" required>
+            <input type="file" accept="imagen/*" onchange="previewImage(event)" name="imagen" width="50vh" required>
             <input type="hidden" value="fecha" id="fecha" name="fecha1" >
             <h3>Seleccionar profesión</h3> 
             <select class="seleccion-localidad" name="profesion"  required>    
@@ -131,7 +162,10 @@
                 header ("location:perfil.php");
             }
             else{
-            $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion,) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
+                echo '<script>';
+                echo "alert('Formato de foto incorrecta por favor ingrese una foto jpg o jpeg . Por favor intente nuevamente');";
+                echo 'window.location.href = "crear_publicacion.php";';
+                echo '</script>';
             }
             mysqli_query($conexion, $sql);
             mysqli_close($conexion);

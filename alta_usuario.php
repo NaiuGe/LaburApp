@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <script>
+        function DenegarFoto(){
+            alert("No se admite ese tipo de archivos, solo jpg o jpeg");
+            window.location.href="registro_usuario.php";
+        }
+    </script>
+    
 
 <?php
 
@@ -30,6 +37,7 @@ if ($cantfilas == 1) {
 } else {
 
     $imagen=$_FILES['imagen']['tmp_name'];
+    /* ------Validación de imagen ------*/
     $nombreImg=$_FILES['imagen']['name'];
     $extImg=strtolower(pathinfo($nombreImg, PATHINFO_EXTENSION));
     $sizeImg=$_FILES['imagen']['size'];
@@ -39,14 +47,20 @@ if ($cantfilas == 1) {
         
         $registro=$conexion->query("SELECT * from usuarios where id_usuario='$id' ");
         $fila= mysqli_fetch_assoc($registro);
+        /*-------Variable duplicada------ */
         $id2="-".$user."-".$apellido;
         $ruta=$dir.$id2.".".$extImg;
     $sql = "INSERT INTO usuarios (nombre, apellido, contraseña, mail, telefono, id_localidad, foto_perfil) VALUES ('$user', '$apellido', '$pass', '$mail', '$telefono', '$localidad', '$ruta')";
     mysqli_query($conexion, $sql);
+    if (move_uploaded_file($imagen,$ruta)){ //mueve el archivo hacia la ruta
+                    
+    }
+    
     echo '<script>';
     echo 'alert("El usuario fue registrado con exito.");';
     echo 'window.location.href = "index.php";';
     echo '</script>';
+    
     $consulta = "SELECT * FROM usuarios WHERE mail='$mail' AND contraseña='$pass'";
 
     $resultado= mysqli_query($conexion, $consulta);
@@ -62,7 +76,7 @@ if ($cantfilas == 1) {
         $_SESSION['pass']=$fila['contraseña'];
         $_SESSION['contador']=1;
         $_SESSION['id_usuario']=$fila['id_usuario'];
-        $_SESSION['info-foto-perfil']=$fila['foto_perfil'];
+        $_SESSION['info-foto-perfil']=$ruta;
         $_SESSION['contador-fotoperfil']=1;
         mysqli_close($conexion);
         echo "<input type='button' value='Volver' onClick='location=\"index.php\"'> ";}
@@ -73,7 +87,7 @@ if ($cantfilas == 1) {
         header('Cache-Control: no-store, no-cache, must-revalidate');
         mysqli_close($conexion);
     } else { 
-        echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
+        echo"<script>DenegarFoto()</script>";}
 }
 
 ?>

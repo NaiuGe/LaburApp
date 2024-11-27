@@ -37,7 +37,6 @@ session_start();
         $id_p = $fila_p['id_publicaciones'];
         $sql = "SELECT * from solicitudes WHERE id_publicaciones = '$id_p'";
         $resultado_solicitudes = mysqli_query($conexion, $sql); 
-           
             if (mysqli_num_rows($resultado_solicitudes)>=1){
                     $id_p = $fila_p['id_publicaciones'];
                     while ($solicitudes = mysqli_fetch_assoc($resultado_solicitudes)){
@@ -54,7 +53,6 @@ session_start();
                         </div>";     
                     }     
             } 
-            }
             while ($fila_p= mysqli_fetch_assoc($resultado)){
                 $id_p = $fila_p['id_publicaciones'];
                 $sql = "SELECT * from solicitudes WHERE id_publicaciones = '$id_p'";
@@ -62,6 +60,7 @@ session_start();
                 
                     if (mysqli_num_rows($resultado_solicitudes)>=1){
                             $id_p = $fila_p['id_publicaciones'];
+                            
                             while ($solicitudes = mysqli_fetch_assoc($resultado_solicitudes)){
                                     $id_solicitud = $solicitudes['id_solicitudes'];
                                     $id_cliente = $solicitudes ['id_usuario'];
@@ -77,12 +76,7 @@ session_start();
                             }  
             }
             }
-            
-                
-            
-            
-                
-    
+    } 
     if (mysqli_num_rows($resultado)==0){ 
         echo "<div class='bloque-solicitud'> <h2>No hay publicaciones hechas, haz una publicación para tener solicitudes!.</h2> </div>";
     }

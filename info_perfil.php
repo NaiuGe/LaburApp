@@ -9,9 +9,10 @@
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <title>Edición de Perfil</title>
 </head>
+
 <script>
-    // Función para mostrar la vista previa de la imagen seleccionada
-    function previewImage(event) {
+     // Función para mostrar la vista previa de la imagen seleccionada
+     function previewImage(event) {
         const file = event.target.files[0];
         
         // Verificar si el archivo es una imagen
@@ -30,7 +31,13 @@
             alert('Por favor selecciona un archivo de imagen');
         }
     }
+    function DenegarFoto(){
+            alert("No se admite ese tipo de archivos, solo jpg o jpeg");
+            window.location.href="info_perfil.php";
+        }
 </script>
+
+
 <body>
     <form method="post" action="info_perfil.php" enctype="multipart/form-data">
         
@@ -53,10 +60,9 @@
         </header>";
 
         echo " <div class='centrar'> <div class='cuadro-modificar-perfil'>"; //Inicio contenedor central y principal
-        echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3>";
+        echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3><h6>Solo imagenes tipo ´jpg/jpeg´</h6> ";
         
         echo "<div class='contenedor-foto'>";
-     
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
             echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "' class='fotoperfil'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
@@ -67,7 +73,7 @@
         header('Cache-Control: no-store, no-cache, must-revalidate');
         }
         echo "</div>";
-        echo "<form method='post' onsubmit='return verificar()' action='actualizar_perfil.php'>";
+        echo "<form method='post' onsubmit='return verificar()'>";
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
@@ -130,13 +136,14 @@
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 
             }
-            }
+            
+            
             header('Cache-Control: no-store, no-cache, must-revalidate');
 
         echo "<br>";
 
             //--- carga de los demas datos ---
-            if(isset($_POST['btnregistrar'])){
+            
             $id_usuario = $_POST["id_usuario"];
             $mail = $_POST["mail"];
             $domicilio = $_POST["domicilio"];
@@ -148,9 +155,11 @@
             $sql = "UPDATE usuarios SET id_localidad= '$localidad' ,foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
             mysqli_query($conexion, $sql);
 
-            header("location:perfil.php");;}
+            header("location:perfil.php");;
+
 
         echo "</form> </div> </div>";
+    }
     }
 
     ?>

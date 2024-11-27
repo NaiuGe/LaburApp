@@ -7,13 +7,14 @@
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     </head>
+  
 
     <body>
         <div class="centrar">
         <h1> Registro de Usuario </h1>
         <form class="cuadro-inicio-sesion" onsubmit="return verificar()" method="post" action="alta_usuario.php" enctype="multipart/form-data">
             <div class='contenedor-input'>
-                <h3>Foto de perfil</h3> <input type="file" name="imagen" required>
+                <h3>Foto de perfil</h3><h6>Solo imagenes tipo "jpg/jpeg"</h6> <input type="file" name="imagen" required>
             </div>
             <div class='contenedor-input'>
                 <h3>Nombre</h3> <input type="text" placeholder="Ingrese su nombre..." name="nombre" id="nombre"  required autofocus>
