@@ -10,6 +10,31 @@
     <title>Edición de Perfil</title>
 </head>
 
+<script>
+     // Función para mostrar la vista previa de la imagen seleccionada
+     function previewImage(event) {
+        const file = event.target.files[0];
+        
+        // Verificar si el archivo es una imagen
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Mostrar la imagen de vista previa
+                const image = document.getElementById('imagenPreview');
+                image.src = e.target.result;
+                image.style.display = 'block'; // Mostrar la imagen
+            };
+            
+            reader.readAsDataURL(file);
+        } else {
+            alert('Por favor selecciona un archivo de imagen');
+        }
+    }
+
+</script>
+
+
 <body>
     <form method="post" action="info_perfil.php" enctype="multipart/form-data">
         
