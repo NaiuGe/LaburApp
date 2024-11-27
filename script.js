@@ -73,7 +73,7 @@ function hora(){
     return cadena;
 }
 
-
+/* ---------------SCRIPT PARA EL OJO -------------------*/
 
     // Selección de elementos
     const eye = document.querySelector('.eye');
@@ -100,5 +100,44 @@ function hora(){
             console.error("No se encontró el campo de contraseña");
         }
     });
-});
 
+
+			function preguntar(id) {
+				rpta = confirm("Estas seguro de eliminar la publicacion ?");
+                if (rpta) {
+                    // Si la respuesta es sí, redirigir con el id y el parámetro 'eliminar'
+                    window.location.href = "perfil.php?id_publicacion=" + id + "&eliminar=1";
+                }}
+
+
+
+    // Función para mostrar la vista previa de la imagen seleccionada
+    function previewImage(event) {
+        const file = event.target.files[0];
+        
+        // Verificar si el archivo es una imagen
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                // Mostrar la imagen de vista previa
+                const image = document.getElementById('imagenPreview');
+                image.src = e.target.result;
+                image.style.display = 'block'; // Mostrar la imagen
+            };
+            
+            reader.readAsDataURL(file);
+        } else {
+            alert('Por favor selecciona un archivo de imagen');
+        }
+    }
+
+
+    function fecha(){
+    var fecha;
+    fecha= new Date();
+    
+    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
+    document.getElementById("fecha").value=cadena1 ;
+}
+});

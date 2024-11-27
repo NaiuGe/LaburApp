@@ -9,28 +9,7 @@
     <link rel="icon" href="imagenes/logo.png" type="image/png">
     <title>Edición de Perfil</title>
 </head>
-<script>
-    // Función para mostrar la vista previa de la imagen seleccionada
-    function previewImage(event) {
-        const file = event.target.files[0];
-        
-        // Verificar si el archivo es una imagen
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            
-            reader.onload = function(e) {
-                // Mostrar la imagen de vista previa
-                const image = document.getElementById('imagenPreview');
-                image.src = e.target.result;
-                image.style.display = 'block'; // Mostrar la imagen
-            };
-            
-            reader.readAsDataURL(file);
-        } else {
-            alert('Por favor selecciona un archivo de imagen');
-        }
-    }
-</script>
+
 <body>
     <form method="post" action="info_perfil.php" enctype="multipart/form-data">
         
@@ -56,7 +35,6 @@
         echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3>";
         
         echo "<div class='contenedor-foto'>";
-     
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
             echo "<img id='imagenPreview' src='" . $_SESSION['info-foto-perfil']  . "' class='fotoperfil'>";
             echo '<form method="post" action="info_perfil.php" enctype="multipart/form-data">';
@@ -67,7 +45,7 @@
         header('Cache-Control: no-store, no-cache, must-revalidate');
         }
         echo "</div>";
-        echo "<form method='post' onsubmit='return verificar()' action='actualizar_perfil.php'>";
+        echo "<form method='post' onsubmit='return verificar()'>";
         echo '<input type="file" accept="imagen/*" name="imagen" onchange="previewImage(event)" width="50vh">';
         echo "<br>";
         echo "<input name='id_usuario' value='".$row[0]."'hidden>";
@@ -130,6 +108,8 @@
                 header('Cache-Control: no-store, no-cache, must-revalidate');
                 
             }
+            else { 
+                echo"No se admite ese tipo de archivos, solo jpg o jpeg";}
             }
             header('Cache-Control: no-store, no-cache, must-revalidate');
 

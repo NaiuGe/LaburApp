@@ -1,2 +1,0 @@
-Clase 05 +
-- Desarrollo de reparaciones.php, con listas desplegables que hacen referencia a tablas relacionadas mediante FK a la tabla reparaciones.

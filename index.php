@@ -2,8 +2,6 @@
     session_name("LOGIN");
     session_start();
     include ("conexion.php");
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +42,7 @@
 
             } else {
                 echo '<img src="imagenes/icono_usuario.png" class="fotoperfil">';
-                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\'">';}
+                echo '<input type="button" class="btn-busqueda" value="Iniciar sesion" onclick="location=\'login.html\' ">';}
             header('Cache-Control: no-store, no-cache, must-revalidate');
             ?>
             <br></br>
@@ -55,7 +53,7 @@
     <main class="cabeceraindex">
         <h1 class="titulo">Ponete a laburar</h1>
         <form class="busqueda" action="barra-buscador.php">
-            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra">
+            <input class="cajaDeBusqueda" type="search" name="busq" class="caja" placeholder="Busqueda por palabra" required>
             <input class="btn-busqueda" type="submit" value="Enviar" class="boton" name="Enviar">
         </form>
     
@@ -115,15 +113,13 @@
             <?php
                 echo "<h2> Pág:</h2>";
                 for ($i=1;$i<=$cant_publi;$i++){ // un for para carga los indice de paginas que se cargaran segun  la cantidad de publicaciones (cada pagina carga 6 publi)
-                    echo "<a href='?pagina=".$i."'class='pag'>".$i.","."</a> ";
+                    echo "<a href='?pagina=".$i."'class='pag'>".$i."  "."</a> ";
                 }
             ?>
         </div>
     </div>
     </main>   
     <footer> 
-        
-    
         <h3 id="derecho"></h3>
         <a target="_blank" href="https://www.whatsapp.com/?lang=es_LA"><img class="btn-wsp" src="./imagenes/wsp.png" alt="Logo de wsp"> </a>
     </footer>

@@ -50,16 +50,6 @@
             <br></br>
         </div>
     </header>
-    
-<script>
-    function fecha(){
-    var fecha;
-    fecha= new Date();
-    
-    var cadena1 = fecha.getDate() + '/' + (fecha.getMonth()+1) + '/' + fecha.getFullYear();
-    document.getElementById("fecha").value=cadena1 ;
-}
-</script>
 
         <main>
         <div class="centrar">
@@ -131,7 +121,10 @@
                 header ("location:perfil.php");
             }
             else{
-            $sql = "INSERT INTO publicaciones (descripcion, id_profesion, id_usuario, fecha, nombre_publicacion,) VALUES ('$descripcion','$profesion','$id', '$fecha', '$nom' )";
+                echo '<script>';
+                echo "alert('Formato de foto incorrecta por favor ingrese una foto jpg o jpeg . Por favor intente nuevamente');";
+                echo 'window.location.href = "crear_publicacion.php";';
+                echo '</script>';
             }
             mysqli_query($conexion, $sql);
             mysqli_close($conexion);

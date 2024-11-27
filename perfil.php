@@ -22,15 +22,6 @@
             </nav>
 </header>
 <main>
-<script>
-			function preguntar(id) {
-           
-				rpta = confirm("Estas seguro de eliminar la publicacion ?");
-                if (rpta) {
-                    // Si la respuesta es sí, redirigir con el id y el parámetro 'eliminar'
-                    window.location.href = "perfil.php?id_publicacion=" + id + "&eliminar=1";
-                }}
-		  </script>
     <?php
         session_name("LOGIN");
         session_start();
@@ -38,7 +29,7 @@
 
         if (isset($_SESSION['contador'])) {
             $id_usuario = $_SESSION['id_usuario'];
-            $consulta = "SELECT usuarios.* FROM usuarios WHERE usuarios.id_usuario = '$id_usuario';"; 
+            $consulta = "SELECT usuarios.* FROM usuarios WHERE usuarios.id_usuario = '$id_usuario'"; 
             $resultado = mysqli_query($conexion, $consulta);
             
             echo "<div class='barra-arriba'>";
@@ -48,7 +39,7 @@
                 echo "<img src='" . $_SESSION['info-foto-perfil'] . "' class='fotoperfil'>";
                 header('Cache-Control: no-store, no-cache, must-revalidate');
             } else {
-                echo '<img src="imagenes/icono_usuario.png">';
+                echo '<img src="imagenes/icono_usuario.png"  class="fotoperfil">';
             }
             echo "<input class='boton' type='button' value='Modificar perfil' onClick='location=\"info_perfil.php\"'>";
             echo "<input class='boton' type='button' value='Ver solicitudes' onClick='location=\"solicitudes.php\"'>";
@@ -82,7 +73,6 @@
             $cantfilas= mysqli_num_rows($resultado);
             if($cantfilas>=1){
                 $fila = mysqli_fetch_assoc($resultado);
-                $valor=0;
                 echo '<div>
                 <a href="#" onclick="preguntar(' . $fila['id_publicaciones'] . '); return false;">eliminar</a>
                 <a href="modificar-publicacion.php?id_publicacion='.$fila['id_publicaciones'].'">modificar</a>
@@ -112,16 +102,15 @@
             echo '<br><input  class="btn-busqueda" type="button" value="Iniciar sesión" onclick="location=\'login.html\'">';
             echo "</div>";
             }
+
+            
             if (isset($_GET['eliminar'])) {      
                 $id = $_GET['id_publicacion'];   
                 $eliminar = "DELETE from publicaciones where id_publicaciones = '$id'";
                 mysqli_query($conexion, $eliminar);
                 header("location:perfil.php");
-                 }
-
-    
+                }    
     ?>
-  
 </main>
 <footer> 
     <div class="paginacion">
