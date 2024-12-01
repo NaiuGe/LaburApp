@@ -1,7 +1,7 @@
 <?php
         session_name("LOGIN");
         session_start();
-
+        ob_start();
 ?>
 
 <!DOCTYPE html>

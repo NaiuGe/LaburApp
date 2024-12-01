@@ -31,7 +31,10 @@
             alert('Por favor selecciona un archivo de imagen');
         }
     }
-
+    function DenegarFoto(){
+            alert("No se admite ese tipo de archivos, solo jpg o jpeg");
+            window.location.href="info_perfil.php";
+        }
 </script>
 
 
@@ -57,7 +60,7 @@
         </header>";
 
         echo " <div class='centrar'> <div class='cuadro-modificar-perfil'>"; //Inicio contenedor central y principal
-        echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3>";
+        echo "<div class='contenedor-input'> <h3> Foto de Perfil </h3><h6>Solo imagenes tipo ´jpg/jpeg´</h6> ";
         
         echo "<div class='contenedor-foto'>";
         if (!empty($_SESSION['contador-fotoperfil'] && $_SESSION['info-foto-perfil']!='')){
@@ -141,7 +144,7 @@
         echo "<br>";
 
             //--- carga de los demas datos ---
-            if(isset($_POST['btnregistrar'])){
+            
             $id_usuario = $_POST["id_usuario"];
             $mail = $_POST["mail"];
             $domicilio = $_POST["domicilio"];
@@ -153,10 +156,12 @@
             $sql = "UPDATE usuarios SET id_localidad= '$localidad' ,foto_perfil= '$ruta', mail = '$mail', domicilio = '$domicilio', contraseña = '$pass', telefono = $telefono, informacion = '$informacion' WHERE id_usuario = $id_usuario";
             mysqli_query($conexion, $sql);
 
-            header("location:perfil.php");;}
+            header("location:perfil.php");;
+
 
         echo "</form> </div> </div>";
     }
+    
 
     ?>
             <footer> 
